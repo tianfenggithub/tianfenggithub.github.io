@@ -106,7 +106,7 @@ Function()
 
 直面量
  1234var 函数名 = function ([形参列表]) &amp;#123;                函数体;">
-<meta property="og:updated_time" content="2015-04-08T11:21:32.837Z">
+<meta property="og:updated_time" content="2015-04-08T11:23:37.514Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="函数相关概念及this指向">
 <meta name="twitter:description" content="函数创建方式
@@ -490,18 +490,21 @@ Function()
 </li>
 <li>constructor<ul>
 <li>指向创建该函数的构造函数</li>
-<li><h1 id="函数的调用模式以及函数中this指向"><a href="#函数的调用模式以及函数中this指向" class="headerlink" title="函数的调用模式以及函数中this指向"></a>函数的调用模式以及函数中this指向</h1></li>
 </ul>
 </li>
+</ul>
+<h1 id="函数的调用模式以及函数中this指向"><a href="#函数的调用模式以及函数中this指向" class="headerlink" title="函数的调用模式以及函数中this指向"></a>函数的调用模式以及函数中this指向</h1><ul>
 <li>函数中的this指向,不是在创建的时候确定的,而是在被调用的时候才会被确定</li>
+</ul>
+<ol>
 <li><p>普通函数执行模式：声明一个函数后，直接通过函数的名字调用。</p>
-  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">// this -&gt; window</span></div><div class="line">&#125;</div><div class="line">foo(); <span class="comment">// 普通函数执行模式</span></div></pre></td></tr></table></figure>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">// this -&gt; window</span></div><div class="line">&#125;</div><div class="line">foo(); <span class="comment">// 普通函数执行模式</span></div></pre></td></tr></table></figure>
 </li>
 <li><p>构造函数模式： 通过 new 操作符 创建一个对象，此时该函数的执行模式为 构造函数模式</p>
-  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</div><div class="line">	<span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">// this -&gt; 构造函数创建出来的对象</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> f = <span class="keyword">new</span> fn; <span class="comment">// 构造函数执行模式</span></div><div class="line"><span class="keyword">var</span> ff = <span class="keyword">new</span> fn;</div></pre></td></tr></table></figure>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</div><div class="line">	<span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">// this -&gt; 构造函数创建出来的对象</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> f = <span class="keyword">new</span> fn; <span class="comment">// 构造函数执行模式</span></div><div class="line"><span class="keyword">var</span> ff = <span class="keyword">new</span> fn;</div></pre></td></tr></table></figure>
 </li>
 <li><p>方法调用模式：通过对象来调用</p>
-  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> o = &#123;<span class="attr">say</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">	<span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">// this -&gt; 方法的调用者， 即对象o。</span></div><div class="line">&#125;&#125;;</div><div class="line">o.say(); <span class="comment">// 方法调用模式</span></div></pre></td></tr></table></figure>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> o = &#123;<span class="attr">say</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">	<span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">// this -&gt; 方法的调用者， 即对象o。</span></div><div class="line">&#125;&#125;;</div><div class="line">o.say(); <span class="comment">// 方法调用模式</span></div></pre></td></tr></table></figure>
 </li>
 <li><p>上下文模式(call/apply模式):</p>
 <ul>
@@ -530,7 +533,7 @@ Function()
 </li>
 </ul>
 </li>
-</ul>
+</ol>
 
       
     </div>
