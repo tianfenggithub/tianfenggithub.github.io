@@ -911,18 +911,17 @@
 
       
         
-          
-          函数创建方式
-声明式
- 1234function 函数名([形参列表]) &#123;    函数体;    [return [函数返回值];]&#125;
-
-Function()
- 1var 函数名 = new Function(["形参列表"],"函数体");
-
-直面量
- 1234var 函数名 = function ([形参列表]) &#123;                函数体;                [return [函数返回值];]            &#125;;
-
-          ...
+          <h1 id="函数创建方式"><a href="#函数创建方式" class="headerlink" title="函数创建方式"></a>函数创建方式</h1><ol>
+<li><p>声明式</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> 函数名(<span class="params">[形参列表]</span>) </span>&#123;</div><div class="line">    函数体;</div><div class="line">    [<span class="keyword">return</span> [函数返回值];]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Function()</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> 函数名 = <span class="keyword">new</span> <span class="built_in">Function</span>([<span class="string">"形参列表"</span>],<span class="string">"函数体"</span>);</div></pre></td></tr></table></figure>
+</li>
+<li><p>直面量</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> 函数名 = <span class="function"><span class="keyword">function</span> (<span class="params">[形参列表]</span>) </span>&#123;</div><div class="line">                函数体;</div><div class="line">                [<span class="keyword">return</span> [函数返回值];]</div><div class="line">            &#125;;</div></pre></td></tr></table></figure>
+</li>
+</ol>
           <!--noindex-->
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/04/08/函数相关概念及this指向/#more" rel="contents">

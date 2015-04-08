@@ -106,7 +106,7 @@ Function()
 
 直面量
  1234var 函数名 = function ([形参列表]) &amp;#123;                函数体;">
-<meta property="og:updated_time" content="2015-04-08T11:23:37.514Z">
+<meta property="og:updated_time" content="2015-04-08T11:28:27.369Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="函数相关概念及this指向">
 <meta name="twitter:description" content="函数创建方式
@@ -378,6 +378,7 @@ Function()
  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> 函数名 = <span class="function"><span class="keyword">function</span> (<span class="params">[形参列表]</span>) </span>&#123;</div><div class="line">                函数体;</div><div class="line">                [<span class="keyword">return</span> [函数返回值];]</div><div class="line">            &#125;;</div></pre></td></tr></table></figure>
 </li>
 </ol>
+<a id="more"></a>
 <h1 id="函数的方法"><a href="#函数的方法" class="headerlink" title="函数的方法"></a>函数的方法</h1><ol>
 <li><p>apply(第一个参数为this指向的对象obj,第二个参数是一个数组,作为传入obj的参数)<br> 将函数作为对象的方法来调用,将参数以数组形式传递给该方法</p>
  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayColor</span>(<span class="params">sPrefix,sSuffix</span>) </span>&#123;</div><div class="line">    alert(sPrefix + <span class="keyword">this</span>.color + sSuffix);</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="built_in">Object</span>();</div><div class="line">obj.color = <span class="string">"blue"</span>;</div><div class="line"></div><div class="line">sayColor.apply(obj, [<span class="string">"The color is "</span>, <span class="string">"a very nice color indeed."</span>]);</div></pre></td></tr></table></figure>
