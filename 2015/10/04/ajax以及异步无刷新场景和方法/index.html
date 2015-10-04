@@ -1,0 +1,1062 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="概念
+全称Asynchronous JavaScript and XML   (异步的JavaScript与XML)
+定义 一种请求数据的方式，不需要刷新整个页面
+特点及目的
+不刷新页面
+服务器仅返回需要的数据(速度快,体验好)
+
+
+引擎
+XMLHttpRequest此函数对象是浏览器中的内置对象，在目前的所有浏览器中都支持此对象。  IE7+、Firefox、Chrome、Safari 以及 O">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ajax及异步无刷新的场景和方法">
+<meta property="og:url" content="http://yoursite.com/2015/10/04/ajax以及异步无刷新场景和方法/index.html">
+<meta property="og:site_name" content="微风祈愿">
+<meta property="og:description" content="概念
+全称Asynchronous JavaScript and XML   (异步的JavaScript与XML)
+定义 一种请求数据的方式，不需要刷新整个页面
+特点及目的
+不刷新页面
+服务器仅返回需要的数据(速度快,体验好)
+
+
+引擎
+XMLHttpRequest此函数对象是浏览器中的内置对象，在目前的所有浏览器中都支持此对象。  IE7+、Firefox、Chrome、Safari 以及 O">
+<meta property="og:image" content="https://github.com/tianfenggithub/image/raw/master/文件属性.jpg">
+<meta property="og:updated_time" content="2015-10-04T02:52:55.664Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ajax及异步无刷新的场景和方法">
+<meta name="twitter:description" content="概念
+全称Asynchronous JavaScript and XML   (异步的JavaScript与XML)
+定义 一种请求数据的方式，不需要刷新整个页面
+特点及目的
+不刷新页面
+服务器仅返回需要的数据(速度快,体验好)
+
+
+引擎
+XMLHttpRequest此函数对象是浏览器中的内置对象，在目前的所有浏览器中都支持此对象。  IE7+、Firefox、Chrome、Safari 以及 O">
+<meta name="twitter:image" content="https://github.com/tianfenggithub/image/raw/master/文件属性.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2015/10/04/ajax以及异步无刷新场景和方法/"/>
+
+
+
+
+
+  <title> ajax及异步无刷新的场景和方法 | 微风祈愿 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">微风祈愿</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle"></p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/10/04/ajax以及异步无刷新场景和方法/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="TF">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.gif">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="微风祈愿">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="微风祈愿" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                ajax及异步无刷新的场景和方法
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-10-04T10:45:26+08:00">
+                2015-10-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2015/10/04/ajax以及异步无刷新场景和方法/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/04/ajax以及异步无刷新场景和方法/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o">本文总阅读量</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><ol>
+<li>全称<code>Asynchronous JavaScript and XML</code>   (异步的JavaScript与XML)</li>
+<li>定义<br> 一种请求数据的方式，不需要刷新整个页面</li>
+<li>特点及目的<ul>
+<li>不刷新页面</li>
+<li>服务器仅返回需要的数据(速度快,体验好)</li>
+</ul>
+</li>
+<li>引擎<ul>
+<li><code>XMLHttpRequest</code><br>此函数对象是浏览器中的内置对象，在目前的所有浏览器中都支持此对象。<br>  <code>IE7+</code>、<code>Firefox</code>、<code>Chrome</code>、<code>Safari</code> 以及 <code>Opera</code></li>
+<li><code>ActiveXObject</code><br>  仅<code>IE</code>，支持此对象</li>
+</ul>
+</li>
+</ol>
+<h1 id="ajax流程"><a href="#ajax流程" class="headerlink" title="ajax流程"></a>ajax流程</h1><ul>
+<li>请求过程<ul>
+<li>创建 <code>XMLHttpRequest</code> 对象</li>
+<li>连接服务器</li>
+<li>发送请求</li>
+<li>接收响应数据</li>
+</ul>
+</li>
+<li><p>创建</p>
+<ul>
+<li><p>非IE  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</div></pre></td></tr></table></figure>
+</li>
+<li><p>IE  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> ActiveXObject(<span class="string">'Microsoft.XMLHTTP'</span>);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>连接/发送</p>
+<ul>
+<li><code>open</code>()<ul>
+<li>功能<br>  启动服务器连接请求</li>
+<li>参数<ul>
+<li>请求方式<ul>
+<li><code>GET</code>  <ul>
+<li>定义<br>请求方式是通过<code>URL</code>参数将数据提交到服务器的  </li>
+<li>特性<ol>
+<li>在 <code>URL</code> 中传输数据，安全性弱，</li>
+<li>容量小，一般 <code>URL</code> 的长度最大为 4K 到 10K，长度是有限制的</li>
+<li>有缓存</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><code>POST</code><ul>
+<li>定义<br>是通过将数据作为 <code>send</code> 的参数提交到服务器<br>在发送数据之前，要设置表单提交的内容类型</li>
+<li>特性</li>
+</ul>
+<ol>
+<li>不在 <code>URL</code> 中传输数据，相对安全性强，</li>
+<li>容量大，容量可达到2G，再大就可以使用控件，真正的安全就只有 <code>https</code> 协议。<br> 无缓存</li>
+</ol>
+</li>
+<li><code>GET</code> 还是 <code>POST</code>？<ul>
+<li><code>GET</code> 更简单也更快，并且在大部分情况下都能用。</li>
+</ul>
+<ul>
+<li><code>POST</code> 请求<ol>
+<li>无法使用缓存文件（更新服务器上的文件或数据库）。</li>
+<li>向服务器发送大量数据（<code>POST</code> 没有数据量限制）。</li>
+<li>发送包含未知字符的用户输入时，<code>POST</code> 比 <code>GET</code> 更稳定也更可靠。</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>请求地址<br>  <code>URL</code></li>
+<li>是否异步<ul>
+<li><code>true</code> 是（默认为true）</li>
+<li><code>false</code> 否</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>send()</code><ul>
+<li>功能<br>  发送服务器连接请求</li>
+<li>参数<br>  (可选)<code>stringObj</code><br>  当发送<code>POST</code>请求时，传入值</li>
+</ul>
+</li>
+<li><code>setRequestHeader(header, value)</code><ul>
+<li>添加 HTTP 头信息</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>接收<ul>
+<li>接收到响应后，响应的数据会自动填充XHR对象</li>
+<li>相关属性<ul>
+<li><code>responseText</code><br>  如果来自服务器的响应并非 <code>XML</code>，就使用 <code>responseText</code> 属性，该属性返回字符串形式的响应，因此可以直接使用</li>
+<li><code>responseXML</code><br>  如果来自服务器的响应是 <code>XML</code>（ <code>&quot;text/xml&quot;</code> 或 <code>&quot;application/xml&quot;</code>），而且需要作为 <code>XML</code> 对象进行解析，就使用 <code>responseXML</code> 属性。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>请求状态</p>
+<ul>
+<li><code>XMLHttpRequest</code> 对象的 <code>readyState</code> 属性返回请求的当前状态。当请求被发送到服务器时，我们需要执行一些基于响应的任务，每当 <code>readyState</code> 改变时，就会触发 <code>onreadystatechange</code> 事件，<code>readyState</code> 属性存有 <code>XMLHttpRequest</code> 的状态信息。</li>
+<li><code>XMLHttpRequest</code>属性<ul>
+<li><code>onreadystatechange</code><br>  存储函数(或函数名)，每当 <code>readyState</code> 属性改变时，就会调用该函数</li>
+<li><code>readyState</code><br>  存有 <code>XMLHttpRequest</code> 的状态。从 0 到 4 发生变化。<ul>
+<li>0 请求未初始化。未调用 open() 方法。</li>
+<li>1 服务器连接已建立。已调用 open() 方法，正在发送请求。</li>
+<li>2 请求已接收，载入完成。open()方法完成，已收到全部响应内容</li>
+<li>3 请求处理中，也叫解析。正在解析响应内容。</li>
+<li>4 请求已完成，且响应已就绪。响应内容解析完成，可以在客户端调用了。</li>
+</ul>
+</li>
+<li><code>status</code><br>  请求结果，也就是 HTTP 状态码。200：OK。404：未找到页面。状态码以2开头的都是成功，304表示从缓存中获取</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><code>ajax</code>五步使用法:</p>
+<ol>
+<li>建立<code>XMLHTTPRequest</code>对象</li>
+<li>注册回调函数<ul>
+<li>当服务器回应我们了,我们想要执行什么逻辑</li>
+</ul>
+</li>
+<li>使用open方法设置和服务器端交互的基本信息<ul>
+<li>设置提交的网址,数据,<code>post</code>提交的一些额外内容</li>
+</ul>
+</li>
+<li>设置发送的数据，开始和服务器端交互<ul>
+<li>发送数据</li>
+</ul>
+</li>
+<li>更新界面<ul>
+<li>在注册的回调函数中,获取返回的数据,更新界面</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>示例代码: GET<br>  get的数据,直接在请求的url中添加即可</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</div><div class="line"><span class="comment">// 创建XMLHttpRequest 对象</span></div><div class="line"><span class="keyword">var</span> xml = <span class="keyword">new</span> XMLHttpRequest();</div><div class="line"><span class="comment">// 设置跟服务端交互的信息</span></div><div class="line">xml.open(<span class="string">'get'</span>,<span class="string">'01.ajax.php?name=fox'</span>);</div><div class="line">xml.send(<span class="literal">null</span>);    <span class="comment">// get请求这里写null即可</span></div><div class="line"><span class="comment">// 接收服务器反馈</span></div><div class="line">xhr.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">// 这步为判断服务器是否正确响应</span></div><div class="line">    <span class="keyword">if</span> (xhr.readyState == <span class="number">4</span> &amp;&amp; xhr.status == <span class="number">200</span>) &#123;</div><div class="line">        <span class="comment">// 打印响应内容</span></div><div class="line">        alert(xml.responseText);</div><div class="line">    &#125; </div><div class="line">&#125;;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>示例代码: POST</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</div><div class="line"><span class="comment">// 异步对象</span></div><div class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</div><div class="line"><span class="comment">// 设置属性</span></div><div class="line">xhr.open(<span class="string">'post'</span>, <span class="string">'02.post.php'</span> );</div><div class="line"><span class="comment">// 如果想要使用post提交数据,必须添加</span></div><div class="line">xhr.setRequestHeader(<span class="string">"Content-type"</span>,<span class="string">"application/x-www-form-urlencoded"</span>);</div><div class="line"><span class="comment">// 将数据通过send方法传递</span></div><div class="line">xhr.send(<span class="string">'name=fox&amp;age=18'</span>);</div><div class="line"><span class="comment">// 发送并接受返回值</span></div><div class="line">xhr.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line"><span class="comment">// 这步为判断服务器是否正确响应</span></div><div class="line"><span class="keyword">if</span> (xhr.readyState == <span class="number">4</span> &amp;&amp; xhr.status == <span class="number">200</span>) &#123;</div><div class="line">       alert(xhr.responseText);</div><div class="line">     &#125; </div><div class="line">&#125;;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="异步无刷新"><a href="#异步无刷新" class="headerlink" title="异步无刷新"></a>异步无刷新</h1><ul>
+<li>异步提交目的: 提升用户体验感</li>
+</ul>
+<ol>
+<li><p>异步提交普通表单</p>
+<ul>
+<li>思路<br>html里自带的表单按钮<code>submit</code>是同步提交,在遇到容量较大数据的时候,可能会长时间的响应造成用户体验感差,<code>ajax</code>是异步提交,其诞生就是为了优化用户的体验.在提交的时候需要禁止<code>submit</code>的默认事件,所以无法提交表单数据,可以调用<code>jQuery</code>的<code>serialize</code>方法整理数据,从而避免自己手动添加(字符串拼接之类)的麻烦  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">//使用jQuery异步提交表单</span></div><div class="line">    $(<span class="string">'#表单ID'</span>).submit(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        jQuery.ajax(&#123;</div><div class="line">            <span class="attr">url</span>: <span class="string">'要提交的页面'</span>,</div><div class="line">            <span class="attr">data</span>: $(<span class="string">'#表单ID'</span>).serialize(),<span class="comment">//序列化表单提交数据</span></div><div class="line">            type: <span class="string">"POST"</span>,</div><div class="line">            <span class="attr">beforeSend</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            <span class="comment">//在异步提交前要做的操作</span></div><div class="line">            &#125;,</div><div class="line">            <span class="attr">success</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            <span class="comment">//在异步提交成功后要做的操作</span></div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">        <span class="keyword">return</span> <span class="literal">false</span>;<span class="comment">//禁止表单默认事件</span></div><div class="line">    &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>带有文件的上传</p>
+<ul>
+<li>在涉及文件等二进制数据的提交的时候,可以考虑使用h5的<code>formdata</code>去处理,获取表单<code>dom</code>元素,放入<code>new formdata(dom)</code>,将其传给后台即可<br><code>Formdata</code>有兼容性问题,只有IE10以上支持,如果想要向下兼容的时候,可以考虑用<code>iframe</code>标签处理,或者可以考虑使用插件</li>
+</ul>
+<ol>
+<li><p>FormData对象</p>
+<ul>
+<li>定义:ajax操作往往用来传递表单数据。为了方便表单处理，HTML 5新增了一个FormData对象，可以模拟表单。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//首先，新建一个FormData对象。</span></div><div class="line"><span class="keyword">var</span> formData = <span class="keyword">new</span> FormData();</div><div class="line"><span class="comment">//然后，为它添加表单项。</span></div><div class="line">formData.append(<span class="string">'username'</span>, <span class="string">'张三'</span>);</div><div class="line">formData.append(<span class="string">'id'</span>, <span class="number">123456</span>);</div><div class="line"><span class="comment">//最后，直接传送这个FormData对象。这与提交网页表单的效果，完全一样。</span></div><div class="line">xhr.send(formData);</div><div class="line"><span class="comment">//FormData对象也可以用来获取网页表单的值。</span></div><div class="line"><span class="keyword">var</span> form = <span class="built_in">document</span>.getElementById(<span class="string">'myform'</span>);</div><div class="line"><span class="keyword">var</span> formData = <span class="keyword">new</span> FormData(form);</div><div class="line">formData.append(<span class="string">'secret'</span>, <span class="string">'123456'</span>); <span class="comment">// 添加一个表单项</span></div><div class="line">xhr.open(<span class="string">'POST'</span>, form.action);</div><div class="line">xhr.send(formData);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>上传文件  </p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//假定files是一个"选择文件"的表单元素（input[type="file"]），我们将它装入FormData对象。</span></div><div class="line"><span class="keyword">var</span> formData = <span class="keyword">new</span> FormData();</div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; files.length;i++) &#123;</div><div class="line">    formData.append(<span class="string">"userfile"</span>, fileInputElement.files[<span class="number">0</span>]);</div><div class="line">    <span class="comment">//获取文件上传元素里面的files[0],这个一般为需要上传的文件主体</span></div><div class="line">&#125;</div><div class="line"><span class="comment">//然后，发送这个FormData对象。</span></div><div class="line">xhr.send(formData);</div></pre></td></tr></table></figure>
+<ul>
+<li><p>文件属性:  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//查看文件属性</span></div><div class="line"><span class="keyword">var</span> btn=<span class="built_in">document</span>.querySelector(<span class="string">"#btn"</span>);</div><div class="line">btn.onchange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">// console.log(this);</span></div><div class="line">    <span class="keyword">var</span> files = <span class="keyword">this</span>.files;</div><div class="line">    <span class="built_in">console</span>.log(files)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="https://github.com/tianfenggithub/image/raw/master/文件属性.jpg" alt="文件属性"></p>
+</li>
+</ul>
+</li>
+<li><p>复合类型表单数据上传<br><strong>复合型数据表单提交的时候需要在form里设置<code>enctype=multipart/form-data</code></strong></p>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"/api/adverts"</span> <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">enctype</span>=<span class="string">"multipart/form-data"</span>&gt;</span></div></pre></td></tr></table></figure>
+<ul>
+<li><p>原生ajax写法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//ajax上传代码，放在表单的submit事件回调函数中</span></div><div class="line"><span class="comment">//我们主要用的是FormData对象，它能够构建类似表单的键值对。</span></div><div class="line">form.on(<span class="string">'submit'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line"><span class="comment">// 检查是否支持FormData</span></div><div class="line">    <span class="keyword">if</span>(<span class="built_in">window</span>.FormData) &#123;　</div><div class="line">        <span class="keyword">var</span> formData = <span class="keyword">new</span> FormData();</div><div class="line">        <span class="comment">// 建立一个upload表单项，值为上传的文件</span></div><div class="line">        formData.append(<span class="string">'upload'</span>,<span class="built_in">document</span>.getElementById(<span class="string">'upload'</span>).files[<span class="number">0</span>]);</div><div class="line">        <span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</div><div class="line">        xhr.open(<span class="string">'POST'</span>, $(<span class="keyword">this</span>).attr(<span class="string">'action'</span>));</div><div class="line">        <span class="comment">// 定义上传完成后的回调函数</span></div><div class="line">        xhr.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="keyword">if</span> (xhr.status === <span class="number">200</span>) &#123;</div><div class="line">                <span class="built_in">console</span>.log(<span class="string">'上传成功'</span>);</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                <span class="built_in">console</span>.log(<span class="string">'出错了'</span>);</div><div class="line">            &#125;</div><div class="line">        &#125;;</div><div class="line">        xhr.send(formData);</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>jQuery ajax提交复合类型数据</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//需求,提交复合类型表单,成功则自动跳转</span></div><div class="line">form.on(<span class="string">'submit'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    $.ajax(&#123;</div><div class="line">        <span class="attr">url</span>: $(form).attr(<span class="string">'action'</span>),<span class="comment">//获取form中提交的url</span></div><div class="line">        type: $(form).attr(<span class="string">'method'</span>),<span class="comment">//获取提交方式</span></div><div class="line">        data: <span class="keyword">new</span> FormData(form),<span class="comment">//将数据传入FormData创建的对象</span></div><div class="line">        processData: <span class="literal">false</span>,<span class="comment">//禁止对data参数进行序列化处理</span></div><div class="line">        contentType: <span class="literal">false</span>,<span class="comment">//contentType默认application/x-www-form-urlencoded,后台会按照查询字符串方式去解析表单数据,将其关闭可以使后台正常解析数据</span></div><div class="line">        dataType: <span class="string">'json'</span><span class="comment">//数据类型</span></div><div class="line">    &#125;).then(<span class="function"><span class="params">data</span> =&gt;</span> &#123;</div><div class="line">        <span class="keyword">if</span> (data.success) &#123;<span class="comment">//假如成功</span></div><div class="line">            <span class="built_in">window</span>.location.href = <span class="string">'/advert'</span><span class="comment">//自动重定向</span></div><div class="line">        &#125;</div><div class="line">    &#125;).catch(<span class="function"><span class="params">err</span> =&gt;</span> &#123;<span class="comment">//否则报错</span></div><div class="line">    <span class="built_in">window</span>.alert(<span class="string">'服务器忙，请稍后重试'</span>)</div><div class="line">    &#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>单页面:结合分页插件无刷新(常见于评论模块或者文章模块等等等)</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 需求:用requireJS和twbsPagination插件实现评论模块的异步无刷新分页</span></div><div class="line"><span class="comment">// 入口模块使用 require 方法或者 requirejs 方法定义</span></div><div class="line"><span class="comment">// 其它的子模块都使用 define 定义</span></div><div class="line"><span class="built_in">require</span>([<span class="string">'jquery'</span>, <span class="string">'underscore'</span>, <span class="string">'moment'</span>, <span class="string">'twbsPagination'</span>],</div><div class="line"><span class="function"><span class="keyword">function</span> (<span class="params">$, _, moment</span>) </span>&#123;</div><div class="line">    loadAdverts(<span class="number">1</span>)<span class="comment">//进去先执行函数,默认评论显示第一页</span></div><div class="line">    <span class="comment">// 模板字符串</span></div><div class="line">    <span class="keyword">var</span> tmpStr = $(<span class="string">'#tpl'</span>).html()</div><div class="line">    <span class="comment">// 获取分页的容器</span></div><div class="line">    <span class="keyword">var</span> $pagination = $(<span class="string">'.pagination'</span>)</div><div class="line">    <span class="comment">// 默认配置，默认一共有 20 页</span></div><div class="line">    <span class="keyword">var</span> defaultOpts = &#123;&#125;;</div><div class="line">    <span class="comment">// 执行分页插件，开始分页，生成 HTML ，插入文档</span></div><div class="line">    $pagination.twbsPagination(defaultOpts);</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">loadAdverts</span>(<span class="params">pageNumber</span>) </span>&#123;</div><div class="line">      $.ajax(&#123;</div><div class="line">          <span class="attr">url</span>: <span class="string">'/api/adverts'</span>,</div><div class="line">          <span class="attr">data</span>: &#123;</div><div class="line">            <span class="attr">pageSize</span>: <span class="number">5</span>,<span class="comment">//每页显示数量</span></div><div class="line">            pageNumber: pageNumber</div><div class="line">          &#125;,</div><div class="line">          <span class="attr">type</span>: <span class="string">'get'</span>,</div><div class="line">          <span class="attr">dataType</span>: <span class="string">'json'</span></div><div class="line">        &#125;)</div><div class="line">        .then(<span class="function"><span class="params">data</span> =&gt;</span> &#123;</div><div class="line">          data.ret.list.forEach(<span class="function">(<span class="params">advert</span>) =&gt;</span> &#123;</div><div class="line">            advert.ad_start_time = moment(advert.ad_start_time).format(<span class="string">'YYYY-MM-DD HH:mm:ss'</span>)</div><div class="line">            advert.ad_end_time = moment(advert.ad_end_time).format(<span class="string">'YYYY-MM-DD HH:mm:ss'</span>)</div><div class="line">        &#125;)</div><div class="line">        $(<span class="string">'#tbody'</span>).html(_.template(tmpStr)(data.ret))</div><div class="line">        <span class="comment">// 根据请求结果中的总记录数计算总页码</span></div><div class="line">        <span class="keyword">var</span> totalPages = <span class="built_in">Math</span>.ceil(data.ret.count / <span class="number">5</span>)</div><div class="line">        <span class="comment">// 获取当前的页面</span></div><div class="line">        <span class="keyword">var</span> currentPage = $pagination.twbsPagination(<span class="string">'getCurrentPage'</span>)</div><div class="line">        <span class="comment">// 将原来的分页内容干掉</span></div><div class="line">        $pagination.twbsPagination(<span class="string">'destroy'</span>)</div><div class="line">        <span class="comment">// 重新分页，把默认配置项加载出来</span></div><div class="line">        $pagination.twbsPagination($.extend(&#123;&#125;, defaultOpts, &#123;</div><div class="line">            <span class="attr">startPage</span>: currentPage,</div><div class="line">            <span class="attr">totalPages</span>: totalPages</div><div class="line">        &#125;))</div><div class="line">        .on(<span class="string">'page'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">evt, page</span>) </span>&#123;</div><div class="line">            loadAdverts(page)</div><div class="line">        &#125;)</div><div class="line">    &#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>转化数据格式类型</p>
+<ol>
+<li>使用JSON对象<ul>
+<li>JSON.parse()方法:将JSON字符串转化为JavaScript对象</li>
+<li>JSON.stringify()方法:将JavaScript对象,转化为JSON字符串</li>
+</ul>
+</li>
+<li>使用eval()方法<br>使用eval()方法需要注意的是,需要将内容使用()括号包裹起来,如示例代码 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt; </div><div class="line"><span class="keyword">var</span> jsonStr =&#123;</div><div class="line">    <span class="string">"name"</span>:<span class="string">"fox"</span>,</div><div class="line">    <span class="string">"age"</span>:<span class="number">18</span>,</div><div class="line">    <span class="string">"skill"</span>:<span class="string">"前端"</span></div><div class="line">&#125;<span class="string">`;</span></div><div class="line">var jsonObj = eval('('+jsonStr+')'); </div><div class="line">console.log(jsonObj);</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/08/05/词法作用域-作用域-作用域链/" rel="next" title="面向对象:词法作用域-作用域-作用域链">
+                <i class="fa fa-chevron-left"></i> 面向对象:词法作用域-作用域-作用域链
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/03/12/原型-原型链-继承方法/" rel="prev" title="面向对象:原型-原型链-继承">
+                面向对象:原型-原型链-继承 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/10/04/ajax以及异步无刷新场景和方法/"
+           data-title="ajax及异步无刷新的场景和方法" data-url="http://yoursite.com/2015/10/04/ajax以及异步无刷新场景和方法/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="TF" />
+          <p class="site-author-name" itemprop="name">TF</p>
+          <p class="site-description motion-element" itemprop="description">闲看庭前花开花落 <br> 漫随天外云卷云舒</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/tianfenggithub" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/weifengqiyuan" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概念"><span class="nav-number">1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ajax流程"><span class="nav-number">2.</span> <span class="nav-text">ajax流程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#异步无刷新"><span class="nav-number">3.</span> <span class="nav-text">异步无刷新</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2015</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">TF</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user">本站访客数</i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span>人次</span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye">本站总访问量</i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"TFgithub"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
