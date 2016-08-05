@@ -84,34 +84,25 @@
 
 
 
-<meta name="description" content="canvas 02
-
-绘制文字
-
-描边文字ctx.strokeText(“要绘制的文字”,x轴坐标,y轴坐标,限制文字绘制时占用的最大长度(可选))
-填充文字ctx.fillText(“要绘制的文字”,x轴坐标,y轴坐标,限制文字绘制时占用的最大长度(可选))
-设置文字样式ctx.font=”900 20px 微软雅黑”和CSS语法一样,必须加单位,字体也必须写才能生效">
+<meta name="description" content="在es6里面已经可以规避了声明的提升,但在es6之前包括严格模式下都会遇见声明提升带来的一些问题
+变量定义
+可以使用var定义变量，变量如果没有赋值，那变量的初始值为undefined.
+如果没有使用var定义,那么就是隐式全局变量,此时全局都可以获得该变量,其作用域为全局">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Canvas学习笔记 02">
-<meta property="og:url" content="http://yoursite.com/2016/11/18/canvas 02/index.html">
+<meta property="og:title" content="JavaScript声明提升和作用域">
+<meta property="og:url" content="http://yoursite.com/2015/02/02/JavaScript声明提升和作用域/index.html">
 <meta property="og:site_name" content="微风祈愿">
-<meta property="og:description" content="canvas 02
-
-绘制文字
-
-描边文字ctx.strokeText(“要绘制的文字”,x轴坐标,y轴坐标,限制文字绘制时占用的最大长度(可选))
-填充文字ctx.fillText(“要绘制的文字”,x轴坐标,y轴坐标,限制文字绘制时占用的最大长度(可选))
-设置文字样式ctx.font=”900 20px 微软雅黑”和CSS语法一样,必须加单位,字体也必须写才能生效">
-<meta property="og:updated_time" content="2016-12-28T15:50:50.981Z">
+<meta property="og:description" content="在es6里面已经可以规避了声明的提升,但在es6之前包括严格模式下都会遇见声明提升带来的一些问题
+变量定义
+可以使用var定义变量，变量如果没有赋值，那变量的初始值为undefined.
+如果没有使用var定义,那么就是隐式全局变量,此时全局都可以获得该变量,其作用域为全局">
+<meta property="og:updated_time" content="2015-02-02T05:54:51.040Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Canvas学习笔记 02">
-<meta name="twitter:description" content="canvas 02
-
-绘制文字
-
-描边文字ctx.strokeText(“要绘制的文字”,x轴坐标,y轴坐标,限制文字绘制时占用的最大长度(可选))
-填充文字ctx.fillText(“要绘制的文字”,x轴坐标,y轴坐标,限制文字绘制时占用的最大长度(可选))
-设置文字样式ctx.font=”900 20px 微软雅黑”和CSS语法一样,必须加单位,字体也必须写才能生效">
+<meta name="twitter:title" content="JavaScript声明提升和作用域">
+<meta name="twitter:description" content="在es6里面已经可以规避了声明的提升,但在es6之前包括严格模式下都会遇见声明提升带来的一些问题
+变量定义
+可以使用var定义变量，变量如果没有赋值，那变量的初始值为undefined.
+如果没有使用var定义,那么就是隐式全局变量,此时全局都可以获得该变量,其作用域为全局">
 
 
 
@@ -139,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/11/18/canvas 02/"/>
+  <link rel="canonical" href="http://yoursite.com/2015/02/02/JavaScript声明提升和作用域/"/>
 
 
 
 
 
-  <title> Canvas学习笔记 02 | 微风祈愿 </title>
+  <title> JavaScript声明提升和作用域 | 微风祈愿 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -271,7 +262,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/18/canvas 02/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/02/02/JavaScript声明提升和作用域/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="TF">
@@ -295,7 +286,7 @@
             
             
               
-                Canvas学习笔记 02
+                JavaScript声明提升和作用域
               
             
           </h1>
@@ -310,8 +301,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-18T08:56:56+08:00">
-                2016-11-18
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-02-02T13:53:26+08:00">
+                2015-02-02
               </time>
             
 
@@ -329,8 +320,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2016/11/18/canvas 02/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/18/canvas 02/" itemprop="commentCount"></span>
+                <a href="/2015/02/02/JavaScript声明提升和作用域/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/02/02/JavaScript声明提升和作用域/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -361,48 +352,31 @@
       
 
       
-        <h3 id="canvas-02"><a href="#canvas-02" class="headerlink" title="canvas 02"></a>canvas 02</h3><hr>
-<ol>
-<li><p>绘制文字</p>
-<ol>
-<li>描边文字<br>ctx.strokeText(“要绘制的文字”,x轴坐标,y轴坐标,限制文字绘制时占用的最大长度(可选))</li>
-<li>填充文字<br>ctx.fillText(“要绘制的文字”,x轴坐标,y轴坐标,限制文字绘制时占用的最大长度(可选))</li>
-<li>设置文字样式<br>ctx.font=”900 20px 微软雅黑”和CSS语法一样,必须加单位,字体也必须写才能生效<a id="more"></a></li>
-<li>设置文字水平对齐方式<br>ctx.textAlign=”left/start”||”center”||”right/end”<br>参考点为设置文字的起始点,左对齐就是从右向左靠拢,会显示在参考点的右边;右对齐就是从左往右靠拢,会显示在参考点的左边</li>
-<li>设置文字水平对齐方式<br>ctx.textBaseline=”top”||”middle”||”bottom”||”alphabetic”||”hanging||”ideographic”,默认为alphabetic.<br>同样的,参考点为设置文字的起始点,top就是把参考点放在上面,bottom就是把参考点放在下面,因此在使用的时候和平时的感觉不太一样,bottom是往下移动,top是往上移动</li>
-<li>预测量文字<br>ctx.measureText(“被测量的文字”)<br>预测一段文字,按照当前文字的字体的大小,绘制时要占用多宽多高,现在浏览器只能测试文字所占用的宽度,返回值是一个对象,目前这个对象只有width属性</li>
-</ol>
-</li>
-<li>绘制扇形<br> 利用的是绘制弧线的时候,会从原先的路径连接到弧的起点,然后用closePath闭合,形成扇形<br> 步骤:<ol>
-<li>ctx.moveTo(圆心x,y)  </li>
-<li>ctx.arc()以圆心为基准点</li>
-<li>ctx.closePath();</li>
-<li>ctx.stroke();</li>
-<li>如果是直接填充fill(),canvas会自动closePath()</li>
-</ol>
-</li>
-<li>绘制饼图<br> function(ctx,data,x,y,r){}<ol>
-<li>ctx 上下文</li>
-<li>data 数据</li>
-<li>x,y 圆心坐标</li>
-<li>半径</li>
-</ol>
-</li>
-<li>创建img元素的3种方式<ol>
-<li>html</li>
-<li>new Image()</li>
-<li>document.createElement(“img”)</li>
-</ol>
-</li>
-<li><p>绘制图像  </p>
-<ol>
-<li><p>ctx.drawImage(要绘制的图像资源,图像绘制到画布的X轴坐标,图像绘制到画布的y轴坐标)<br>在绘制过程中,如果不加任何条件,是异步加载,在下载图片资源的同时就会开始进行绘制,所以会导致无法正常显示,建议用事件监听来控制 img.onload=funciton(){ctx.drawImage(img,x,y)}</p>
-</li>
-<li><p>ctx.drawImage(要绘制的图像资源,图像绘制到画布的X轴坐标,图像绘制到画布的y轴坐标,指定图像绘制的宽度,指定图像绘制的高度)</p>
-</li>
-<li><p>ctx.drawImage(要绘制的图像资源,裁剪的起始x轴坐标,裁剪的起始y轴坐标,裁剪多宽,裁剪多高,x轴坐标,y轴坐标,指定图像绘制的宽度,指定图像绘制的高度)</p>
+        <p>在es6里面已经可以规避了声明的提升,但在es6之前包括严格模式下都会遇见声明提升带来的一些问题</p>
+<h1 id="变量定义"><a href="#变量定义" class="headerlink" title="变量定义"></a>变量定义</h1><ol>
+<li>可以使用var定义变量，变量如果没有赋值，那变量的初始值为undefined.</li>
+<li>如果没有使用var定义,那么就是隐式全局变量,此时全局都可以获得该变量,其作用域为全局<a id="more"></a>
 </li>
 </ol>
+<h1 id="变量作用域"><a href="#变量作用域" class="headerlink" title="变量作用域"></a>变量作用域</h1><p>变量作用域指变量起作用的范围。变量分为全局变量和局部变量。全局变量在全局都拥有定义；而局部变量只能在函数内有效。<br>在函数体内，<strong>同名的局部变量或者参数的优先级会高于全局变量</strong>。也就是说，如果函数内存在和全局变量同名的局部变量或者参数，那么全局变量将会被局部变量覆盖。<br>所有不使用var定义的变量都视为全局变量  </p>
+<ul>
+<li>变量运行（搜索）机制：<br>首先看，有没有局部作用域<br>如果有，查找是不是这个局部作用域定义的变量<br>如果不是，寻找上一级作用域，直到找到全局作用域<br>如果全局作用域也找不到这个变量，这个变量就是未定义的 undefined</li>
+</ul>
+<h1 id="函数作用域和声明提前"><a href="#函数作用域和声明提前" class="headerlink" title="函数作用域和声明提前"></a>函数作用域和声明提前</h1><p>JavaScript的函数作用域是指在函数内声明的所有变量在函数体内始终是有定义的，也就是说变量在声明之前已经可用，所有这特性称为声明提前（hoisting），即JavaScript函数里的所有声明（只是声明，但不涉及赋值）都被提前到函数体的顶部，而变量赋值操作留在原来的位置。如下面例子：<br>注释：声明提前是在JavaScript引擎的预编译时进行，是在代码开始运行之前。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> scope = <span class="string">'global'</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(scope);</div><div class="line">    <span class="keyword">var</span> scope = <span class="string">'local'</span>;</div><div class="line">    <span class="built_in">console</span>.log(scope);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>由于函数内声明提升，所以上面的代码实际上是这样的<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> scope = <span class="string">'global'</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> scope;    <span class="comment">//变量声明提升到函数顶部</span></div><div class="line">    <span class="built_in">console</span>.log(scope);</div><div class="line">    scope = <span class="string">'local'</span>;    <span class="comment">//变量初始化依然保留在原来的位置</span></div><div class="line">    <span class="built_in">console</span>.log(scope);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h1 id="变量声明-VS-函数声明"><a href="#变量声明-VS-函数声明" class="headerlink" title="变量声明 VS 函数声明"></a>变量声明 VS 函数声明</h1><ol>
+<li>一般情况下,函数声明会覆盖变量声明。  </li>
+<li><p>但是如果在变量声明的同时，对变量进行初始化，情况会有所不同。对同一个变量名，声明变量同时初始化变量优先级高于函数声明。</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="literal">true</span>; </div><div class="line">&#125; </div><div class="line"><span class="built_in">console</span>.log(a); <span class="comment">//1</span></div></pre></td></tr></table></figure>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(a) <span class="comment">//此时打印的是a的函数体</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><ol>
+<li><p>变量声明提升：变量申明在进入执行上下文就完成了。<br> 只要变量在代码中进行了声明，无论它在哪个位置上进行声明， js引擎都会将它的声明放在范围作用域的顶部；</p>
+</li>
+<li><p>函数声明提升：执行代码之前会先读取函数声明，意味着可以把函数声明放在调用它的语句后面。<br> 只要函数在代码中进行了声明，无论它在哪个位置上进行声明， js引擎都会将它的声明放在范围作用域的顶部；</p>
+</li>
+<li><p>变量or函数声明：函数声明会覆盖变量声明，但不会覆盖变量赋值.<br>同一个名称标识a，即有变量声明var a，又有函数声明function a() {}，不管二者声明的顺序，函数声明会覆盖变量声明，也就是说，此时a的值是声明的函数function a() {}。注意：如果在变量声明的同时初始化a，或是之后对a进行赋值，此时a的值变量的值。</p>
 </li>
 </ol>
 
@@ -431,8 +405,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/17/canvas 01/" rel="next" title="Canvas学习笔记 01">
-                <i class="fa fa-chevron-left"></i> Canvas学习笔记 01
+              <a href="/2015/01/18/数组的概念和方法/" rel="next" title="数组基本概念和原生方法">
+                <i class="fa fa-chevron-left"></i> 数组基本概念和原生方法
               </a>
             
           </div>
@@ -441,8 +415,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/11/20/canvas 03/" rel="prev" title="Canvas学习笔记 03">
-                Canvas学习笔记 03 <i class="fa fa-chevron-right"></i>
+              <a href="/2015/03/09/正则表达式的使用/" rel="prev" title="正则表达式的使用">
+                正则表达式的使用 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -469,8 +443,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/11/18/canvas 02/"
-           data-title="Canvas学习笔记 02" data-url="http://yoursite.com/2016/11/18/canvas 02/">
+      <div class="ds-thread" data-thread-key="2015/02/02/JavaScript声明提升和作用域/"
+           data-title="JavaScript声明提升和作用域" data-url="http://yoursite.com/2015/02/02/JavaScript声明提升和作用域/">
       </div>
     
   </div>
@@ -576,7 +550,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#canvas-02"><span class="nav-number">1.</span> <span class="nav-text">canvas 02</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#变量定义"><span class="nav-number">1.</span> <span class="nav-text">变量定义</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#变量作用域"><span class="nav-number">2.</span> <span class="nav-text">变量作用域</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#函数作用域和声明提前"><span class="nav-number">3.</span> <span class="nav-text">函数作用域和声明提前</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#变量声明-VS-函数声明"><span class="nav-number">4.</span> <span class="nav-text">变量声明 VS 函数声明</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#结论"><span class="nav-number">5.</span> <span class="nav-text">结论</span></a></li></ol></div>
             
 
           </div>
