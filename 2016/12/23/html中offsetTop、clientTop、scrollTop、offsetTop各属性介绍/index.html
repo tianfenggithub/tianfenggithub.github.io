@@ -1,0 +1,946 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="HTML精确定位:scrollLeft,scrollWidth,clientWidth,offsetWidth 
+scrollHeight: 获取对象的滚动高度。 
+scrollLeft:设置或获取位于对象左边界和窗口中目前可见内容的最左端之间的距离 
+scrollTop:设置或获取位于对象最顶端和窗口中可见内容的最顶端之间的距离 
+scrollWidth:获取对象的滚动宽度 
+offsetHe">
+<meta property="og:type" content="article">
+<meta property="og:title" content="html中offsetTop、clientTop、scrollTop、offsetTop各属性介绍">
+<meta property="og:url" content="http://yoursite.com/2016/12/23/html中offsetTop、clientTop、scrollTop、offsetTop各属性介绍/index.html">
+<meta property="og:site_name" content="微风祈愿">
+<meta property="og:description" content="HTML精确定位:scrollLeft,scrollWidth,clientWidth,offsetWidth 
+scrollHeight: 获取对象的滚动高度。 
+scrollLeft:设置或获取位于对象左边界和窗口中目前可见内容的最左端之间的距离 
+scrollTop:设置或获取位于对象最顶端和窗口中可见内容的最顶端之间的距离 
+scrollWidth:获取对象的滚动宽度 
+offsetHe">
+<meta property="og:image" content="https://github.com/tianfenggithub/image/raw/master/offsetclientscroll.jpg">
+<meta property="og:updated_time" content="2016-12-28T16:17:05.964Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="html中offsetTop、clientTop、scrollTop、offsetTop各属性介绍">
+<meta name="twitter:description" content="HTML精确定位:scrollLeft,scrollWidth,clientWidth,offsetWidth 
+scrollHeight: 获取对象的滚动高度。 
+scrollLeft:设置或获取位于对象左边界和窗口中目前可见内容的最左端之间的距离 
+scrollTop:设置或获取位于对象最顶端和窗口中可见内容的最顶端之间的距离 
+scrollWidth:获取对象的滚动宽度 
+offsetHe">
+<meta name="twitter:image" content="https://github.com/tianfenggithub/image/raw/master/offsetclientscroll.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/12/23/html中offsetTop、clientTop、scrollTop、offsetTop各属性介绍/"/>
+
+
+
+
+
+  <title> html中offsetTop、clientTop、scrollTop、offsetTop各属性介绍 | 微风祈愿 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">微风祈愿</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle"></p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/23/html中offsetTop、clientTop、scrollTop、offsetTop各属性介绍/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="TF">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.gif">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="微风祈愿">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="微风祈愿" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                html中offsetTop、clientTop、scrollTop、offsetTop各属性介绍
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-23T21:29:41+08:00">
+                2016-12-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/12/23/html中offsetTop、clientTop、scrollTop、offsetTop各属性介绍/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/23/html中offsetTop、clientTop、scrollTop、offsetTop各属性介绍/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o">本文总阅读量</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <ol>
+<li>HTML精确定位:scrollLeft,scrollWidth,clientWidth,offsetWidth </li>
+<li>scrollHeight: 获取对象的滚动高度。 </li>
+<li>scrollLeft:设置或获取位于对象左边界和窗口中目前可见内容的最左端之间的距离 </li>
+<li>scrollTop:设置或获取位于对象最顶端和窗口中可见内容的最顶端之间的距离 </li>
+<li>scrollWidth:获取对象的滚动宽度 </li>
+<li>offsetHeight:获取对象相对于版面或由父坐标 offsetParent 属性指定的父坐标的高度 </li>
+<li>offsetLeft:获取对象相对于版面或由 offsetParent 属性指定的父坐标的计算左侧位置 </li>
+<li>offsetTop:获取对象相对于版面或由 offsetTop 属性指定的父坐标的计算顶端位置 <a id="more"></a></li>
+<li>event.clientX 相对文档的水平座标 </li>
+<li>event.clientY 相对文档的垂直座标 </li>
+<li>event.offsetX 相对容器的水平坐标 </li>
+<li>event.offsetY 相对容器的垂直坐标 </li>
+<li>document.documentElement.scrollTop 垂直方向滚动的值 </li>
+<li><p>event.clientX+document.documentElement.scrollTop 相对文档的水平座标+垂直方向滚动的量</p>
+</li>
+<li><p>这里是JavaScript中建造迁移转变代码的常用属性</p>
+<ul>
+<li>页可见区域宽： document.body.clientWidth;</li>
+<li>网页可见区域高： document.body.clientHeight;</li>
+<li>网页可见区域宽： document.body.offsetWidth   （包含边线的宽）;</li>
+<li>网页可见区域高： document.body.offsetHeight （包含边线的宽）;</li>
+<li>网页正文全文宽： document.body.scrollWidth;</li>
+<li>网页正文全文高： document.body.scrollHeight;</li>
+<li>网页被卷去的高： document.body.scrollTop;</li>
+<li>网页被卷去的左： document.body.scrollLeft;</li>
+<li>网页正文项目组上： window.screenTop;</li>
+<li>网页正文项目组左： window.screenLeft;</li>
+<li>屏幕辨别率的高： window.screen.height;</li>
+<li>屏幕辨别率的宽： window.screen.width;</li>
+<li>屏幕可用工作区高度： window.screen.availHeight;</li>
+</ul>
+</li>
+</ol>
+<p><img src="https://github.com/tianfenggithub/image/raw/master/offsetclientscroll.jpg" alt="一图认清区别"></p>
+<ol>
+<li>offset</li>
+</ol>
+<p>假设 obj 为某个 HTML 控件。<br>obj.offsetTop 指 obj 间隔上方或上层控件的地位，整型，单位像素。<br>obj.offsetLeft 指 obj 间隔左方或上层控件的地位，整型，单位像素。<br>obj.offsetWidth 指 obj 控件自身的宽度，整型，单位像素。<br>obj.offsetHeight 指 obj 控件自身的高度，整型，单位像素。<br>我们对前面提到的“上方或上层”与“左方或上层”控件作个申明。</p>
+<p>例如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;div id=<span class="string">"tool"</span>&gt;</div><div class="line"></div><div class="line">&lt;input type="button" value="提交"&gt;</div><div class="line"></div><div class="line">&lt;input type="button" value="重置"&gt;</div><div class="line"></div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p>“提交”按钮的 offsetTop 指“提交”按钮距“tool”层上边框的间隔，因为距其上边比来的是 “tool” 层的上边框。<br>“重置”按钮的 offsetTop 指“重置”按钮距“tool”层上边框的间隔，因为距其上边比来的是 “tool” 层的上边框。<br>“提交”按钮的 offsetLeft 指“提交”按钮距“tool”层左边框的间隔，因为距其左边比来的是 “tool” 层的左边框。<br>“重置”按钮的 offsetLeft 指“重置”按钮距“提交”按钮右边框的间隔，因为距其左边比来的是“提交”按钮的右边框。</p>
+<p>以上属性在 FireFox 中也有效。</p>
+<p>另外：我们这里所说的是指 HTML 控件的属性值，并不是 document.body，document.body 的值在不合浏览器中有不合申明（实际上大多半景象是因为对 document.body 申明不合造成的，并不是因为对 offset 申明不合造成的），点击这里查看不合点。</p>
+<p>题目：offsetTop 与 style.top 的差别</p>
+<p>筹办常识：offsetTop、offsetLeft、offsetWidth、offsetHeight</p>
+<p>我们知道 offsetTop 可以获得 HTML 元素间隔上方或外层元素的地位，style.top 也是可以的，二者的差别是：</p>
+<p>一、offsetTop 返回的是数字，而 style.top 返回的是字符串，除了数字外还带有单位：px。<br>二、offsetTop 只读，而 style.top 可读写。<br>三、若是没有给 HTML 元素指定过 top 样式，则 style.top 返回的是空字符串。</p>
+<p>offsetLeft 与 style.left、offsetWidth 与 style.width、offsetHeight 与 style.height 也是同样事理。</p>
+<ol>
+<li>题目：clientHeight、offsetHeight和scrollHeight</li>
+</ol>
+<p>我们这里说说四种浏览器对 document.body 的 clientHeight、offsetHeight 和 scrollHeight 的申明，这里说的是 document.body，若是是 HTML 控件，则又有不合，点击这里查看。<br>这四种浏览器分别为IE（Internet Explorer）、NS（Netscape）、Opera、FF（FireFox）。</p>
+<p>clientHeight</p>
+<p>大家对 clientHeight 都没有什么贰言，都认为是内容可视区域的高度，也就是说页面浏览器中可以看到内容的这个区域的高度，一般是最后一个对象条以下到状况栏以上的这个区域，与页面内容无关。</p>
+<p>offsetHeight</p>
+<p>IE、Opera 认为 offsetHeight = clientHeight + 迁移转变条 + 边框。</p>
+<p>NS、FF 认为 offsetHeight 是网页内容实际高度，可以小于 clientHeight。</p>
+<p>scrollHeight</p>
+<p>IE、Opera 认为 scrollHeight 是网页内容实际高度，可以小于 clientHeight。</p>
+<p>NS、FF 认为 scrollHeight 是网页内容高度，不过最小值是 clientHeight。</p>
+<p>简单地说,clientHeight 就是透过浏览器看内容的这个区域高度。</p>
+<p>NS、 FF 认为 offsetHeight 和 scrollHeight 都是网页内容高度，只不过当网页内容高度小于便是 clientHeight 时，scrollHeight 的值是 clientHeight，而 offsetHeight 可以小于 clientHeight。</p>
+<p>IE、Opera 认为 offsetHeight 是可视区域 clientHeight 迁移转变条加边框。scrollHeight 则是网页内容实际高度。</p>
+<p>同理<br>clientWidth、offsetWidth 和 scrollWidth 的申明与上方雷同，只是把高度换成宽度即可。</p>
+<p>然则<br>FF 在不合的 DOCTYPE 中对 clientHeight 的申明不合， xhtml 1 trasitional 中则不是如上申明的。其它浏览器则不存在此题目。</p>
+<ol>
+<li>题目：scrollTop、scrollLeft、scrollWidth、scrollHeight</li>
+</ol>
+<p>scrollTop 是“卷”起来的高度值，示例：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;div style="width:100px;height:100px;background-color:＃FF0000;overflow:hidden;" id="p"&gt;</div><div class="line"></div><div class="line">&lt;div style="width:50px;height:300px;background-color:＃0000FF;" id="t"&gt;若是为 p 设置了 scrollTop，这些内容可能不会完全显示。&lt;/div&gt;</div><div class="line"></div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line">&lt;script type="text/javascript"&gt;</div><div class="line"></div><div class="line">var p = document.getElementById（"p"）;</div><div class="line"></div><div class="line">p.scrollTop = 10;</div><div class="line"></div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>因为为外层元素 p 设置了 scrollTop，所以内层元素会向上卷。</p>
+<p>scrollLeft 也是类似事理。</p>
+<p>我们已经知道 offsetHeight 是自身元素的宽度。</p>
+<p>而 scrollHeight 是内部元素的绝对宽度，包含内部元素的隐蔽的项目组。</p>
+<p>上述中 p 的 scrollHeight 为 300，而 p 的 offsetHeight 为 100。</p>
+<p>scrollWidth 也是类似事理。</p>
+<p>IE 和 FireFox 周全支撑，而 Netscape 和 Opera 不支撑 scrollTop、scrollLeft（document.body 除外）。</p>
+<p>揭晓时候：2007-10-15 20:20:16</p>
+<ol>
+<li>题目：offsetTop、offsetLeft、offsetWidth、offsetHeight</li>
+</ol>
+<p>返回对象的offsetLeft属性值和到当前窗口左边的真实值之间的间隔，可以懂得为边框的长度</p>
+<p>一向以来对offsetLeft，offsetTop，scrollLeft，scrollTop这几个办法很含混，花了一天的时候好好的进修了一下．得出了以下的成果：</p>
+<pre><code>- offsetTop:
+</code></pre><p>当前对象到其上级层顶部的间隔.</p>
+<p>不克不及对其进行赋值.设置对象到页面顶部的间隔请用style.top属性.</p>
+<pre><code>- offsetLeft:
+</code></pre><p>当前对象到其上级层左边的间隔.</p>
+<p>不克不及对其进行赋值.设置对象到页面左部的间隔请用style.left属性.</p>
+<pre><code>- offsetWidth:
+</code></pre><p>当前对象的宽度.</p>
+<p>与style.width属性的差别在于:如对象的宽度设定值为百分比宽度，则无论页面变大还是变小，style.width都返回此百分比，而offsetWidth则返回在不合页面中对象的宽度值而不是百分比值</p>
+<pre><code>- offsetHeight:
+</code></pre><p>与style.height属性的差别在于:如对象的宽度设定值为百分比高度，则无论页面变大还是变小，style.height都返回此百分比，而offsetHeight则返回在不合页面中对象的高度值而不是百分比值</p>
+<pre><code>- offsetParent:
+</code></pre><p>当前对象的上级层对象.</p>
+<p>重视.若是对象是包含在一个DIV中时，此DIV不会被当做是此对象的上级层，（即对象的上级层会跳过DIV对象）上级层是Table时则不会有题目.</p>
+<p>哄骗这个属性，可以获得当前对象在不合大小的页面中的绝对地位．</p>
+<p>获得绝对地位脚本代码</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">GetPosition</span>(<span class="params">obj</span>)</span></div><div class="line">&#123;</div><div class="line"> <span class="keyword">var</span> left = <span class="number">0</span>;</div><div class="line"> <span class="keyword">var</span> top   = <span class="number">0</span>;</div><div class="line"> <span class="keyword">while</span>(obj != <span class="built_in">document</span>.body)</div><div class="line"> &#123;</div><div class="line">    left = obj.offsetLeft;</div><div class="line">    top  = obj.offsetTop;</div><div class="line">    obj = obj.offsetParent;</div><div class="line"> &#125;</div><div class="line"> alert(<span class="string">"Left Is : "</span> + left + <span class="string">"\r\n"</span> + <span class="string">"Top   Is : "</span> + top);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li>scrollLeft :</li>
+</ol>
+<p>对象的最左边到对象在当前窗口显示的局限内的左边的间隔．</p>
+<p>便是在呈现了横向迁移转变条的景象下，迁移转变条拉动的间隔．</p>
+<ol>
+<li>scrollTop</li>
+</ol>
+<p>对象的最顶部到对象在当前窗口显示的局限内的顶边的间隔．</p>
+<p>便是在呈现了纵向迁移转变条的景象下，迁移转变条拉动的间隔．</p>
+<p>我们这里说说四种浏览器对 document.body 的 clientHeight、offsetHeight 和 scrollHeight 的申明，这里说的是 document.body，若是是 HTML 控件，则又有不合，点击这里查看。</p>
+<p>这四种浏览器分别为IE（Internet Explorer）、NS（Netscape）、Opera、FF（FireFox）。</p>
+<p>clientHeight</p>
+<p>大师对 clientHeight 都没有什么贰言，都认为是内容可视区域的高度，也就是说页面浏览器中可以看到内容的这个区域的高度，一般是最后一个对象条以下到状况栏以上的这个区域，与页面内容无关。</p>
+<p>offsetHeight</p>
+<p>IE、Opera 认为 offsetHeight = clientHeight + 迁移转变条 + 边框。</p>
+<p>NS、FF 认为 offsetHeight 是网页内容实际高度，可以小于 clientHeight。</p>
+<p>scrollHeight</p>
+<p>IE、Opera 认为 scrollHeight 是网页内容实际高度，可以小于 clientHeight。</p>
+<p>NS、FF 认为 scrollHeight 是网页内容高度，不过最小值是 clientHeight。</p>
+<p>简单地说</p>
+<p>clientHeight 就是透过浏览器看内容的这个区域高度。</p>
+<p>NS、 FF 认为 offsetHeight 和 scrollHeight 都是网页内容高度，只不过当网页内容高度小于便是 clientHeight 时，scrollHeight 的值是 clientHeight，而 offsetHeight 可以小于 clientHeight。</p>
+<p>IE、Opera 认为 offsetHeight 是可视区域 clientHeight 迁移转变条加边框。scrollHeight 则是网页内容实际高度。</p>
+<p>同理</p>
+<p>clientWidth、offsetWidth 和 scrollWidth 的申明与上方雷同，只是把高度换成宽度即可。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/23/Formidable插件 API/" rel="next" title="Formidable插件 API">
+                <i class="fa fa-chevron-left"></i> Formidable插件 API
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/12/23/body-parser插件 API/" rel="prev" title="body-parser 部分API">
+                body-parser 部分API <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/12/23/html中offsetTop、clientTop、scrollTop、offsetTop各属性介绍/"
+           data-title="html中offsetTop、clientTop、scrollTop、offsetTop各属性介绍" data-url="http://yoursite.com/2016/12/23/html中offsetTop、clientTop、scrollTop、offsetTop各属性介绍/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="TF" />
+          <p class="site-author-name" itemprop="name">TF</p>
+          <p class="site-description motion-element" itemprop="description">闲看庭前花开花落 <br> 漫随天外云卷云舒</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/tianfenggithub" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/weifengqiyuan" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">TF</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user">本站访客数</i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span>人次</span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye">本站总访问量</i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"TFgithub"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
