@@ -98,7 +98,7 @@
 
 如何创建闭包
 12345678910function outer()&amp;#123;　　　　var a=1;　　　　function inner()&amp;#123;">
-<meta property="og:updated_time" content="2017-01-02T14:41:15.028Z">
+<meta property="og:updated_time" content="2017-01-02T14:43:44.030Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="闭包概念应用以及相关问题(内存泄漏,垃圾回收)">
 <meta name="twitter:description" content="闭包的概念
@@ -363,6 +363,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function outer()&#123;</div><div class="line">　　　　var a=1;</div><div class="line">　　　　function inner()&#123;</div><div class="line">　　　　    a++;</div><div class="line">　　　　　　alert(a);</div><div class="line">　　　　&#125;</div><div class="line">　　　　return inner;</div><div class="line">&#125;</div><div class="line">var f1=outer();//创建了一个闭包，f1能访问outer函数中的变量</div><div class="line">f1();//弹出2.</div></pre></td></tr></table></figure>
 </li>
 </ol>
+<a id="more"></a>
 <p>这段代码的特点在于：</p>
 <ol>
 <li><p>函数inner嵌套在函数outer内部</p>
