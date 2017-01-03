@@ -1,0 +1,919 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="同源策略所谓同源策略，指的是浏览器对不同源的脚本或者文本的访问方式进行的限制。比如源a的js不能读取或设置引入的源b的元素属性。
+同源:URL由协议、域名、端口和路径组成，如果两个URL的协议、域名和端口相同，则表示他们同源。
+一个网站的网址组成包括协议名，子域名，主域名，端口号。比如https://www.github.com/80，其中https是协议名，www是子域名，github是主域名，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浏览器同源策略和跨域问题">
+<meta property="og:url" content="http://yoursite.com/2017/01/03/跨域/index.html">
+<meta property="og:site_name" content="微风祈愿">
+<meta property="og:description" content="同源策略所谓同源策略，指的是浏览器对不同源的脚本或者文本的访问方式进行的限制。比如源a的js不能读取或设置引入的源b的元素属性。
+同源:URL由协议、域名、端口和路径组成，如果两个URL的协议、域名和端口相同，则表示他们同源。
+一个网站的网址组成包括协议名，子域名，主域名，端口号。比如https://www.github.com/80，其中https是协议名，www是子域名，github是主域名，">
+<meta property="og:image" content="https://thumbnail0.baidupcs.com/thumbnail/0f1fa021de1dd7e39a5bbaeaa40d4d69?fid=2819499407-250528-587167670797122&time=1483423200&rt=sh&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-SfOtpXtOCAWrdRzxnI6opfrZiXQ%3D&expires=8h&chkv=0&chkbd=0&chkpc=&dp-logid=60311972239543033&dp-callid=0&size=c710_u400&quality=100">
+<meta property="og:image" content="https://thumbnail0.baidupcs.com/thumbnail/055364d390d507a90d755418225e6032?fid=2819499407-250528-217229905629647&time=1483448400&rt=sh&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-ko4kT03hEDh%2FBbgr4nQvCB0%2BI0E%3D&expires=8h&chkv=0&chkbd=0&chkpc=&dp-logid=66810109397136510&dp-callid=0&size=c710_u400&quality=100">
+<meta property="og:updated_time" content="2017-01-03T14:46:15.367Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="浏览器同源策略和跨域问题">
+<meta name="twitter:description" content="同源策略所谓同源策略，指的是浏览器对不同源的脚本或者文本的访问方式进行的限制。比如源a的js不能读取或设置引入的源b的元素属性。
+同源:URL由协议、域名、端口和路径组成，如果两个URL的协议、域名和端口相同，则表示他们同源。
+一个网站的网址组成包括协议名，子域名，主域名，端口号。比如https://www.github.com/80，其中https是协议名，www是子域名，github是主域名，">
+<meta name="twitter:image" content="https://thumbnail0.baidupcs.com/thumbnail/0f1fa021de1dd7e39a5bbaeaa40d4d69?fid=2819499407-250528-587167670797122&time=1483423200&rt=sh&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-SfOtpXtOCAWrdRzxnI6opfrZiXQ%3D&expires=8h&chkv=0&chkbd=0&chkpc=&dp-logid=60311972239543033&dp-callid=0&size=c710_u400&quality=100">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/01/03/跨域/"/>
+
+
+
+
+
+  <title> 浏览器同源策略和跨域问题 | 微风祈愿 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">微风祈愿</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle"></p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/03/跨域/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="TF">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.gif">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="微风祈愿">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="微风祈愿" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                浏览器同源策略和跨域问题
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-03T11:47:24+08:00">
+                2017-01-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/01/03/跨域/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/03/跨域/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o">本文总阅读量</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h1><p>所谓同源策略，指的是浏览器对不同源的脚本或者文本的访问方式进行的限制。比如源a的js不能读取或设置引入的源b的元素属性。</p>
+<p>同源:URL由协议、域名、端口和路径组成，如果两个URL的协议、域名和端口相同，则表示他们同源。</p>
+<p>一个网站的网址组成包括协议名，子域名，主域名，端口号。<br>比如<code>https://www.github.com/80</code>，其中<code>https</code>是协议名，<code>www</code>是子域名，<br><code>github</code>是主域名，端口号是<code>80</code>，当在在页面中从一个<code>url</code>请求数据时，如果这个<code>url</code>的协议名、子域名、主域名、端口号任意一个有一个不同，<br>就会产生跨域问题。即使是在 <code>http://localhost:80/</code> 页面请求 <code>http://127.0.0.1:80/</code> 也会有跨域问题（因为域名不一样）  </p>
+<p>PS：浏览器中的<code>file://</code>域拥有的权限很高，<code>WebKit</code>可以读取磁盘上的文件，<code>IE</code>可以执行<code>CMD</code><br><a id="more"></a><br><img src="https://thumbnail0.baidupcs.com/thumbnail/0f1fa021de1dd7e39a5bbaeaa40d4d69?fid=2819499407-250528-587167670797122&amp;time=1483423200&amp;rt=sh&amp;sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-SfOtpXtOCAWrdRzxnI6opfrZiXQ%3D&amp;expires=8h&amp;chkv=0&amp;chkbd=0&amp;chkpc=&amp;dp-logid=60311972239543033&amp;dp-callid=0&amp;size=c710_u400&amp;quality=100" alt="同源策略"></p>
+<blockquote>
+<p>特别注意两点：<br>一.如果是协议和端口造成的跨域问题“前台”是无能为力的<br>二.在跨域问题上，域仅仅是通过“URL的首部”来识别而不会去尝试判断相同的ip地址对应着两个域或两个域是否在同一个ip上。</p>
+</blockquote>
+<p>在浏览器中，<code>&lt;script&gt;</code>、<code>&lt;img&gt;</code>、<code>&lt;iframe&gt;</code>、<code>&lt;link&gt;</code>等标签都可以加载跨域资源，而不受同源限制，但浏览器限制了<code>JavaScript</code>的权限使其不能读、写加载的内容。（跨域限制是浏览器行为，不是服务器行为)<br>    另外同源策略只对网页的HTML文档做了限制，对加载的其他静态资源如<code>javascript</code>、<code>css</code>、<code>image</code>等仍然认为属于同源。</p>
+<h1 id="跨域的方法"><a href="#跨域的方法" class="headerlink" title="跨域的方法"></a>跨域的方法</h1><ol>
+<li><p><code>jsonp</code> - 动态创建<code>script</code>标签实现跨域<br>浏览器的<code>script</code>、<code>img</code>、<code>iframe</code>标签是不受同源策略限制的 ，所以通过<code>script</code>标签引入一个js文件，这个js文件载入成功后会执行我们在url参数中指定的<code>callback</code>函数，并把把我们需要的json数据作为参数传入。在服务器端，当<code>req.params</code>参数中带有<code>callback</code>属性时，则把数据作为<code>callback</code>的参数执行，并拼接成一个字符串后返回。<br>创建一个新的<code>script</code>标签，并插入<code>DOM</code>中，浏览器会像载入页面本身的script标签一样载入和运行插入标签的源文件。新<code>script</code>标签的源文件包含了一个页面本身已存在的一个<code>JavaScript</code>函数的调用，当执行这个源文件时，也会执行已存在的函数，这一过程定义了一个回调函数的方法。<br>实际的<code>jsonp</code>接口中，会让你传一个函数名过去，然后返回的数据中回调函数名就是你传的函数名，回调函数的参数则是封装的<code>json</code>格式。<code>jQuery</code>中的<code>jsonp</code>实现原理基本就是这样  </p>
+<blockquote>
+<p>例子:第一个是<a href="http://www.foo.com/jsonp.html，通过动态创建script标签加载了http://www.bar.com/js/outer.js文件.然后outer.js文件返回的内容正好是一个函数调用，就会执行这个函数.如此，实现了数据传递和回调过程" target="_blank" rel="external">http://www.foo.com/jsonp.html，通过动态创建script标签加载了http://www.bar.com/js/outer.js文件.然后outer.js文件返回的内容正好是一个函数调用，就会执行这个函数.如此，实现了数据传递和回调过程</a></p>
+</blockquote>
+ <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"># jsonp.html</div><div class="line">&lt;script type="text/javascript"&gt;</div><div class="line">function callback(data) &#123;</div><div class="line">    alert(data.message);</div><div class="line">&#125;</div><div class="line">function addScriptTag(src)&#123;</div><div class="line">var script = document.createElement('script');</div><div class="line">    script.src = src;</div><div class="line">    document.body.appendChild(script);</div><div class="line">&#125;</div><div class="line">window.onload = function()&#123;</div><div class="line">    addScriptTag("http://www.foo.com/js/outer.js");</div><div class="line">&#125;</div><div class="line">&lt;/script&gt;</div><div class="line"></div><div class="line"># outer.js</div><div class="line">callback(&#123;message:"success"&#125;);</div></pre></td></tr></table></figure>
+<p> 判断script节点加载完毕：<code>IE</code>只能通过<code>script</code>的<code>readystatechange</code>属性，其它浏览器是<code>script</code>的<code>load</code>事件。以下是部分判断<code>script</code>加载完毕的方法。</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">js.onload = js.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">       <span class="keyword">if</span> (!<span class="keyword">this</span>.readyState || <span class="keyword">this</span>.readyState === <span class="string">'loaded'</span> || <span class="keyword">this</span>.readyState === <span class="string">'complete'</span>) &#123;</div><div class="line">       <span class="comment">// callback在此处执行</span></div><div class="line">       js.onload = js.onreadystatechange = <span class="literal">null</span>;</div><div class="line">       &#125;</div><div class="line">   &#125;;</div></pre></td></tr></table></figure>
+<ul>
+<li>优点：兼容性好，在很古老的浏览器中也可以用，简单易用，支持浏览器与服务器双向通信。 </li>
+<li>缺点 <ul>
+<li>只支持<code>GET</code>请求(因为基于<code>script</code>)且只支持跨域HTTP请求这种情况（不支持<code>HTTPS</code>)</li>
+<li>安全问题(请求代码中可能存在安全隐患)  </li>
+<li>要确定<code>jsonp</code>请求是否失败并不容易</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>CORS跨域<br> CORS需要浏览器和服务器同时支持。目前，所有浏览器都支持该功能，IE浏览器不能低于IE10<br> CORS请求分成两类：简单请求（simple request）和非简单请求<br> 简单请求:</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">（1) 请求方法是以下三种方法之一：</div><div class="line">    HEAD</div><div class="line">    GET</div><div class="line">    POST</div><div class="line">（2）HTTP的头信息不超出以下几种字段：</div><div class="line">    Accept</div><div class="line">    Accept-Language</div><div class="line">    Content-Language</div><div class="line">    Last-Event-ID</div><div class="line">    Content-Type：只限于三个值application/x-www-form-urlencoded、multipart/form-data、text/plain</div></pre></td></tr></table></figure>
+<p> 对于简单请求，浏览器直接发出CORS请求。具体来说，就是在头信息之中，增加一个Origin字段.<br> Origin字段用来说明，本次请求来自哪个源（协议 + 域名 + 端口）。服务器根据这个值，决定是否同意这次请求。  </p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">GET /cors HTTP/1.1</div><div class="line">Origin: http://api.bob.com</div><div class="line">Host: api.alice.com</div><div class="line">Accept-Language: en-US</div><div class="line">Connection: keep-alive</div><div class="line">User-Agent: Mozilla/5.0...</div></pre></td></tr></table></figure>
+<p> 如果Origin指定的源，不在许可范围内，服务器会返回一个正常的HTTP回应。浏览器发现，这个回应的头信息没有包含Access-Control-Allow-Origin字段（详见下文），就知道出错了，从而抛出一个错误，被XMLHttpRequest的onerror回调函数捕获。注意，这种错误无法通过状态码识别，因为HTTP回应的状态码有可能是200。<br>如果Origin指定的域名在许可范围内，服务器返回的响应，会多出几个头信息字段。</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Access-Control-Allow-Origin: http://api.bob.com</div><div class="line">Access-Control-Allow-Credentials: true</div><div class="line">Access-Control-Expose-Headers: FooBar</div><div class="line">Content-Type: text/html; charset=utf-8</div></pre></td></tr></table></figure>
+<ul>
+<li><code>Access-Control-Allow-Origin</code><br>该字段是必须的。它的值要么是请求时Origin字段的值，要么是一个*，表示接受任意域名的请求。也解决了jsonp里面post不能跨域的问题</li>
+<li><code>Access-Control-Allow-Credentials</code><br>该字段可选。它的值是一个布尔值，表示是否允许发送<code>Cookie</code>。默认情况下，<code>Cookie</code>不包括在<code>CORS</code>请求之中。设为<code>true</code>，即表示服务器明确许可，<code>Cookie</code>可以包含在请求中，一起发给服务器。这个值也只能设为<code>true</code>，如果服务器不要浏览器发送<code>Cookie</code>，删除该字段即可。</li>
+<li><p><code>Access-Control-Expose-Headers</code><br>该字段可选。<code>CORS</code>请求时，<code>XMLHttpRequest</code>对象的<code>getResponseHeader()</code>方法只能拿到6个基本字段：<code>Cache-Control</code>、<code>Content-Language</code>、<code>Content-Type</code>、<code>Expires</code>、<code>Last-Modified</code>、<code>Pragma</code>。如果想拿到其他字段，就必须在<code>Access-Control-Expose-Headers</code>里面指定。上面的例子指定，<code>getResponseHeader(&#39;FooBar&#39;)</code>可以返回<code>FooBar</code>字段的值。</p>
+<p><a href="http://www.ruanyifeng.com/blog/2016/04/cors.html" target="_blank" rel="external">更多详情见阮一峰博客</a>  </p>
+<p>例子:</p>
+</li>
+</ul>
+<ol>
+<li><p>启动nodejs web应用的app.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">"express"</span>);  </div><div class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">"http"</span>);  </div><div class="line"><span class="keyword">var</span> app = express();  </div><div class="line"><span class="keyword">var</span> router = express.Router();      </div><div class="line"><span class="keyword">var</span> testRouter =  <span class="built_in">require</span>(<span class="string">'./routes/test/test'</span>);  </div><div class="line">app.use(<span class="string">'/test'</span>, testRouter);  </div><div class="line">http.createServer(app).listen(<span class="number">3000</span>);</div></pre></td></tr></table></figure>
+</li>
+<li><p>处理具体api的控制器 test.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);  </div><div class="line"><span class="keyword">var</span> router = express.Router();  </div><div class="line">  <span class="comment">/* GET home page. */</span>  </div><div class="line">router.get(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>&#123;  </div><div class="line">    res.render(<span class="string">'index'</span>, &#123; <span class="attr">name</span>: <span class="string">'Express 路由1'</span> &#125;);  </div><div class="line">&#125;);  </div><div class="line">  <span class="comment">/* GET home page. */</span>  </div><div class="line">router.get(<span class="string">'/cors'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>&#123;  </div><div class="line">    res.render(<span class="string">'test/index'</span>, &#123; <span class="attr">name</span>: <span class="string">'Express 路由1'</span> &#125;);  </div><div class="line">&#125;);  </div><div class="line">  <span class="comment">/* GET home page. */</span>  </div><div class="line">router.get(<span class="string">'/getData'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>&#123;  </div><div class="line"><span class="comment">//设置允许跨域请求  </span></div><div class="line"><span class="keyword">var</span> reqOrigin = req.header(<span class="string">"origin"</span>);  </div><div class="line"><span class="keyword">if</span>(reqOrigin !=<span class="literal">undefined</span> &amp;&amp; reqOrigin.indexOf(<span class="string">"http://localhost:3000"</span>) &gt; <span class="number">-1</span>)&#123;  </div><div class="line">    <span class="comment">//设置允许 http://localhost:3000 这个域响应  </span></div><div class="line">    res.header(<span class="string">"Access-Control-Allow-Origin"</span>, <span class="string">"http://localhost:3000"</span>);  </div><div class="line">    res.header(<span class="string">"Access-Control-Allow-Methods"</span>,<span class="string">"PUT,POST,GET,DELETE,OPTIONS"</span>);  </div><div class="line">    res.header(<span class="string">"Access-Control-Allow-Headers"</span>, <span class="string">"Content-Type,Content-Length, Authorization, Accept,X-Requested-With"</span>);  </div><div class="line">&#125;  </div><div class="line">res.json(<span class="number">200</span>, &#123;<span class="attr">name</span>:<span class="string">"张三1"</span>,<span class="attr">age</span>:<span class="number">40</span>&#125;);  </div><div class="line">&#125;);  </div><div class="line"><span class="built_in">module</span>.exports = router;</div></pre></td></tr></table></figure>
+</li>
+<li><p>模板页面，发送ajax跨域请求</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span>  </div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"zh-CN"</span>&gt;</span>  </div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span>  </div><div class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"</span>&gt;</span>  </div><div class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"Content-Type"</span> <span class="attr">content</span>=<span class="string">"text/html; charset=UTF-8"</span>&gt;</span> </div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"../public/js/jquery.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>  </div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"../public/js/hb_common.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>  </div><div class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"../public/css/bootstrap.min.css"</span>&gt;</span>  </div><div class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"../public/css/hb_wap.css"</span>&gt;</span>  </div><div class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>test<span class="tag">&lt;/<span class="name">title</span>&gt;</span>  </div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span>  </div><div class="line">  </div><div class="line"><span class="tag">&lt;<span class="name">body</span> &gt;</span>  </div><div class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"btn btn-primary"</span> <span class="attr">id</span>=<span class="string">"btn"</span> <span class="attr">onclick</span>=<span class="string">"corsGetData()"</span>&gt;</span>cors跨域获取数据<span class="tag">&lt;/<span class="name">button</span>&gt;</span>  </div><div class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span>  </div><div class="line">  </div><div class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"btn btn-primary"</span> <span class="attr">id</span>=<span class="string">"btn4"</span> <span class="attr">onclick</span>=<span class="string">"getData()"</span>&gt;</span>不跨域获取数据<span class="tag">&lt;/<span class="name">button</span>&gt;</span>  </div><div class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span>  </div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span>  </div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript">  </span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getData</span>(<span class="params"></span>)</span>&#123;  </div><div class="line">    $.ajax(&#123;  </div><div class="line">        <span class="attr">url</span>: <span class="string">"http://localhost:3000/test/getData"</span>,  </div><div class="line">        <span class="attr">type</span>:<span class="string">"GET"</span>,  </div><div class="line">        <span class="attr">cache</span>: <span class="literal">false</span>,  </div><div class="line">        <span class="attr">success</span>: <span class="function"><span class="keyword">function</span>(<span class="params">html</span>)</span>&#123;  </div><div class="line">            alert(html);  </div><div class="line">            $(<span class="string">"#results"</span>).append(html);  </div><div class="line">        &#125;  </div><div class="line">    &#125;)  </div><div class="line">&#125;  </div><div class="line">  </div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">corsGetData</span>(<span class="params"></span>)</span>&#123;  </div><div class="line">    $.ajax(&#123;  </div><div class="line">        <span class="attr">url</span>: <span class="string">"http://www.huangbiao.com:3000/test/getData"</span>,  </div><div class="line">        <span class="attr">type</span>:<span class="string">"GET"</span>,  </div><div class="line">        <span class="attr">cache</span>: <span class="literal">false</span>,  </div><div class="line">        <span class="attr">success</span>: <span class="function"><span class="keyword">function</span>(<span class="params">html</span>)</span>&#123;  </div><div class="line">            alert(html);  </div><div class="line">            $(<span class="string">"#results"</span>).append(html);  </div><div class="line">        &#125;  </div><div class="line">    &#125;)  </div><div class="line">&#125;  </div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span>  </div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li>特点:<ul>
+<li>CORS与JSONP的使用目的相同，但是比JSONP更强大。</li>
+<li>JSONP只支持GET请求，CORS支持所有类型的HTTP请求。</li>
+<li>JSONP的优势在于支持老式浏览器，以及可以向不支持CORS的网站请求数据。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>代理跨域<br><code>nodeJS</code>实现代理原理:我们在<code>127.0.0.1:5000/index.html</code>下配一个代理，然后把<code>Ajax</code>请求绑定到这个代理路径下，例如<code>127.0.0.1:5000/api/products</code>,然后这个代理发送<code>HTTP</code>请求访问<code>127.0.0.1:3000/api/products</code>，跨域的HTTP请求是在服务器端进行的（服务器端没有同源策略限制），客户端并没有产生跨域的<code>Ajax</code>请求。这个跨域方式不需要和目标资源签订协议，带有侵略性<br><img src="https://thumbnail0.baidupcs.com/thumbnail/055364d390d507a90d755418225e6032?fid=2819499407-250528-217229905629647&amp;time=1483448400&amp;rt=sh&amp;sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-ko4kT03hEDh%2FBbgr4nQvCB0%2BI0E%3D&amp;expires=8h&amp;chkv=0&amp;chkbd=0&amp;chkpc=&amp;dp-logid=66810109397136510&amp;dp-callid=0&amp;size=c710_u400&amp;quality=100" alt="nodeJS实现代理跨域的流程图"></p>
+<ol>
+<li><p>页面:向<code>http://127.0.0.1:5000/api/products</code>发起ajax请求  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//html页面部分js</span></div><div class="line">$.ajax(&#123;</div><div class="line">    <span class="attr">url</span>:<span class="string">'/api/product'</span>,</div><div class="line">    <span class="attr">type</span>:<span class="string">'get'</span>,</div><div class="line">    <span class="attr">dataType</span>:<span class="string">'json'</span>,</div><div class="line">    <span class="attr">success</span>:<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(data)</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>本地服务器:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">app.get(<span class="string">'/'</span>, (req, res, next) =&gt; &#123;</div><div class="line">    res.render(<span class="string">'index.html'</span>)</div><div class="line">&#125;)</div><div class="line"></div><div class="line">app.listen(<span class="number">5000</span>, () =&gt; &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'running at port 5000...'</span>)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+<li><p>接口代理:本地服务器在接受请求之后,将请求转发给<code>http://127.0.0.1:3000/api/products</code><br>本地服务器:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">app.get(<span class="string">'/api/products'</span>, (req, res, next) =&gt; &#123;</div><div class="line">    http.get(<span class="string">'http://127.0.0.1:3000/api/products'</span>, proxyRes =&gt; &#123;</div><div class="line">        <span class="keyword">let</span> data = <span class="string">''</span></div><div class="line">        proxyRes.on(<span class="string">'data'</span>, chunk =&gt; &#123;</div><div class="line">        data += chunk</div><div class="line">        &#125;)</div><div class="line">        proxyRes.on(<span class="string">'end'</span>, () =&gt; &#123;</div><div class="line">            res.send(data)</div><div class="line">        &#125;)</div><div class="line">    &#125;)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+<li><p>api接口服务器:接收到请求之后,相应一个json格式的数据<br>需要跨域的服务器:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">app.get(<span class="string">'/api/products'</span>, (req, res, next) =&gt; &#123;</div><div class="line">    res.send(&#123;</div><div class="line">        <span class="attr">success</span>: <span class="literal">true</span>,</div><div class="line">        <span class="attr">ret</span>: &#123;</div><div class="line">            <span class="attr">list</span>: products</div><div class="line">            &#125;</div><div class="line">    &#125;)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li><p>代理跨域常用的中间件<code>http-proxy-middleware</code><br>  作用：将当前网站所有的 /api 开头的请求都代理到 <a href="http://127.0.0.1:3000，代理是没有跨域限制的" target="_blank" rel="external">http://127.0.0.1:3000，代理是没有跨域限制的</a></p>
+<ol>
+<li>你请求的时候，还是直接请求自己网站的 /api/**</li>
+<li>proxy 将你的请求代理到 <a href="http://127.0.0.1:3000" target="_blank" rel="external">http://127.0.0.1:3000</a> ，请求转发</li>
+<li><p>proxy 将接收到的数据原封不动的响应给你的请求  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//写了这个,上述接口代理,就是本地服务器的一段代码简化为这个</div><div class="line">//该中间件自动帮你处理</div><div class="line">//注意:除了端口的区别,其他必须一致,比如/api/products</div><div class="line">app.use(&apos;/api&apos;, proxy(&#123;target: &apos;http://127.0.0.1:3000&apos;, changeOrigin: true&#125;))</div></pre></td></tr></table></figure></li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/01/02/闭包概念应用以及相关问题/" rel="next" title="闭包概念应用以及相关问题(内存泄漏,垃圾回收)">
+                <i class="fa fa-chevron-left"></i> 闭包概念应用以及相关问题(内存泄漏,垃圾回收)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/01/03/跨域/"
+           data-title="浏览器同源策略和跨域问题" data-url="http://yoursite.com/2017/01/03/跨域/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="TF" />
+          <p class="site-author-name" itemprop="name">TF</p>
+          <p class="site-description motion-element" itemprop="description">闲看庭前花开花落 <br> 漫随天外云卷云舒</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/tianfenggithub" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/weifengqiyuan" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#同源策略"><span class="nav-number">1.</span> <span class="nav-text">同源策略</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#跨域的方法"><span class="nav-number">2.</span> <span class="nav-text">跨域的方法</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">TF</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user">本站访客数</i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span>人次</span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye">本站总访问量</i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"TFgithub"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
