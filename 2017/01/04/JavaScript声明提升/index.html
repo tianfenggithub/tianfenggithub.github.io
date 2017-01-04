@@ -96,7 +96,7 @@
 变量定义
 可以使用var定义变量，变量如果没有赋值，那变量的初始值为undefined.
 如果没有使用var定义,那么就是隐式全局变量,此时全局都可以获得该变量,其作用域为全局">
-<meta property="og:updated_time" content="2017-01-04T12:59:52.401Z">
+<meta property="og:updated_time" content="2017-01-04T13:05:32.148Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript声明提升和作用域">
 <meta name="twitter:description" content="在es6里面已经可以规避了声明的提升,但在es6之前包括严格模式下都会遇见声明提升带来的一些问题
@@ -356,10 +356,12 @@
 <h1 id="变量定义"><a href="#变量定义" class="headerlink" title="变量定义"></a>变量定义</h1><ol>
 <li>可以使用var定义变量，变量如果没有赋值，那变量的初始值为undefined.</li>
 <li>如果没有使用var定义,那么就是隐式全局变量,此时全局都可以获得该变量,其作用域为全局<a id="more"></a>
-<h1 id="变量作用域"><a href="#变量作用域" class="headerlink" title="变量作用域"></a>变量作用域</h1></li>
+</li>
 </ol>
-<p>变量作用域指变量起作用的范围。变量分为全局变量和局部变量。全局变量在全局都拥有定义；而局部变量只能在函数内有效。<br>在函数体内，<strong>同名的局部变量或者参数的优先级会高于全局变量</strong>。也就是说，如果函数内存在和全局变量同名的局部变量或者参数，那么全局变量将会被局部变量覆盖。<br>所有不使用var定义的变量都视为全局变量  </p>
-<h2 id="变量运行（搜索）机制："><a href="#变量运行（搜索）机制：" class="headerlink" title="变量运行（搜索）机制："></a>变量运行（搜索）机制：</h2><p>首先看，有没有局部作用域<br>如果有，查找是不是这个局部作用域定义的变量<br>如果不是，寻找上一级作用域，直到找到全局作用域<br>如果全局作用域也找不到这个变量，这个变量就是未定义的 undefined</p>
+<h1 id="变量作用域"><a href="#变量作用域" class="headerlink" title="变量作用域"></a>变量作用域</h1><p>变量作用域指变量起作用的范围。变量分为全局变量和局部变量。全局变量在全局都拥有定义；而局部变量只能在函数内有效。<br>在函数体内，<strong>同名的局部变量或者参数的优先级会高于全局变量</strong>。也就是说，如果函数内存在和全局变量同名的局部变量或者参数，那么全局变量将会被局部变量覆盖。<br>所有不使用var定义的变量都视为全局变量  </p>
+<ul>
+<li>变量运行（搜索）机制：<br>首先看，有没有局部作用域<br>如果有，查找是不是这个局部作用域定义的变量<br>如果不是，寻找上一级作用域，直到找到全局作用域<br>如果全局作用域也找不到这个变量，这个变量就是未定义的 undefined</li>
+</ul>
 <h1 id="函数作用域和声明提前"><a href="#函数作用域和声明提前" class="headerlink" title="函数作用域和声明提前"></a>函数作用域和声明提前</h1><p>JavaScript的函数作用域是指在函数内声明的所有变量在函数体内始终是有定义的，也就是说变量在声明之前已经可用，所有这特性称为声明提前（hoisting），即JavaScript函数里的所有声明（只是声明，但不涉及赋值）都被提前到函数体的顶部，而变量赋值操作留在原来的位置。如下面例子：<br>注释：声明提前是在JavaScript引擎的预编译时进行，是在代码开始运行之前。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> scope = <span class="string">'global'</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(scope);</div><div class="line">    <span class="keyword">var</span> scope = <span class="string">'local'</span>;</div><div class="line">    <span class="built_in">console</span>.log(scope);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>由于函数内声明提升，所以上面的代码实际上是这样的<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> scope = <span class="string">'global'</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> scope;    <span class="comment">//变量声明提升到函数顶部</span></div><div class="line">    <span class="built_in">console</span>.log(scope);</div><div class="line">    scope = <span class="string">'local'</span>;    <span class="comment">//变量初始化依然保留在原来的位置</span></div><div class="line">    <span class="built_in">console</span>.log(scope);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <h1 id="变量声明-VS-函数声明"><a href="#变量声明-VS-函数声明" class="headerlink" title="变量声明 VS 函数声明"></a>变量声明 VS 函数声明</h1><ol>
@@ -543,7 +545,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#变量定义"><span class="nav-number">1.</span> <span class="nav-text">变量定义</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#变量作用域"><span class="nav-number">2.</span> <span class="nav-text">变量作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#变量运行（搜索）机制："><span class="nav-number">2.1.</span> <span class="nav-text">变量运行（搜索）机制：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#函数作用域和声明提前"><span class="nav-number">3.</span> <span class="nav-text">函数作用域和声明提前</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#变量声明-VS-函数声明"><span class="nav-number">4.</span> <span class="nav-text">变量声明 VS 函数声明</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#结论"><span class="nav-number">5.</span> <span class="nav-text">结论</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#变量定义"><span class="nav-number">1.</span> <span class="nav-text">变量定义</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#变量作用域"><span class="nav-number">2.</span> <span class="nav-text">变量作用域</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#函数作用域和声明提前"><span class="nav-number">3.</span> <span class="nav-text">函数作用域和声明提前</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#变量声明-VS-函数声明"><span class="nav-number">4.</span> <span class="nav-text">变量声明 VS 函数声明</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#结论"><span class="nav-number">5.</span> <span class="nav-text">结论</span></a></li></ol></div>
             
 
           </div>
