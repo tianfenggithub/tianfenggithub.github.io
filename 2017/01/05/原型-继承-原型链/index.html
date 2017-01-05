@@ -95,9 +95,9 @@
 
 获取原型方式
 
-通过函数：.prototype
-通过对象：.__proto__
-注意：已__开头和结尾的属性均为非标准属性; 原型 默认具有constructor属性，引用的就是其">
+通过函数：fnName.prototype
+通过对象：objName.__proto__
+注意：以__开头和结尾的属性均为非标准属性原型 默认具有construct">
 <meta property="og:type" content="article">
 <meta property="og:title" content="面向对象思想:原型-原型链-作用域链-继承问题">
 <meta property="og:url" content="http://yoursite.com/2017/01/05/原型-继承-原型链/index.html">
@@ -113,12 +113,12 @@
 
 获取原型方式
 
-通过函数：.prototype
-通过对象：.__proto__
-注意：已__开头和结尾的属性均为非标准属性; 原型 默认具有constructor属性，引用的就是其">
+通过函数：fnName.prototype
+通过对象：objName.__proto__
+注意：以__开头和结尾的属性均为非标准属性原型 默认具有construct">
 <meta property="og:image" content="https://github.com/tianfenggithub/image/raw/master/一张图看懂原型图.png">
 <meta property="og:image" content="https://github.com/tianfenggithub/image/raw/master/作用域链.jpg">
-<meta property="og:updated_time" content="2017-01-05T06:28:22.532Z">
+<meta property="og:updated_time" content="2017-01-05T07:00:25.851Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面向对象思想:原型-原型链-作用域链-继承问题">
 <meta name="twitter:description" content="原型的概念
@@ -132,9 +132,9 @@
 
 获取原型方式
 
-通过函数：.prototype
-通过对象：.__proto__
-注意：已__开头和结尾的属性均为非标准属性; 原型 默认具有constructor属性，引用的就是其">
+通过函数：fnName.prototype
+通过对象：objName.__proto__
+注意：以__开头和结尾的属性均为非标准属性原型 默认具有construct">
 <meta name="twitter:image" content="https://github.com/tianfenggithub/image/raw/master/一张图看懂原型图.png">
 
 
@@ -396,13 +396,12 @@
 </li>
 <li><p>获取原型方式</p>
 <ul>
-<li>通过函数：<fnname>.prototype</fnname></li>
-<li>通过对象：<objname>.__proto__</objname></li>
-<li>注意：已__开头和结尾的属性均为非标准属性; <pre><code>原型 默认具有constructor属性，引用的就是其构造函数
-</code></pre><a id="more"></a></li>
+<li>通过函数：fnName.prototype</li>
+<li>通过对象：objName.__proto__</li>
+<li>注意：以__开头和结尾的属性均为非标准属性<br>原型 默认具有constructor属性，引用的就是其构造函数<a id="more"></a></li>
 </ul>
 </li>
-<li><p>原型特性：</p>
+<li><p>原型特性</p>
 <ul>
 <li><p>动态性</p>
 <ul>
@@ -429,9 +428,8 @@
 </li>
 </ol>
 <h1 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h1><ol>
-<li><p>注意：其他面向对象语言 C# Java swift 类与类之间继承  </p>
-<pre><code>而在js中，是对象与对象之间的继承
-</code></pre></li>
+<li><p>注意：其他面向对象语言 C# Java swift 类与类之间继承,而在js中，是对象与对象之间的继承</p>
+</li>
 <li><p>概念：就是指 一个对象有权去访问另一个对象上的成员（属性和方法）</p>
 </li>
 <li><p>继承的实现</p>
@@ -447,12 +445,11 @@
 <li><p>Object.create方法</p>
 <ul>
 <li>实现原型式继承（通过置换原型方法）</li>
-<li>语法：</li>
+<li><p>语法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> newObj = <span class="built_in">Object</span>.create(parent);</div></pre></td></tr></table></figure>
+</li>
 </ul>
 </li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> newObj = <span class="built_in">Object</span>.create(parent);</div></pre></td></tr></table></figure>
-<ol>
 <li><p>相关结论：</p>
 <ul>
 <li>Object.prototype的原型为null</li>
@@ -486,12 +483,10 @@
 <li><p>给对象的每一个属性确定指向</p>
 </li>
 <li><p>如果在图形上的每一个对象的属性都有正确指向，说明绘制完成。</p>
+<p><img src="https://github.com/tianfenggithub/image/raw/master/一张图看懂原型图.png" alt="一张图看懂原型链"></p>
 </li>
 </ul>
 </li>
-</ol>
-<p><img src="https://github.com/tianfenggithub/image/raw/master/一张图看懂原型图.png" alt="一张图看懂原型链"></p>
-<ol>
 <li><p>Object.prototype 的部分常用方法简介</p>
 <ol>
 <li><p>hasOwnProperty</p>
