@@ -94,15 +94,15 @@
 <meta property="og:description" content="同源策略所谓同源策略，指的是浏览器对不同源的脚本或者文本的访问方式进行的限制。比如源a的js不能读取或设置引入的源b的元素属性。
 同源:URL由协议、域名、端口和路径组成，如果两个URL的协议、域名和端口相同，则表示他们同源。
 一个网站的网址组成包括协议名，子域名，主域名，端口号。比如https://www.github.com/80，其中https是协议名，www是子域名，github是主域名，">
-<meta property="og:image" content="https://thumbnail0.baidupcs.com/thumbnail/0f1fa021de1dd7e39a5bbaeaa40d4d69?fid=2819499407-250528-587167670797122&time=1483423200&rt=sh&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-SfOtpXtOCAWrdRzxnI6opfrZiXQ%3D&expires=8h&chkv=0&chkbd=0&chkpc=&dp-logid=60311972239543033&dp-callid=0&size=c710_u400&quality=100">
-<meta property="og:image" content="https://thumbnail0.baidupcs.com/thumbnail/055364d390d507a90d755418225e6032?fid=2819499407-250528-217229905629647&time=1483448400&rt=sh&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-ko4kT03hEDh%2FBbgr4nQvCB0%2BI0E%3D&expires=8h&chkv=0&chkbd=0&chkpc=&dp-logid=66810109397136510&dp-callid=0&size=c710_u400&quality=100">
-<meta property="og:updated_time" content="2017-01-03T15:31:47.530Z">
+<meta property="og:image" content="https://github.com/tianfenggithub/image/raw/master/同源策略.jpg">
+<meta property="og:image" content="https://github.com/tianfenggithub/image/raw/master/nodeJS 代理 跨域.jpg">
+<meta property="og:updated_time" content="2017-01-05T03:45:59.869Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浏览器同源策略和跨域问题">
 <meta name="twitter:description" content="同源策略所谓同源策略，指的是浏览器对不同源的脚本或者文本的访问方式进行的限制。比如源a的js不能读取或设置引入的源b的元素属性。
 同源:URL由协议、域名、端口和路径组成，如果两个URL的协议、域名和端口相同，则表示他们同源。
 一个网站的网址组成包括协议名，子域名，主域名，端口号。比如https://www.github.com/80，其中https是协议名，www是子域名，github是主域名，">
-<meta name="twitter:image" content="https://thumbnail0.baidupcs.com/thumbnail/0f1fa021de1dd7e39a5bbaeaa40d4d69?fid=2819499407-250528-587167670797122&time=1483423200&rt=sh&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-SfOtpXtOCAWrdRzxnI6opfrZiXQ%3D&expires=8h&chkv=0&chkbd=0&chkpc=&dp-logid=60311972239543033&dp-callid=0&size=c710_u400&quality=100">
+<meta name="twitter:image" content="https://github.com/tianfenggithub/image/raw/master/同源策略.jpg">
 
 
 
@@ -355,7 +355,7 @@
         <h1 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h1><p>所谓同源策略，指的是浏览器对不同源的脚本或者文本的访问方式进行的限制。比如源a的js不能读取或设置引入的源b的元素属性。</p>
 <p>同源:URL由协议、域名、端口和路径组成，如果两个URL的协议、域名和端口相同，则表示他们同源。</p>
 <p>一个网站的网址组成包括协议名，子域名，主域名，端口号。<br>比如<code>https://www.github.com/80</code>，其中<code>https</code>是协议名，<code>www</code>是子域名，<br><code>github</code>是主域名，端口号是<code>80</code>，当在在页面中从一个<code>url</code>请求数据时，如果这个<code>url</code>的协议名、子域名、主域名、端口号任意一个有一个不同，<br>就会产生跨域问题。即使是在 <code>http://localhost:80/</code> 页面请求 <code>http://127.0.0.1:80/</code> 也会有跨域问题（因为域名不一样）  </p>
-<p>PS：浏览器中的<code>file://</code>域拥有的权限很高，<code>WebKit</code>可以读取磁盘上的文件，<code>IE</code>可以执行<code>CMD</code><br><a id="more"></a><br><img src="https://thumbnail0.baidupcs.com/thumbnail/0f1fa021de1dd7e39a5bbaeaa40d4d69?fid=2819499407-250528-587167670797122&amp;time=1483423200&amp;rt=sh&amp;sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-SfOtpXtOCAWrdRzxnI6opfrZiXQ%3D&amp;expires=8h&amp;chkv=0&amp;chkbd=0&amp;chkpc=&amp;dp-logid=60311972239543033&amp;dp-callid=0&amp;size=c710_u400&amp;quality=100" alt="同源策略"></p>
+<p>PS：浏览器中的<code>file://</code>域拥有的权限很高，<code>WebKit</code>可以读取磁盘上的文件，<code>IE</code>可以执行<code>CMD</code><br><a id="more"></a><br><img src="https://github.com/tianfenggithub/image/raw/master/同源策略.jpg" alt="同源策略"></p>
 <blockquote>
 <p>特别注意两点：<br>一.如果是协议和端口造成的跨域问题“前台”是无能为力的<br>二.在跨域问题上，域仅仅是通过“URL的首部”来识别而不会去尝试判断相同的ip地址对应着两个域或两个域是否在同一个ip上。</p>
 </blockquote>
@@ -412,7 +412,7 @@
 </li>
 </ul>
 </li>
-<li><p>代理跨域<br><code>nodeJS</code>实现代理原理:我们在<code>127.0.0.1:5000/index.html</code>下配一个代理，然后把<code>Ajax</code>请求绑定到这个代理路径下，例如<code>127.0.0.1:5000/api/products</code>,然后这个代理发送<code>HTTP</code>请求访问<code>127.0.0.1:3000/api/products</code>，跨域的HTTP请求是在服务器端进行的（服务器端没有同源策略限制），客户端并没有产生跨域的<code>Ajax</code>请求。这个跨域方式不需要和目标资源签订协议，带有侵略性<br><img src="https://thumbnail0.baidupcs.com/thumbnail/055364d390d507a90d755418225e6032?fid=2819499407-250528-217229905629647&amp;time=1483448400&amp;rt=sh&amp;sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-ko4kT03hEDh%2FBbgr4nQvCB0%2BI0E%3D&amp;expires=8h&amp;chkv=0&amp;chkbd=0&amp;chkpc=&amp;dp-logid=66810109397136510&amp;dp-callid=0&amp;size=c710_u400&amp;quality=100" alt="nodeJS实现代理跨域的流程图"></p>
+<li><p>代理跨域<br><code>nodeJS</code>实现代理原理:我们在<code>127.0.0.1:5000/index.html</code>下配一个代理，然后把<code>Ajax</code>请求绑定到这个代理路径下，例如<code>127.0.0.1:5000/api/products</code>,然后这个代理发送<code>HTTP</code>请求访问<code>127.0.0.1:3000/api/products</code>，跨域的HTTP请求是在服务器端进行的（服务器端没有同源策略限制），客户端并没有产生跨域的<code>Ajax</code>请求。这个跨域方式不需要和目标资源签订协议，带有侵略性<br><img src="https://github.com/tianfenggithub/image/raw/master/nodeJS 代理 跨域.jpg" alt="nodeJS实现代理跨域的流程图"></p>
 <ol>
 <li><p>页面:向<code>http://127.0.0.1:5000/api/products</code>发起ajax请求  </p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//html页面部分js</span></div><div class="line">$.ajax(&#123;</div><div class="line">    <span class="attr">url</span>:<span class="string">'/api/product'</span>,</div><div class="line">    <span class="attr">type</span>:<span class="string">'get'</span>,</div><div class="line">    <span class="attr">dataType</span>:<span class="string">'json'</span>,</div><div class="line">    <span class="attr">success</span>:<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(data)</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
