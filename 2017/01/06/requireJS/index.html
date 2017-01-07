@@ -351,7 +351,7 @@
       
         <h1 id="requireJS的需求"><a href="#requireJS的需求" class="headerlink" title="requireJS的需求"></a>requireJS的需求</h1><ol>
 <li><p>需求: 在一个网页有大量的js需要加载的时候,传统方式就是用大量的script标签依次加载.</p>
- <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//举个栗子</span></div><div class="line">&lt;script src=<span class="string">"1.js"</span>&gt;&lt;/script&gt;</div><div class="line">&lt;script src=<span class="string">"2.js"</span>&gt;&lt;/script&gt;</div><div class="line">&lt;script src=<span class="string">"3.js"</span>&gt;&lt;/script&gt;</div><div class="line">&lt;script src=<span class="string">"4.js"</span>&gt;&lt;/script&gt;</div><div class="line">&lt;script src=<span class="string">"5.js"</span>&gt;&lt;/script&gt;</div><div class="line">&lt;script src=<span class="string">"6.js"</span>&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//举个栗子</span></div><div class="line">&lt;script src=<span class="string">"1.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line">&lt;script src=<span class="string">"2.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line">&lt;script src=<span class="string">"3.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line">&lt;script src=<span class="string">"4.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line">&lt;script src=<span class="string">"5.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line">&lt;script src=<span class="string">"6.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
  <a id="more"></a></li>
 <li><p>缺点</p>
 <ul>
@@ -368,7 +368,7 @@
 </ol>
 <h1 id="使用requireJS"><a href="#使用requireJS" class="headerlink" title="使用requireJS"></a>使用requireJS</h1><ol>
 <li><p>加载requireJS</p>
- <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script src=<span class="string">"js/require.js"</span>&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script src=<span class="string">"js/require.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
 <blockquote>
 <p>加载这个文件，也可能造成网页失去响应</p>
 </blockquote>
@@ -377,7 +377,7 @@
 <ul>
 <li>一个是把它放在网页底部加载</li>
 <li><p>见下面代码</p>
-  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">            　　&lt;script src=<span class="string">"js/require.js"</span> defer <span class="keyword">async</span>=<span class="string">"true"</span> &gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">            　　&lt;script src=<span class="string">"js/require.js"</span> defer <span class="keyword">async</span>=<span class="string">"true"</span> &gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
 <p>  async属性表明这个文件需要异步加载，避免网页失去响应。IE不支持这个属性，只支持defer，所以把defer也写上。</p>
 </li>
 </ul>
@@ -385,7 +385,7 @@
 </ul>
 </li>
 <li><p>加载主模块<code>data-main</code><br> 指定网页程序的主模块。这个文件会第一个被require.js加载。由于require.js默认的文件后缀名是js，所以可以把main.js简写成main。</p>
- <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">    　　&lt;script src=<span class="string">"js/require.js"</span> data-main=<span class="string">"js/main"</span>&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">    　　&lt;script src=<span class="string">"js/require.js"</span> data-main=<span class="string">"js/main"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
 <p> 主模块类似于入口函数,也就是所有代码必须先经过它</p>
 </li>
 <li><p><code>main.js</code>的写法<br> 如果我们的代码不依赖任何其他模块，那么可以直接写入javascript代码</p>
@@ -431,7 +431,7 @@
 </ul>
 </li>
 <li><p>建议的写法</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//先用script标签加载require.js data-main类似于入口函数会紧跟着加载</span></div><div class="line">&lt;script src=<span class="string">"js/require.js"</span> data-main=<span class="string">"js/main"</span>&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//先用script标签加载require.js data-main类似于入口函数会紧跟着加载</span></div><div class="line">&lt;script src=<span class="string">"js/require.js"</span> data-main=<span class="string">"js/main"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
 </li>
 </ol>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//data-main里面的写法</span></div><div class="line"><span class="built_in">require</span>.config(&#123;</div><div class="line"><span class="comment">//设置基础路径,以后require的路径前面都会加上baseUrl的内容</span></div><div class="line">  baseUrl: <span class="string">'/public'</span>,</div><div class="line">  <span class="attr">paths</span>: &#123;</div><div class="line">    <span class="attr">underscore</span>: <span class="string">'/node_modules/underscore/underscore'</span>,</div><div class="line">    jQuery.lazyload: <span class="string">'/node_modules/jQuery.lazyload/jQuery.lazyload'</span>,</div><div class="line">    <span class="attr">jquery</span>: <span class="string">'/node_modules/jquery/dist/jquery'</span>,</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">shim</span>: &#123;</div><div class="line">  <span class="comment">//设置依赖项和对外暴露的符号</span></div><div class="line">  <span class="comment">//如果有对外暴露的接口，则直接使用就可以了,不需要export的时候建议不写</span></div><div class="line">    jQuery.lazyload:&#123;</div><div class="line">        <span class="attr">deps</span>:[<span class="string">'jquery'</span>],</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line"><span class="comment">//需要require的时候,去找paths里面定义的名字,建议形参用该模块对外暴露的id去接收,参照习惯比较方便,当然你用@去接收jQuery在回调函数里面也需要@()来获取元素</span></div><div class="line"><span class="built_in">require</span>([<span class="string">'jquery'</span>, <span class="string">'underscore'</span>, <span class="string">'jQuery.lazyload'</span>], <span class="function"><span class="keyword">function</span> (<span class="params">$, _, lazy</span>)</span>&#123;</div><div class="line"><span class="comment">// some code here</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
@@ -469,6 +469,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/01/07/原型-原型链-继承/" rel="prev" title="原型-原型链-继承">
+                原型-原型链-继承 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -542,7 +546,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-count">17</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
