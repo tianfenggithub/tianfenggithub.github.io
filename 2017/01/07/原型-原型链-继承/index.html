@@ -117,7 +117,7 @@
 通过对象：.__proto__
 注意：已__开头和结尾的属性均为非标准属性; 原型 默认具有constructor属性，引用的就是其">
 <meta property="og:image" content="https://github.com/tianfenggithub/image/raw/master/一张图看懂原型图.png">
-<meta property="og:updated_time" content="2017-01-07T05:21:13.787Z">
+<meta property="og:updated_time" content="2017-01-07T05:24:36.261Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="原型-原型链-继承">
 <meta name="twitter:description" content="原型的概念
@@ -445,15 +445,16 @@
 <li><p>给对象的每一个属性确定指向</p>
 </li>
 <li><p>如果在图形上的每一个对象的属性都有正确指向，说明绘制完成。</p>
+<p><img src="https://github.com/tianfenggithub/image/raw/master/一张图看懂原型图.png" alt="一张图看懂原型链"></p>
+</li>
+<li><p>相关结论：</p>
+<ul>
+<li>Object.prototype的原型为null</li>
+<li>默认原型对象的原型为Object.prototype</li>
+</ul>
 </li>
 </ul>
 </li>
-</ol>
-<p><img src="https://github.com/tianfenggithub/image/raw/master/一张图看懂原型图.png" alt="一张图看懂原型链"></p>
-<pre><code>+ 相关结论：
-    + Object.prototype的原型为null
-    + 默认原型对象的原型为Object.prototype
-</code></pre><ol>
 <li><p>Object.prototype 的部分常用方法简介</p>
 <ol>
 <li><p>hasOwnProperty</p>
