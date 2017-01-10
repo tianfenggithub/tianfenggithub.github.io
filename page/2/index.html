@@ -418,7 +418,7 @@
               
                 
                 <a class="post-title-link" href="/2016/03/12/原型-原型链-继承方法/" itemprop="url">
-                  面向对象:原型-原型链-继承
+                  面向对象:创建对象-原型-原型链-继承
                 </a>
               
             
@@ -481,7 +481,63 @@
 
       
         
-          <h1 id="原型的概念"><a href="#原型的概念" class="headerlink" title="原型的概念"></a>原型的概念</h1><ol>
+          <h1 id="创建对象的方式"><a href="#创建对象的方式" class="headerlink" title="创建对象的方式"></a>创建对象的方式</h1><ol>
+<li><p>工厂模式</p>
+<ul>
+<li><p>语法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">createPerson</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> p = <span class="keyword">new</span> <span class="built_in">Object</span>;</div><div class="line">    p.name = <span class="string">'jerry'</span>;</div><div class="line">    p.age = <span class="number">18</span>;</div><div class="line">    <span class="comment">// some other prop</span></div><div class="line">    <span class="keyword">return</span> p;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> p1 = createPerson();</div></pre></td></tr></table></figure>
+</li>
+<li><p>说明</p>
+<ol>
+<li>在函数中定义对象,并定义对象的各种属性</li>
+<li>创建对象时，不需要new操作符</li>
+<li>在函数的最后返回该对象</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>构造函数</p>
+<ul>
+<li><p>语法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = <span class="string">'jerry'</span>;</div><div class="line">    <span class="keyword">this</span>.age = <span class="number">18</span>;</div><div class="line">    <span class="comment">// some other prop</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> p2 = <span class="keyword">new</span> Person();</div></pre></td></tr></table></figure>
+</li>
+<li><p>说明</p>
+<ol>
+<li>无需再函数内部创建对象</li>
+<li>使用this给当前实例添加成员</li>
+<li>函数无需明确return</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>原型模式</p>
+<ul>
+<li><p>语法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;&#125;</div><div class="line">Person.prototype.name = <span class="string">'jerry'</span>;</div><div class="line">Person.prototype.age = <span class="number">18</span>;</div><div class="line"><span class="keyword">var</span> p3 = <span class="keyword">new</span> Person;</div></pre></td></tr></table></figure>
+</li>
+<li><p>说明</p>
+<ol>
+<li>函数中不对成员进行定义</li>
+<li>利用prototype属性对成员进行定义</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>混合模式</p>
+<ul>
+<li><p>语法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = name;</div><div class="line">&#125;</div><div class="line">Person.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.name;</div><div class="line">&#125;;</div><div class="line"><span class="keyword">var</span> p4 = <span class="keyword">new</span> Person(<span class="string">'jerry'</span>);</div></pre></td></tr></table></figure>
+</li>
+<li><p>说明</p>
+<ol>
+<li>该模式是指混合搭配使用构造函数方式和原型方式</li>
+<li>将所有属性定义在函数中（构造函数方式）</li>
+<li>将所有方法定义在原型上</li>
+<li>推荐使用这样方式创建对象<h1 id="原型的概念"><a href="#原型的概念" class="headerlink" title="原型的概念"></a>原型的概念</h1></li>
+</ol>
+</li>
+</ul>
+</li>
 <li><p>概念：所谓原型就是指 函数的prototype属性所引用的对象 </p>
 <ul>
 <li>只要定义一个函数，那么就会创建其原型</li>
@@ -1761,7 +1817,7 @@ ajax流程
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2015</span>
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
