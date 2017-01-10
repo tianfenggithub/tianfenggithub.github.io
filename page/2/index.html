@@ -486,74 +486,6 @@
 <ul>
 <li><p>语法</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">createPerson</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> p = <span class="keyword">new</span> <span class="built_in">Object</span>;</div><div class="line">    p.name = <span class="string">'jerry'</span>;</div><div class="line">    p.age = <span class="number">18</span>;</div><div class="line">    <span class="comment">// some other prop</span></div><div class="line">    <span class="keyword">return</span> p;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> p1 = createPerson();</div></pre></td></tr></table></figure>
-</li>
-<li><p>说明</p>
-<ol>
-<li>在函数中定义对象,并定义对象的各种属性</li>
-<li>创建对象时，不需要new操作符</li>
-<li>在函数的最后返回该对象</li>
-</ol>
-</li>
-</ul>
-</li>
-<li><p>构造函数</p>
-<ul>
-<li><p>语法</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = <span class="string">'jerry'</span>;</div><div class="line">    <span class="keyword">this</span>.age = <span class="number">18</span>;</div><div class="line">    <span class="comment">// some other prop</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> p2 = <span class="keyword">new</span> Person();</div></pre></td></tr></table></figure>
-</li>
-<li><p>说明</p>
-<ol>
-<li>无需再函数内部创建对象</li>
-<li>使用this给当前实例添加成员</li>
-<li>函数无需明确return</li>
-</ol>
-</li>
-</ul>
-</li>
-<li><p>原型模式</p>
-<ul>
-<li><p>语法</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;&#125;</div><div class="line">Person.prototype.name = <span class="string">'jerry'</span>;</div><div class="line">Person.prototype.age = <span class="number">18</span>;</div><div class="line"><span class="keyword">var</span> p3 = <span class="keyword">new</span> Person;</div></pre></td></tr></table></figure>
-</li>
-<li><p>说明</p>
-<ol>
-<li>函数中不对成员进行定义</li>
-<li>利用prototype属性对成员进行定义</li>
-</ol>
-</li>
-</ul>
-</li>
-<li><p>混合模式</p>
-<ul>
-<li><p>语法</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = name;</div><div class="line">&#125;</div><div class="line">Person.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.name;</div><div class="line">&#125;;</div><div class="line"><span class="keyword">var</span> p4 = <span class="keyword">new</span> Person(<span class="string">'jerry'</span>);</div></pre></td></tr></table></figure>
-</li>
-<li><p>说明</p>
-<ol>
-<li>该模式是指混合搭配使用构造函数方式和原型方式</li>
-<li>将所有属性定义在函数中（构造函数方式）</li>
-<li>将所有方法定义在原型上</li>
-<li>推荐使用这样方式创建对象</li>
-</ol>
-</li>
-</ul>
-</li>
-</ol>
-<h1 id="原型的概念"><a href="#原型的概念" class="headerlink" title="原型的概念"></a>原型的概念</h1><ol>
-<li><p>概念：所谓原型就是指 函数的prototype属性所引用的对象 </p>
-<ul>
-<li>只要定义一个函数，那么就会创建其原型</li>
-<li>由上述函数创建出来的所有对象，都可以直接访问到原型上的成员</li>
-</ul>
-</li>
-<li><p>作用：实现同类对象之间的数据共享。</p>
-</li>
-<li><p>获取原型方式</p>
-<ul>
-<li>通过函数：<fnName>.prototype</li>
-<li>通过对象：<objName>.__proto__</li>
-<li>注意：已__开头和结尾的属性均为非标准属性; <pre><code>原型 默认具有constructor属性，引用的就是其构造函数
-</code></pre>
           <!--noindex-->
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/03/12/创建对象-原型-原型链-继承方法/#more" rel="contents">
@@ -686,25 +618,17 @@
 
       
         
-          
-          概念
-全称Asynchronous JavaScript and XML   (异步的JavaScript与XML)
-定义 一种请求数据的方式，不需要刷新整个页面
-特点及目的
-不刷新页面
-服务器仅返回需要的数据(速度快,体验好)
-
-
-引擎
-XMLHttpRequest此函数对象是浏览器中的内置对象，在目前的所有浏览器中都支持此对象。  IE7+、Firefox、Chrome、Safari 以及 Opera
-ActiveXObject  仅IE，支持此对象
-
-
-
-ajax流程
-请求过程
-创建 XM
-          ...
+          <h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><ol>
+<li>全称<code>Asynchronous JavaScript and XML</code>   (异步的JavaScript与XML)</li>
+<li>定义<br> 一种请求数据的方式，不需要刷新整个页面</li>
+<li>特点及目的<ul>
+<li>不刷新页面</li>
+<li>服务器仅返回需要的数据(速度快,体验好)</li>
+</ul>
+</li>
+<li>引擎<ul>
+<li><code>XMLHttpRequest</code><br>此函数对象是浏览器中的内置对象，在目前的所有浏览器中都支持此对象。<br>  <code>IE7+</code>、<code>Firefox</code>、<code>Chrome</code>、<code>Safari</code> 以及 <code>Opera</code></li>
+<li><code>ActiveXObject</code><br>  仅<code>IE</code>，支持此对象
           <!--noindex-->
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/10/04/ajax以及异步无刷新场景和方法/#more" rel="contents">
@@ -1671,43 +1595,13 @@ ajax流程
 
       
         
-          
-          
-循环语句
-
-while
-
-语法
-123while(条件表达式)&#123;      循环执行代码段      &#125;
-
-流程
-
-判断条件表达式的值
-当值为true时循环执行代码段
-当值为false时退出循环体
-
-
-特性
-先检查条件，再执行循环
-条件不满足则循环一次也不执行
-
-
-时机
-一个动作被重复执行到满足某个条件时
-
-
-
-
-do-while
-
-语法
-123do&#123;    循环执行代码段&#125;while(条件表达式);
-
-流程
-
-先执行循环体内代码再进行判断
-如果表达式的
-          ...
+          <ol>
+<li><p>循环语句</p>
+<ul>
+<li><p>while</p>
+<ul>
+<li><p>语法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">while</span>(条件表达式)&#123;</div><div class="line">      循环执行代码段</div><div class="line">      &#125;</div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-more-link text-center">
             <a class="btn" href="/2014/11/10/JavaScript流程语句/#more" rel="contents">
@@ -1789,7 +1683,7 @@ do-while
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-count">22</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
