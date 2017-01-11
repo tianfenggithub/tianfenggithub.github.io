@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.weifengqiyuan.com/categories/index.html</loc>
+    
+    <lastmod>2017-01-11T13:39:12.767Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.weifengqiyuan.com/2016/08/05/requireJS%E6%A6%82%E5%BF%B5%E5%8F%8A%E4%BD%BF%E7%94%A8/</loc>
     
     <lastmod>2017-01-11T13:12:21.699Z</lastmod>
@@ -152,13 +159,6 @@
     <loc>http://www.weifengqiyuan.com/2016/11/21/canvas%2004/</loc>
     
     <lastmod>2017-01-11T13:07:05.936Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.weifengqiyuan.com/categories/index.html</loc>
-    
-    <lastmod>2017-01-11T13:06:27.987Z</lastmod>
     
   </url>
   
