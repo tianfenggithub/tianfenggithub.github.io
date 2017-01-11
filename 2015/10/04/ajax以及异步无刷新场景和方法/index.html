@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="JavaScript进阶," />
 
 
 
@@ -109,7 +109,7 @@ XMLHttpRequest此函数对象是浏览器中的内置对象，在目前的所有
 引擎
 XMLHttpRequest此函数对象是浏览器中的内置对象，在目前的所有浏览器中都支持此对象。  IE7+、Firefox、Chrome、Safari 以及 O">
 <meta property="og:image" content="https://github.com/tianfenggithub/image/raw/master/文件属性.jpg">
-<meta property="og:updated_time" content="2014-09-28T07:46:57.046Z">
+<meta property="og:updated_time" content="2017-01-11T03:34:37.870Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ajax及异步无刷新的场景和方法">
 <meta name="twitter:description" content="概念
@@ -227,6 +227,16 @@ XMLHttpRequest此函数对象是浏览器中的内置对象，在目前的所有
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
           </a>
         </li>
       
@@ -514,10 +524,10 @@ XMLHttpRequest此函数对象是浏览器中的内置对象，在目前的所有
 </ol>
 </li>
 <li><p>示例代码: GET<br>  get的数据,直接在请求的url中添加即可</p>
-  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</div><div class="line"><span class="comment">// 创建XMLHttpRequest 对象</span></div><div class="line"><span class="keyword">var</span> xml = <span class="keyword">new</span> XMLHttpRequest();</div><div class="line"><span class="comment">// 设置跟服务端交互的信息</span></div><div class="line">xml.open(<span class="string">'get'</span>,<span class="string">'01.ajax.php?name=fox'</span>);</div><div class="line">xml.send(<span class="literal">null</span>);    <span class="comment">// get请求这里写null即可</span></div><div class="line"><span class="comment">// 接收服务器反馈</span></div><div class="line">xhr.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">// 这步为判断服务器是否正确响应</span></div><div class="line">    <span class="keyword">if</span> (xhr.readyState == <span class="number">4</span> &amp;&amp; xhr.status == <span class="number">200</span>) &#123;</div><div class="line">        <span class="comment">// 打印响应内容</span></div><div class="line">        alert(xml.responseText);</div><div class="line">    &#125; </div><div class="line">&#125;;</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</div><div class="line"><span class="comment">// 创建XMLHttpRequest 对象</span></div><div class="line"><span class="keyword">var</span> xml = <span class="keyword">new</span> XMLHttpRequest();</div><div class="line"><span class="comment">// 设置跟服务端交互的信息</span></div><div class="line">xml.open(<span class="string">'get'</span>,<span class="string">'01.ajax.php?name=fox'</span>);</div><div class="line">xml.send(<span class="literal">null</span>);    <span class="comment">// get请求这里写null即可</span></div><div class="line"><span class="comment">// 接收服务器反馈</span></div><div class="line">xhr.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">// 这步为判断服务器是否正确响应</span></div><div class="line">    <span class="keyword">if</span> (xhr.readyState == <span class="number">4</span> &amp;&amp; xhr.status == <span class="number">200</span>) &#123;</div><div class="line">        <span class="comment">// 打印响应内容</span></div><div class="line">        alert(xml.responseText);</div><div class="line">    &#125; </div><div class="line">&#125;;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
 </li>
 <li><p>示例代码: POST</p>
-  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</div><div class="line"><span class="comment">// 异步对象</span></div><div class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</div><div class="line"><span class="comment">// 设置属性</span></div><div class="line">xhr.open(<span class="string">'post'</span>, <span class="string">'02.post.php'</span> );</div><div class="line"><span class="comment">// 如果想要使用post提交数据,必须添加</span></div><div class="line">xhr.setRequestHeader(<span class="string">"Content-type"</span>,<span class="string">"application/x-www-form-urlencoded"</span>);</div><div class="line"><span class="comment">// 将数据通过send方法传递</span></div><div class="line">xhr.send(<span class="string">'name=fox&amp;age=18'</span>);</div><div class="line"><span class="comment">// 发送并接受返回值</span></div><div class="line">xhr.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line"><span class="comment">// 这步为判断服务器是否正确响应</span></div><div class="line"><span class="keyword">if</span> (xhr.readyState == <span class="number">4</span> &amp;&amp; xhr.status == <span class="number">200</span>) &#123;</div><div class="line">       alert(xhr.responseText);</div><div class="line">     &#125; </div><div class="line">&#125;;</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</div><div class="line"><span class="comment">// 异步对象</span></div><div class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</div><div class="line"><span class="comment">// 设置属性</span></div><div class="line">xhr.open(<span class="string">'post'</span>, <span class="string">'02.post.php'</span> );</div><div class="line"><span class="comment">// 如果想要使用post提交数据,必须添加</span></div><div class="line">xhr.setRequestHeader(<span class="string">"Content-type"</span>,<span class="string">"application/x-www-form-urlencoded"</span>);</div><div class="line"><span class="comment">// 将数据通过send方法传递</span></div><div class="line">xhr.send(<span class="string">'name=fox&amp;age=18'</span>);</div><div class="line"><span class="comment">// 发送并接受返回值</span></div><div class="line">xhr.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line"><span class="comment">// 这步为判断服务器是否正确响应</span></div><div class="line"><span class="keyword">if</span> (xhr.readyState == <span class="number">4</span> &amp;&amp; xhr.status == <span class="number">200</span>) &#123;</div><div class="line">       alert(xhr.responseText);</div><div class="line">     &#125; </div><div class="line">&#125;;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <h1 id="异步无刷新"><a href="#异步无刷新" class="headerlink" title="异步无刷新"></a>异步无刷新</h1><ul>
@@ -598,6 +608,12 @@ XMLHttpRequest此函数对象是浏览器中的内置对象，在目前的所有
 
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript进阶/" rel="tag"># JavaScript进阶</a>
+          
+        </div>
       
 
       
@@ -698,6 +714,13 @@ XMLHttpRequest此函数对象是浏览器中的内置对象，在目前的所有
 
           
 
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
           
 
         </nav>
