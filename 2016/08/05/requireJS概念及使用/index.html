@@ -89,12 +89,12 @@
  1234567//举个栗子&amp;lt;script src=&quot;1.js&quot;&amp;gt;&amp;lt;/script&amp;gt;&amp;lt;script src=&quot;2.js&quot;&amp;gt;&amp;lt;/script&amp;gt;&amp;lt;script src=&quot;3.js&quot;&amp;gt;&amp;lt;/script&amp;gt;&amp;lt;sc">
 <meta property="og:type" content="article">
 <meta property="og:title" content="requireJS作用和用法">
-<meta property="og:url" content="http://yoursite.com/2016/08/05/requireJS概念及使用/index.html">
+<meta property="og:url" content="http://www.weifengqiyuan.com/2016/08/05/requireJS概念及使用/index.html">
 <meta property="og:site_name" content="微风祈愿">
 <meta property="og:description" content="requireJS的需求
 需求: 在一个网页有大量的js需要加载的时候,传统方式就是用大量的script标签依次加载.
  1234567//举个栗子&amp;lt;script src=&quot;1.js&quot;&amp;gt;&amp;lt;/script&amp;gt;&amp;lt;script src=&quot;2.js&quot;&amp;gt;&amp;lt;/script&amp;gt;&amp;lt;script src=&quot;3.js&quot;&amp;gt;&amp;lt;/script&amp;gt;&amp;lt;sc">
-<meta property="og:updated_time" content="2017-01-11T03:35:23.770Z">
+<meta property="og:updated_time" content="2017-01-11T13:12:21.699Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="requireJS作用和用法">
 <meta name="twitter:description" content="requireJS的需求
@@ -127,7 +127,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/08/05/requireJS概念及使用/"/>
+  <link rel="canonical" href="http://www.weifengqiyuan.com/2016/08/05/requireJS概念及使用/"/>
 
 
 
@@ -269,7 +269,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/08/05/requireJS概念及使用/">
+  <link itemprop="mainEntityOfPage" href="http://www.weifengqiyuan.com/2016/08/05/requireJS概念及使用/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="TF">
@@ -318,6 +318,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/总结/" itemprop="url" rel="index">
+                    <span itemprop="name">总结</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -419,6 +441,12 @@
 </li>
 <li><p><strong>注意:如果加载模块的标识名称中含有<code>.js</code>则相对于当前页面的url路径去查找,一般来说,最好paths和require的时候都不要加<code>.js</code></strong></p>
 </li>
+<li>有时候你想避开”baseUrl + paths”的解析过程，而是直接指定加载某一个目录下的脚本。此时可以这样做：如果一个module ID符合下述规则之一，其ID解析会避开常规的”baseUrl + paths”配置，而是直接将其加载为一个相对于当前HTML文档的脚本：<ul>
+<li>以 “.js” 结束.</li>
+<li>以 “/“ 开始.</li>
+<li>包含 URL 协议, 如 “http:” or “https:”.</li>
+</ul>
+</li>
 </ul>
 </li>
 <li><p>AMD模块的写法<br> require.js加载的模块，采用AMD规范。也就是说，模块必须按照AMD的规定来写.<br> 具体来说，就是模块必须采用特定的define()函数来定义。如果一个模块不依赖其他模块，那么可以直接定义在define()函数之中。</p>
@@ -506,7 +534,7 @@
         <div class="ds-share flat" data-thread-key="2016/08/05/requireJS概念及使用/"
      data-title="requireJS作用和用法"
      data-content=""
-     data-url="http://yoursite.com/2016/08/05/requireJS概念及使用/">
+     data-url="http://www.weifengqiyuan.com/2016/08/05/requireJS概念及使用/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -537,7 +565,7 @@
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2016/08/05/requireJS概念及使用/"
-           data-title="requireJS作用和用法" data-url="http://yoursite.com/2016/08/05/requireJS概念及使用/">
+           data-title="requireJS作用和用法" data-url="http://www.weifengqiyuan.com/2016/08/05/requireJS概念及使用/">
       </div>
     
   </div>
@@ -590,6 +618,13 @@
             </div>
           
 
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
           
 
           
@@ -697,8 +732,6 @@
 
   <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-  
-    <span class="site-uv"><i class="fa fa-user">本站访客数</i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span>人次</span>
   
 
   
