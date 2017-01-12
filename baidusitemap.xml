@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://www.weifengqiyuan.com/2015/04/08/%E5%87%BD%E6%95%B0%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5%E5%8F%8Athis%E6%8C%87%E5%90%91/</loc>
+    <lastmod>2017-01-12T02:22:53.620Z</lastmod>
+    <data>
+        <display>
+        <title>函数相关概念及this指向</title>
+        <pubTime>2015-04-08T11:20:43.024Z</pubTime>
+        
+        <tag>JavaScript进阶</tag>
+         
+         
+           
+             
+              <breadCrumb title="总结" url="http://www.weifengqiyuan.com/categories/%E6%80%BB%E7%BB%93/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.weifengqiyuan.com/2016/01/02/%E6%9D%A5%E8%87%AA%E6%96%B0%E4%B8%96%E7%95%8C%20-%20%E8%A7%82%E5%90%8E%E6%84%9F/</loc>
     <lastmod>2017-01-11T15:21:04.332Z</lastmod>
     <data>
@@ -458,26 +478,6 @@
            
              
               <breadCrumb title="笔记" url="http://www.weifengqiyuan.com/categories/%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.weifengqiyuan.com/2015/04/08/%E5%87%BD%E6%95%B0%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5%E5%8F%8Athis%E6%8C%87%E5%90%91/</loc>
-    <lastmod>2017-01-11T13:07:17.969Z</lastmod>
-    <data>
-        <display>
-        <title>函数相关概念及this指向</title>
-        <pubTime>2015-04-08T11:20:43.024Z</pubTime>
-        
-        <tag>JavaScript进阶</tag>
-         
-         
-           
-             
-              <breadCrumb title="总结" url="http://www.weifengqiyuan.com/categories/%E6%80%BB%E7%BB%93/"/>
           
         </display>
     </data>
