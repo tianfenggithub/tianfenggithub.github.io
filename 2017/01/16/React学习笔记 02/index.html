@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="JavaScript基础," />
+  <meta name="keywords" content="React," />
 
 
 
@@ -84,33 +84,46 @@
 
 
 
-<meta name="description" content="HTML精确定位:scrollLeft,scrollWidth,clientWidth,offsetWidth 
-scrollHeight: 获取对象的滚动高度。 
-scrollLeft:设置或获取位于对象左边界和窗口中目前可见内容的最左端之间的距离 
-scrollTop:设置或获取位于对象最顶端和窗口中可见内容的最顶端之间的距离 
-scrollWidth:获取对象的滚动宽度 
-offsetHe">
+<meta name="description" content="JSX
+自定义html属性
+如果在 JSX 中使用的属性不存在于 HTML 的规范中，这个属性会被忽略。如果要使用自定义属性，可以用 data- 前缀
+
+
+支持的标签和属性
+如果你要使用的某些标签或属性不在这些支持列表里面就可能被 React 忽略
+支持列表：http://reactjs.cn/react/docs/tags-and-attributes.html
+
+
+并不是所有的html标签和属">
 <meta property="og:type" content="article">
-<meta property="og:title" content="offsetTop、clientTop、scrollTop、offsetTop概念和使用">
-<meta property="og:url" content="http://www.weifengqiyuan.com/2015/06/26/offsetTop、clientTop、scrollTop、offsetTop概念和使用/index.html">
+<meta property="og:title" content="React学习笔记02 - JSX和API">
+<meta property="og:url" content="http://www.weifengqiyuan.com/2017/01/16/React学习笔记 02/index.html">
 <meta property="og:site_name" content="微风祈愿">
-<meta property="og:description" content="HTML精确定位:scrollLeft,scrollWidth,clientWidth,offsetWidth 
-scrollHeight: 获取对象的滚动高度。 
-scrollLeft:设置或获取位于对象左边界和窗口中目前可见内容的最左端之间的距离 
-scrollTop:设置或获取位于对象最顶端和窗口中可见内容的最顶端之间的距离 
-scrollWidth:获取对象的滚动宽度 
-offsetHe">
-<meta property="og:image" content="https://github.com/tianfenggithub/image/raw/master/offsetclientscroll.jpg">
-<meta property="og:updated_time" content="2017-01-11T13:09:00.768Z">
+<meta property="og:description" content="JSX
+自定义html属性
+如果在 JSX 中使用的属性不存在于 HTML 的规范中，这个属性会被忽略。如果要使用自定义属性，可以用 data- 前缀
+
+
+支持的标签和属性
+如果你要使用的某些标签或属性不在这些支持列表里面就可能被 React 忽略
+支持列表：http://reactjs.cn/react/docs/tags-and-attributes.html
+
+
+并不是所有的html标签和属">
+<meta property="og:updated_time" content="2017-01-16T11:59:47.965Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="offsetTop、clientTop、scrollTop、offsetTop概念和使用">
-<meta name="twitter:description" content="HTML精确定位:scrollLeft,scrollWidth,clientWidth,offsetWidth 
-scrollHeight: 获取对象的滚动高度。 
-scrollLeft:设置或获取位于对象左边界和窗口中目前可见内容的最左端之间的距离 
-scrollTop:设置或获取位于对象最顶端和窗口中可见内容的最顶端之间的距离 
-scrollWidth:获取对象的滚动宽度 
-offsetHe">
-<meta name="twitter:image" content="https://github.com/tianfenggithub/image/raw/master/offsetclientscroll.jpg">
+<meta name="twitter:title" content="React学习笔记02 - JSX和API">
+<meta name="twitter:description" content="JSX
+自定义html属性
+如果在 JSX 中使用的属性不存在于 HTML 的规范中，这个属性会被忽略。如果要使用自定义属性，可以用 data- 前缀
+
+
+支持的标签和属性
+如果你要使用的某些标签或属性不在这些支持列表里面就可能被 React 忽略
+支持列表：http://reactjs.cn/react/docs/tags-and-attributes.html
+
+
+并不是所有的html标签和属">
 
 
 
@@ -138,13 +151,13 @@ offsetHe">
 
 
 
-  <link rel="canonical" href="http://www.weifengqiyuan.com/2015/06/26/offsetTop、clientTop、scrollTop、offsetTop概念和使用/"/>
+  <link rel="canonical" href="http://www.weifengqiyuan.com/2017/01/16/React学习笔记 02/"/>
 
 
 
 
 
-  <title> offsetTop、clientTop、scrollTop、offsetTop概念和使用 | 微风祈愿 </title>
+  <title> React学习笔记02 - JSX和API | 微风祈愿 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -290,7 +303,7 @@ offsetHe">
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://www.weifengqiyuan.com/2015/06/26/offsetTop、clientTop、scrollTop、offsetTop概念和使用/">
+  <link itemprop="mainEntityOfPage" href="http://www.weifengqiyuan.com/2017/01/16/React学习笔记 02/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="TF">
@@ -314,7 +327,7 @@ offsetHe">
             
             
               
-                offsetTop、clientTop、scrollTop、offsetTop概念和使用
+                React学习笔记02 - JSX和API
               
             
           </h1>
@@ -329,8 +342,8 @@ offsetHe">
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-06-26T13:49:38+08:00">
-                2015-06-26
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-16T19:52:27+08:00">
+                2017-01-16
               </time>
             
 
@@ -370,8 +383,8 @@ offsetHe">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2015/06/26/offsetTop、clientTop、scrollTop、offsetTop概念和使用/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/26/offsetTop、clientTop、scrollTop、offsetTop概念和使用/" itemprop="commentCount"></span>
+                <a href="/2017/01/16/React学习笔记 02/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/16/React学习笔记 02/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -402,132 +415,127 @@ offsetHe">
       
 
       
-        <ol>
-<li>HTML精确定位:scrollLeft,scrollWidth,clientWidth,offsetWidth </li>
-<li>scrollHeight: 获取对象的滚动高度。 </li>
-<li>scrollLeft:设置或获取位于对象左边界和窗口中目前可见内容的最左端之间的距离 </li>
-<li>scrollTop:设置或获取位于对象最顶端和窗口中可见内容的最顶端之间的距离 </li>
-<li>scrollWidth:获取对象的滚动宽度 </li>
-<li>offsetHeight:获取对象相对于版面或由父坐标 offsetParent 属性指定的父坐标的高度 </li>
-<li>offsetLeft:获取对象相对于版面或由 offsetParent 属性指定的父坐标的计算左侧位置 </li>
-<li>offsetTop:获取对象相对于版面或由 offsetTop 属性指定的父坐标的计算顶端位置 <a id="more"></a></li>
-<li>event.clientX 相对文档的水平座标 </li>
-<li>event.clientY 相对文档的垂直座标 </li>
-<li>event.offsetX 相对容器的水平坐标 </li>
-<li>event.offsetY 相对容器的垂直坐标 </li>
-<li>document.documentElement.scrollTop 垂直方向滚动的值 </li>
-<li><p>event.clientX+document.documentElement.scrollTop 相对文档的水平座标+垂直方向滚动的量</p>
+        <h1 id="JSX"><a href="#JSX" class="headerlink" title="JSX"></a>JSX</h1><ol>
+<li>自定义html属性<ul>
+<li>如果在 JSX 中使用的属性不存在于 HTML 的规范中，这个属性会被忽略。如果要使用自定义属性，可以用 data- 前缀</li>
+</ul>
 </li>
-<li><p>这里是JavaScript中建造迁移转变代码的常用属性</p>
+<li>支持的标签和属性<ul>
+<li>如果你要使用的某些标签或属性不在这些支持列表里面就可能被 React 忽略<ul>
+<li>支持列表：<a href="http://reactjs.cn/react/docs/tags-and-attributes.html" target="_blank" rel="external">http://reactjs.cn/react/docs/tags-and-attributes.html</a></li>
+</ul>
+<ol>
+<li>并不是所有的html标签和属性都能在jsx语法中使用</li>
+<li>基本上你能用到的标签的属性，jsx语法都支持</li>
+<li>有些特殊的属性需要注意，所有的属性都是驼峰命名的，<code>class</code> 属性和 <code>for</code> 属性分别改为 <code>className</code> 和 <code>htmlFor</code>，来符合 DOM API 规范。<a id="more"></a></li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>属性扩散<br>需求:需要给组件设置多个属性，你不想一个个写下这些属性，或者有时候你甚至不知道这些属性的名称</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var props = &#123;&#125;;</div><div class="line">props.foo = x;</div><div class="line">props.bar = y;</div><div class="line">var component = &lt;Component &#123;...props&#125; /&gt;;</div></pre></td></tr></table></figure>
+<p> 属性也可以被覆盖，写在后面的属性值会覆盖前面的属性</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var props = &#123; foo: &apos;default&apos; &#125;;</div><div class="line">var component = &lt;Component &#123;...props&#125; foo=&#123;&apos;override&apos;&#125; /&gt;;</div><div class="line">console.log(component.props.foo); // &apos;override&apos;</div></pre></td></tr></table></figure>
+</li>
+<li><p>自闭合标签<br>如果只有一个组件，就用单闭合标签形式，如果有多个组件嵌套就用双闭合标签形式</p>
+</li>
+<li>注释<br>在 JSX 里使用注释也很简单，就是沿用 JavaScript，唯一要注意的是在一个组件的子元素位置使用注释要用 {} 包起来 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//两种注释的方法</div><div class="line">&#123;/* child comment, put &#123;&#125; around */&#125;</div><div class="line">&#123;</div><div class="line">	// end of line comment</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h1 id="API"><a href="#API" class="headerlink" title="API"></a>API</h1><ol>
+<li><p>顶层api(常用)</p>
 <ul>
-<li>页可见区域宽： document.body.clientWidth;</li>
-<li>网页可见区域高： document.body.clientHeight;</li>
-<li>网页可见区域宽： document.body.offsetWidth   （包含边线的宽）;</li>
-<li>网页可见区域高： document.body.offsetHeight （包含边线的宽）;</li>
-<li>网页正文全文宽： document.body.scrollWidth;</li>
-<li>网页正文全文高： document.body.scrollHeight;</li>
-<li>网页被卷去的高： document.body.scrollTop;</li>
-<li>网页被卷去的左： document.body.scrollLeft;</li>
-<li>网页正文项目组上： window.screenTop;</li>
-<li>网页正文项目组左： window.screenLeft;</li>
-<li>屏幕辨别率的高： window.screen.height;</li>
-<li>屏幕辨别率的宽： window.screen.width;</li>
-<li>屏幕可用工作区高度： window.screen.availHeight;</li>
+<li>React<br><code>React</code> 是 <code>React</code> 库的入口。如果使用的是预编译包，则 <code>React</code> 是全局的；如果使用 <code>CommonJS</code> 模块系统，则可以用 <code>require()</code> 函数引入 <code>React</code>。</li>
+<li><p>React.createClass</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ReactClass createClass(object specification)</div></pre></td></tr></table></figure>
+<p>创建一个组件类，并作出定义。组件实现了 render() 方法，该方法返回一个子级</p>
+</li>
+<li><p>React.createElement</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">ReactElement createElement(</div><div class="line">  string/ReactClass type,</div><div class="line">  [object props],</div><div class="line">  [children ...]</div><div class="line">)</div></pre></td></tr></table></figure>
+<p>创建并返回一个新的指定类型的 <code>ReactElement</code>。<code>type</code>参数可以是一个 <code>html</code> 标签名字字符串（例如，“div”，“span”，等等），或者是 <code>ReactClass</code> （通过 <code>React.createClass</code> 创建的）。</p>
+</li>
+<li><p>React.render</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">ReactComponent render(</div><div class="line"> ReactElement element,</div><div class="line"> DOMElement container,</div><div class="line"> [<span class="function"><span class="keyword">function</span> <span class="title">callback</span>]</span></div><div class="line">)</div></pre></td></tr></table></figure>
+<p>渲染一个 ReactElement 到 DOM 中，放在 container 指定的 DOM 元素下，返回一个到该组件的引用。<br>如果 ReactElement 之前就被渲染到了 container 中，该函数将会更新此 ReactElement，仅改变需要改变的 DOM 节点以展示最新的 React 组件。<br>如果提供了可选的回调函数，则该函数将会在组件渲染或者更新之后调用。</p>
+</li>
+</ul>
+</li>
+<li><p>组件api</p>
+<ul>
+<li><p>设置状态：setState</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">setState(object nextState[, function callback])</div></pre></td></tr></table></figure>
+<ul>
+<li><p>参数说明</p>
+<ul>
+<li>nextState，将要设置的新状态，该状态会和当前的state合并</li>
+<li><p>callback，可选参数，回调函数。该函数会在setState设置成功，且组件重新渲染后调用。</p>
+<p>合并nextState和当前state，并重新渲染组件。setState是React事件处理函数中和请求回调函数中触发UI更新的主要方法。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>替换状态：replaceState</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">replaceState(object nextState[, function callback])</div></pre></td></tr></table></figure>
+<ul>
+<li>nextState，将要设置的新状态，该状态会替换当前的state。</li>
+<li><p>callback，可选参数，回调函数。该函数会在replaceState设置成功，且组件重新渲染后调用。</p>
+<p>  replaceState()方法与setState()类似，但是方法只会保留nextState中状态，原state不在nextState中的状态都会被删除。</p>
+</li>
+</ul>
+</li>
+<li><p>设置属性setProps</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">setProps(object nextProps[, function callback])</div></pre></td></tr></table></figure>
+<ul>
+<li>nextProps，将要设置的新属性，该状态会和当前的props合并</li>
+<li><p>callback，可选参数，回调函数。该函数会在setProps设置成功，且组件重新渲染后调用。</p>
+<p>设置组件属性，并重新渲染组件。</p>
+<p>props相当于组件的数据流，它总是会从父组件向下传递至所有的子组件中。当和一个外部的JavaScript应用集成时，我们可能会需要向组件传递数据或通知React.render()组件需要重新渲染，可以使用setProps()。</p>
+<p>更新组件，我可以在节点上再次调用React.render()，也可以通过setProps()方法改变组件属性，触发组件重新渲染。</p>
+</li>
+</ul>
+</li>
+<li><p>替换属性replaceProps</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">replaceProps(object nextProps[, function callback])</div></pre></td></tr></table></figure>
+<ul>
+<li>nextProps，将要设置的新属性，该属性会替换当前的props。</li>
+<li><p>callback，可选参数，回调函数。该函数会在replaceProps设置成功，且组件重新渲染后调用。 </p>
+<p>  replaceProps()方法与setProps类似，但它会删除原有props</p>
+</li>
+</ul>
+</li>
+<li><p>强制更新：forceUpdate</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">forceUpdate([function callback])</div></pre></td></tr></table></figure>
+<ul>
+<li><p>参数说明</p>
+<ul>
+<li>callback，可选参数，回调函数。该函数会在组件render()方法调用后调用。</li>
+<li><p>forceUpdate()方法会使组件调用自身的render()方法重新渲染组件，组件的子组件也会调用自己的render()。但是，组件重新渲染时，依然会读取this.props和this.state，如果状态没有改变，那么React只会更新DOM。<br>forceUpdate()方法适用于this.props和this.state之外的组件重绘（如：修改了this.state后），通过该方法通知React需要调用render()</p>
+<p>一般来说，应该尽量避免使用forceUpdate()，而仅从this.props和this.state中读取状态并由React触发render()调用。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>获取DOM节点：findDOMNode</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">DOMElement findDOMNode()</div></pre></td></tr></table></figure>
+<ul>
+<li><p>返回值：DOM元素DOMElement</p>
+<p>如果组件已经挂载到DOM中，该方法返回对应的本地浏览器 DOM 元素。当render返回null 或 false时，this.findDOMNode()也会返回null。从DOM 中读取值的时候，该方法很有用，如：获取表单字段的值和做一些 DOM 操作。</p>
+</li>
+</ul>
+</li>
+<li><p>判断组件挂载状态：isMounted</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bool isMounted()</div></pre></td></tr></table></figure>
+<ul>
+<li><p>返回值：true或false，表示组件是否已挂载到DOM中</p>
+<p>isMounted()方法用于判断组件是否已挂载到DOM中。可以使用该方法保证了setState()和forceUpdate()在异步场景下的调用不会出错。</p>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ol>
-<p><img src="https://github.com/tianfenggithub/image/raw/master/offsetclientscroll.jpg" alt="一图认清区别"></p>
-<ol>
-<li>offset</li>
-</ol>
-<p>假设 obj 为某个 HTML 控件。<br>obj.offsetTop 指 obj 间隔上方或上层控件的地位，整型，单位像素。<br>obj.offsetLeft 指 obj 间隔左方或上层控件的地位，整型，单位像素。<br>obj.offsetWidth 指 obj 控件自身的宽度，整型，单位像素。<br>obj.offsetHeight 指 obj 控件自身的高度，整型，单位像素。<br>我们对前面提到的“上方或上层”与“左方或上层”控件作个申明。</p>
-<p>例如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;div id=<span class="string">"tool"</span>&gt;</div><div class="line"></div><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"提交"</span>&gt;</span></span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"重置"</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>“提交”按钮的 offsetTop 指“提交”按钮距“tool”层上边框的间隔，因为距其上边比来的是 “tool” 层的上边框。<br>“重置”按钮的 offsetTop 指“重置”按钮距“tool”层上边框的间隔，因为距其上边比来的是 “tool” 层的上边框。<br>“提交”按钮的 offsetLeft 指“提交”按钮距“tool”层左边框的间隔，因为距其左边比来的是 “tool” 层的左边框。<br>“重置”按钮的 offsetLeft 指“重置”按钮距“提交”按钮右边框的间隔，因为距其左边比来的是“提交”按钮的右边框。</p>
-<p>以上属性在 FireFox 中也有效。</p>
-<p>另外：我们这里所说的是指 HTML 控件的属性值，并不是 document.body，document.body 的值在不合浏览器中有不合申明（实际上大多半景象是因为对 document.body 申明不合造成的，并不是因为对 offset 申明不合造成的），点击这里查看不合点。</p>
-<p>题目：offsetTop 与 style.top 的差别</p>
-<p>筹办常识：offsetTop、offsetLeft、offsetWidth、offsetHeight</p>
-<p>我们知道 offsetTop 可以获得 HTML 元素间隔上方或外层元素的地位，style.top 也是可以的，二者的差别是：</p>
-<p>一、offsetTop 返回的是数字，而 style.top 返回的是字符串，除了数字外还带有单位：px。<br>二、offsetTop 只读，而 style.top 可读写。<br>三、若是没有给 HTML 元素指定过 top 样式，则 style.top 返回的是空字符串。</p>
-<p>offsetLeft 与 style.left、offsetWidth 与 style.width、offsetHeight 与 style.height 也是同样事理。</p>
-<ol>
-<li>题目：clientHeight、offsetHeight和scrollHeight</li>
-</ol>
-<p>我们这里说说四种浏览器对 document.body 的 clientHeight、offsetHeight 和 scrollHeight 的申明，这里说的是 document.body，若是是 HTML 控件，则又有不合，点击这里查看。<br>这四种浏览器分别为IE（Internet Explorer）、NS（Netscape）、Opera、FF（FireFox）。</p>
-<p>clientHeight</p>
-<p>大家对 clientHeight 都没有什么贰言，都认为是内容可视区域的高度，也就是说页面浏览器中可以看到内容的这个区域的高度，一般是最后一个对象条以下到状况栏以上的这个区域，与页面内容无关。</p>
-<p>offsetHeight</p>
-<p>IE、Opera 认为 offsetHeight = clientHeight + 迁移转变条 + 边框。</p>
-<p>NS、FF 认为 offsetHeight 是网页内容实际高度，可以小于 clientHeight。</p>
-<p>scrollHeight</p>
-<p>IE、Opera 认为 scrollHeight 是网页内容实际高度，可以小于 clientHeight。</p>
-<p>NS、FF 认为 scrollHeight 是网页内容高度，不过最小值是 clientHeight。</p>
-<p>简单地说,clientHeight 就是透过浏览器看内容的这个区域高度。</p>
-<p>NS、 FF 认为 offsetHeight 和 scrollHeight 都是网页内容高度，只不过当网页内容高度小于便是 clientHeight 时，scrollHeight 的值是 clientHeight，而 offsetHeight 可以小于 clientHeight。</p>
-<p>IE、Opera 认为 offsetHeight 是可视区域 clientHeight 迁移转变条加边框。scrollHeight 则是网页内容实际高度。</p>
-<p>同理<br>clientWidth、offsetWidth 和 scrollWidth 的申明与上方雷同，只是把高度换成宽度即可。</p>
-<p>然则<br>FF 在不合的 DOCTYPE 中对 clientHeight 的申明不合， xhtml 1 trasitional 中则不是如上申明的。其它浏览器则不存在此题目。</p>
-<ol>
-<li>题目：scrollTop、scrollLeft、scrollWidth、scrollHeight</li>
-</ol>
-<p>scrollTop 是“卷”起来的高度值，示例：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;div style="width:100px;height:100px;background-color:＃FF0000;overflow:hidden;" id="p"&gt;</div><div class="line"></div><div class="line">&lt;div style="width:50px;height:300px;background-color:＃0000FF;" id="t"&gt;若是为 p 设置了 scrollTop，这些内容可能不会完全显示。&lt;/div&gt;</div><div class="line"></div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line">&lt;script type="text/javascript"&gt;</div><div class="line"></div><div class="line">var p = document.getElementById（"p"）;</div><div class="line"></div><div class="line">p.scrollTop = 10;</div><div class="line"></div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
-<p>因为为外层元素 p 设置了 scrollTop，所以内层元素会向上卷。</p>
-<p>scrollLeft 也是类似事理。</p>
-<p>我们已经知道 offsetHeight 是自身元素的宽度。</p>
-<p>而 scrollHeight 是内部元素的绝对宽度，包含内部元素的隐蔽的项目组。</p>
-<p>上述中 p 的 scrollHeight 为 300，而 p 的 offsetHeight 为 100。</p>
-<p>scrollWidth 也是类似事理。</p>
-<p>IE 和 FireFox 周全支撑，而 Netscape 和 Opera 不支撑 scrollTop、scrollLeft（document.body 除外）。</p>
-<p>揭晓时候：2007-10-15 20:20:16</p>
-<ol>
-<li>题目：offsetTop、offsetLeft、offsetWidth、offsetHeight</li>
-</ol>
-<p>返回对象的offsetLeft属性值和到当前窗口左边的真实值之间的间隔，可以懂得为边框的长度</p>
-<p>一向以来对offsetLeft，offsetTop，scrollLeft，scrollTop这几个办法很含混，花了一天的时候好好的进修了一下．得出了以下的成果：</p>
-<pre><code>- offsetTop:
-</code></pre><p>当前对象到其上级层顶部的间隔.</p>
-<p>不克不及对其进行赋值.设置对象到页面顶部的间隔请用style.top属性.</p>
-<pre><code>- offsetLeft:
-</code></pre><p>当前对象到其上级层左边的间隔.</p>
-<p>不克不及对其进行赋值.设置对象到页面左部的间隔请用style.left属性.</p>
-<pre><code>- offsetWidth:
-</code></pre><p>当前对象的宽度.</p>
-<p>与style.width属性的差别在于:如对象的宽度设定值为百分比宽度，则无论页面变大还是变小，style.width都返回此百分比，而offsetWidth则返回在不合页面中对象的宽度值而不是百分比值</p>
-<pre><code>- offsetHeight:
-</code></pre><p>与style.height属性的差别在于:如对象的宽度设定值为百分比高度，则无论页面变大还是变小，style.height都返回此百分比，而offsetHeight则返回在不合页面中对象的高度值而不是百分比值</p>
-<pre><code>- offsetParent:
-</code></pre><p>当前对象的上级层对象.</p>
-<p>重视.若是对象是包含在一个DIV中时，此DIV不会被当做是此对象的上级层，（即对象的上级层会跳过DIV对象）上级层是Table时则不会有题目.</p>
-<p>哄骗这个属性，可以获得当前对象在不合大小的页面中的绝对地位．</p>
-<p>获得绝对地位脚本代码</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">GetPosition</span>(<span class="params">obj</span>)</span></div><div class="line">&#123;</div><div class="line"> <span class="keyword">var</span> left = <span class="number">0</span>;</div><div class="line"> <span class="keyword">var</span> top   = <span class="number">0</span>;</div><div class="line"> <span class="keyword">while</span>(obj != <span class="built_in">document</span>.body)</div><div class="line"> &#123;</div><div class="line">    left = obj.offsetLeft;</div><div class="line">    top  = obj.offsetTop;</div><div class="line">    obj = obj.offsetParent;</div><div class="line"> &#125;</div><div class="line"> alert(<span class="string">"Left Is : "</span> + left + <span class="string">"\r\n"</span> + <span class="string">"Top   Is : "</span> + top);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ol>
-<li>scrollLeft :</li>
-</ol>
-<p>对象的最左边到对象在当前窗口显示的局限内的左边的间隔．</p>
-<p>便是在呈现了横向迁移转变条的景象下，迁移转变条拉动的间隔．</p>
-<ol>
-<li>scrollTop</li>
-</ol>
-<p>对象的最顶部到对象在当前窗口显示的局限内的顶边的间隔．</p>
-<p>便是在呈现了纵向迁移转变条的景象下，迁移转变条拉动的间隔．</p>
-<p>我们这里说说四种浏览器对 document.body 的 clientHeight、offsetHeight 和 scrollHeight 的申明，这里说的是 document.body，若是是 HTML 控件，则又有不合，点击这里查看。</p>
-<p>这四种浏览器分别为IE（Internet Explorer）、NS（Netscape）、Opera、FF（FireFox）。</p>
-<p>clientHeight</p>
-<p>大师对 clientHeight 都没有什么贰言，都认为是内容可视区域的高度，也就是说页面浏览器中可以看到内容的这个区域的高度，一般是最后一个对象条以下到状况栏以上的这个区域，与页面内容无关。</p>
-<p>offsetHeight</p>
-<p>IE、Opera 认为 offsetHeight = clientHeight + 迁移转变条 + 边框。</p>
-<p>NS、FF 认为 offsetHeight 是网页内容实际高度，可以小于 clientHeight。</p>
-<p>scrollHeight</p>
-<p>IE、Opera 认为 scrollHeight 是网页内容实际高度，可以小于 clientHeight。</p>
-<p>NS、FF 认为 scrollHeight 是网页内容高度，不过最小值是 clientHeight。</p>
-<p>简单地说</p>
-<p>clientHeight 就是透过浏览器看内容的这个区域高度。</p>
-<p>NS、 FF 认为 offsetHeight 和 scrollHeight 都是网页内容高度，只不过当网页内容高度小于便是 clientHeight 时，scrollHeight 的值是 clientHeight，而 offsetHeight 可以小于 clientHeight。</p>
-<p>IE、Opera 认为 offsetHeight 是可视区域 clientHeight 迁移转变条加边框。scrollHeight 则是网页内容实际高度。</p>
-<p>同理</p>
-<p>clientWidth、offsetWidth 和 scrollWidth 的申明与上方雷同，只是把高度换成宽度即可。</p>
 
       
     </div>
@@ -551,7 +559,7 @@ offsetHe">
       
         <div class="post-tags">
           
-            <a href="/tags/JavaScript基础/" rel="tag"># JavaScript基础</a>
+            <a href="/tags/React/" rel="tag"># React</a>
           
         </div>
       
@@ -560,8 +568,8 @@ offsetHe">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/06/11/那些再也回不去的/" rel="next" title="那些再也回不去的">
-                <i class="fa fa-chevron-left"></i> 那些再也回不去的
+              <a href="/2016/12/29/cookie和session以及node相关的中间件使用/" rel="next" title="cookie和session以及node相关的中间件使用">
+                <i class="fa fa-chevron-left"></i> cookie和session以及node相关的中间件使用
               </a>
             
           </div>
@@ -570,8 +578,8 @@ offsetHe">
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/08/05/词法作用域-作用域-作用域链/" rel="prev" title="面向对象:词法作用域-作用域-作用域链">
-                面向对象:词法作用域-作用域-作用域链 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/01/16/React学习笔记 01/" rel="prev" title="React学习笔记01 - 概念和配置">
+                React学习笔记01 - 概念和配置 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -587,10 +595,10 @@ offsetHe">
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2015/06/26/offsetTop、clientTop、scrollTop、offsetTop概念和使用/"
-     data-title="offsetTop、clientTop、scrollTop、offsetTop概念和使用"
+        <div class="ds-share flat" data-thread-key="2017/01/16/React学习笔记 02/"
+     data-title="React学习笔记02 - JSX和API"
      data-content=""
-     data-url="http://www.weifengqiyuan.com/2015/06/26/offsetTop、clientTop、scrollTop、offsetTop概念和使用/">
+     data-url="http://www.weifengqiyuan.com/2017/01/16/React学习笔记 02/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -620,8 +628,8 @@ offsetHe">
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/06/26/offsetTop、clientTop、scrollTop、offsetTop概念和使用/"
-           data-title="offsetTop、clientTop、scrollTop、offsetTop概念和使用" data-url="http://www.weifengqiyuan.com/2015/06/26/offsetTop、clientTop、scrollTop、offsetTop概念和使用/">
+      <div class="ds-thread" data-thread-key="2017/01/16/React学习笔记 02/"
+           data-title="React学习笔记02 - JSX和API" data-url="http://www.weifengqiyuan.com/2017/01/16/React学习笔记 02/">
       </div>
     
   </div>
@@ -645,8 +653,17 @@ offsetHe">
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -722,6 +739,22 @@ offsetHe">
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JSX"><span class="nav-number">1.</span> <span class="nav-text">JSX</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#API"><span class="nav-number">2.</span> <span class="nav-text">API</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
