@@ -89,16 +89,16 @@
 语法text-shadow：pageX+px  pageY+px  Blur+px  color
 参数介绍  可以给一个对象应用一组或多组阴影效果，方式如前面的语法显示一样，用逗号隔开。text-shadow: X-Offset Y-Offset Blur Color中X-Offset表示阴影的水平偏移距离，其值为正值时阴影向右偏移，如果其值为负值时，阴">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CSS3总结">
+<meta property="og:title" content="CSS3 总结">
 <meta property="og:url" content="http://www.weifengqiyuan.com/2015/05/13/CSS3总结/index.html">
 <meta property="og:site_name" content="微风祈愿">
 <meta property="og:description" content="文字与字体
 文字阴影text-shadow
 语法text-shadow：pageX+px  pageY+px  Blur+px  color
 参数介绍  可以给一个对象应用一组或多组阴影效果，方式如前面的语法显示一样，用逗号隔开。text-shadow: X-Offset Y-Offset Blur Color中X-Offset表示阴影的水平偏移距离，其值为正值时阴影向右偏移，如果其值为负值时，阴">
-<meta property="og:updated_time" content="2015-05-13T12:45:20.639Z">
+<meta property="og:updated_time" content="2017-02-10T12:53:42.603Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CSS3总结">
+<meta name="twitter:title" content="CSS3 总结">
 <meta name="twitter:description" content="文字与字体
 文字阴影text-shadow
 语法text-shadow：pageX+px  pageY+px  Blur+px  color
@@ -136,7 +136,7 @@
 
 
 
-  <title> CSS3总结 | 微风祈愿 </title>
+  <title> CSS3 总结 | 微风祈愿 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -306,7 +306,7 @@
             
             
               
-                CSS3总结
+                CSS3 总结
               
             
           </h1>
@@ -427,9 +427,11 @@
 <li><p>语法</p>
   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">@font-face &#123;</div><div class="line">    font-family : 字体名称;</div><div class="line">    src : 字体文件在服务器上的相对或绝对路径;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>  这里是定义用的哪种字体和路径，在其他css属性中使用这种字体的就会从这个路径去加载渲染字体</p>
-<h1 id="边框"><a href="#边框" class="headerlink" title="边框"></a>边框</h1></li>
+</li>
 </ul>
 </li>
+</ol>
+<h1 id="边框"><a href="#边框" class="headerlink" title="边框"></a>边框</h1><ol>
 <li>圆角border-radius<ul>
 <li>写法:<br>border-radius:1参数或四参数，参数为px或百分比。一参数为四个圆角的弧度，四参数顺序为左上，右上，右下，左下</li>
 </ul>
@@ -446,22 +448,26 @@
 <li>平铺方式<ul>
 <li>repeat 重复</li>
 <li>round 平铺</li>
-<li>stretch 拉伸<h1 id="颜色变化"><a href="#颜色变化" class="headerlink" title="颜色变化"></a>颜色变化</h1></li>
+<li>stretch 拉伸</li>
 </ul>
 </li>
 </ul>
 </li>
+</ol>
+<h1 id="颜色变化"><a href="#颜色变化" class="headerlink" title="颜色变化"></a>颜色变化</h1><ol>
 <li>渐变<ul>
 <li>线性渐变<ul>
 <li>语法:<br>background-image:linear-gradient(to bottom,red,orange);<br>background-image:渐变方式（方向可以是to left等也可以是deg，颜色后面可以跟百分比值）</li>
 </ul>
 </li>
 <li>径向渐变<ul>
-<li>语法:<br>radial-gradient（渐变的椭圆左右半径 渐变的椭圆的上下半径 at 渐变的椭圆的定位x位置 渐变的椭圆定位y位置，颜色，颜色）<h1 id="背景相关"><a href="#背景相关" class="headerlink" title="背景相关"></a>背景相关</h1></li>
+<li>语法:<br>radial-gradient（渐变的椭圆左右半径 渐变的椭圆的上下半径 at 渐变的椭圆的定位x位置 渐变的椭圆定位y位置，颜色，颜色）</li>
 </ul>
 </li>
 </ul>
 </li>
+</ol>
+<h1 id="背景相关"><a href="#背景相关" class="headerlink" title="背景相关"></a>背景相关</h1><ol>
 <li>background-origin(定义背景显示区域)<ul>
 <li>参数<ol>
 <li>border-box:背景从边框开始，也就是压在边框上</li>
@@ -543,9 +549,11 @@
 </li>
 <li>伪元素选择器<ul>
 <li>::selection<br>选择的是被鼠标选中的文本</li>
-<li>::after和::befor<br>::before和::after这两个主要用来给元素的前面或后面插入内容，这两个常和”content”配合使用，在使用时通常要灵活的考虑到display属性 定位  z-index<h1 id="动画"><a href="#动画" class="headerlink" title="动画"></a>动画</h1></li>
+<li>::after和::befor<br>::before和::after这两个主要用来给元素的前面或后面插入内容，这两个常和”content”配合使用，在使用时通常要灵活的考虑到display属性 定位  z-index</li>
 </ul>
 </li>
+</ol>
+<h1 id="动画"><a href="#动画" class="headerlink" title="动画"></a>动画</h1><ol>
 <li>transition复合过渡属性<ul>
 <li>transition-property：指定过渡或动态模拟的CSS属性</li>
 <li>transition-duration：指完成过渡所需时间</li>
@@ -558,19 +566,19 @@
 <li>cubic-bezier(n,n,n,n) 贝塞尔曲线参数</li>
 </ul>
 </li>
-<li>transition-delay： 过渡延迟时间<h1 id="变形"><a href="#变形" class="headerlink" title="变形"></a>变形</h1></li>
+<li>transition-delay： 过渡延迟时间</li>
 </ul>
 </li>
 </ol>
-<ul>
+<h1 id="变形"><a href="#变形" class="headerlink" title="变形"></a>变形</h1><ul>
 <li>rotate（deg）旋转<br>通过指定的参数来控制元素旋转正值为顺时针，负值为逆时针</li>
 <li>skew（x,y）扭曲<br>可以让元素倾斜显示，可以让元素以中心位置围绕x，y轴按照一定角度倾斜。会改变元素形状。</li>
 <li>scale(x,y) 缩放<br>让元素根据中心原点对对象进行缩放</li>
 <li>translate(x,y)位移<br>就是字面意思，可以让元素横向纵向移动</li>
 <li>matrix()数学矩阵<br>参数有个scaleX(),skewX(),skewY(),scaleY(),translateX(),translateY()<br>分别为横向伸缩，横向扭曲，纵向扭曲，纵向伸缩，横向位移，纵向位移。默认参数值为1，0，0，1，0，0</li>
-<li>transform-origin：原点<br>元素的坐标原点默认值为center，center或者50%，50% 更改原点<h1 id="布局方式"><a href="#布局方式" class="headerlink" title="布局方式"></a>布局方式</h1></li>
+<li>transform-origin：原点<br>元素的坐标原点默认值为center，center或者50%，50% 更改原点</li>
 </ul>
-<ol>
+<h1 id="布局方式"><a href="#布局方式" class="headerlink" title="布局方式"></a>布局方式</h1><ol>
 <li>盒模型<ul>
 <li>box-sizing  <ul>
 <li>border-box<br>元素的宽度=内容的宽度包含border和padding也就是说写了宽100px，不管加边框还是内间距盒子的大小都不会变。这其实是ie的传统盒模型 IE6以下的版本或者IE6-7的怪异模式中就是这样的</li>
@@ -629,8 +637,7 @@
 <li>flex-direction:row时<br>  justify-content:flex-end</li>
 </ul>
 </li>
-<li>水平垂直居中  <pre><code>justify-content或者align-items为center
-</code></pre></li>
+<li>水平垂直居中<br> justify-content或者align-items为center</li>
 <li>等比伸缩<br>两个兄弟盒子一个为flex:100一个为flex:200他俩就是以1：2的关系占满父盒子的宽或者高</li>
 </ol>
 </li>
@@ -697,7 +704,7 @@
     <div class="post-spread">
       
         <div class="ds-share flat" data-thread-key="2015/05/13/CSS3总结/"
-     data-title="CSS3总结"
+     data-title="CSS3 总结"
      data-content=""
      data-url="http://www.weifengqiyuan.com/2015/05/13/CSS3总结/">
   <div class="ds-share-inline">
@@ -730,7 +737,7 @@
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2015/05/13/CSS3总结/"
-           data-title="CSS3总结" data-url="http://www.weifengqiyuan.com/2015/05/13/CSS3总结/">
+           data-title="CSS3 总结" data-url="http://www.weifengqiyuan.com/2015/05/13/CSS3总结/">
       </div>
     
   </div>
@@ -871,7 +878,7 @@
         <div class="copyright" >
   
   &copy;  2014 - 
-  <span itemprop="copyrightYear">2015</span>
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
