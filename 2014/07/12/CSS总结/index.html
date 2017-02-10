@@ -1,0 +1,1514 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="CSS," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="常见属性
+
+
+属性
+解释
+书写规范
+
+
+
+
+width
+宽度
+width:300px
+
+
+height
+高度
+height:300px
+
+
+color
+文本颜色
+color:red
+
+
+Background-color
+背景颜色
+background-color:green
+
+
+font-size
+文字大小
+font-size:34px
+
+
+Text-align
+内容的水平对齐方式
+text-al">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS总结">
+<meta property="og:url" content="http://www.weifengqiyuan.com/2014/07/12/CSS总结/index.html">
+<meta property="og:site_name" content="微风祈愿">
+<meta property="og:description" content="常见属性
+
+
+属性
+解释
+书写规范
+
+
+
+
+width
+宽度
+width:300px
+
+
+height
+高度
+height:300px
+
+
+color
+文本颜色
+color:red
+
+
+Background-color
+背景颜色
+background-color:green
+
+
+font-size
+文字大小
+font-size:34px
+
+
+Text-align
+内容的水平对齐方式
+text-al">
+<meta property="og:updated_time" content="2014-07-12T08:46:49.107Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS总结">
+<meta name="twitter:description" content="常见属性
+
+
+属性
+解释
+书写规范
+
+
+
+
+width
+宽度
+width:300px
+
+
+height
+高度
+height:300px
+
+
+color
+文本颜色
+color:red
+
+
+Background-color
+背景颜色
+background-color:green
+
+
+font-size
+文字大小
+font-size:34px
+
+
+Text-align
+内容的水平对齐方式
+text-al">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.weifengqiyuan.com/2014/07/12/CSS总结/"/>
+
+
+
+
+
+  <title> CSS总结 | 微风祈愿 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">微风祈愿</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle"></p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://www.weifengqiyuan.com/2014/07/12/CSS总结/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="TF">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.gif">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="微风祈愿">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="微风祈愿" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                CSS总结
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2014-07-12T16:46:23+08:00">
+                2014-07-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/总结/" itemprop="url" rel="index">
+                    <span itemprop="name">总结</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2014/07/12/CSS总结/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/07/12/CSS总结/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o">本文总阅读量</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="常见属性"><a href="#常见属性" class="headerlink" title="常见属性"></a>常见属性</h1><table>
+<thead>
+<tr>
+<th style="text-align:left">属性</th>
+<th style="text-align:right">解释</th>
+<th style="text-align:center">书写规范</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">width</td>
+<td style="text-align:right">宽度</td>
+<td style="text-align:center">width:300px</td>
+</tr>
+<tr>
+<td style="text-align:left">height</td>
+<td style="text-align:right">高度</td>
+<td style="text-align:center">height:300px</td>
+</tr>
+<tr>
+<td style="text-align:left">color</td>
+<td style="text-align:right">文本颜色</td>
+<td style="text-align:center">color:red</td>
+</tr>
+<tr>
+<td style="text-align:left">Background-color</td>
+<td style="text-align:right">背景颜色</td>
+<td style="text-align:center">background-color:green</td>
+</tr>
+<tr>
+<td style="text-align:left">font-size</td>
+<td style="text-align:right">文字大小</td>
+<td style="text-align:center">font-size:34px</td>
+</tr>
+<tr>
+<td style="text-align:left">Text-align</td>
+<td style="text-align:right">内容的水平对齐方式</td>
+<td style="text-align:center">text-align:left/center/right</td>
+</tr>
+<tr>
+<td style="text-align:left">Text-indent</td>
+<td style="text-align:right">首行缩进</td>
+<td style="text-align:center">Text-indent:2em</td>
+</tr>
+</tbody>
+</table>
+<a id="more"></a>
+<h1 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h1><ol>
+<li><p>基础选择器:</p>
+<ul>
+<li><p>标签选择器</p>
+<ul>
+<li>作用：给指定的标签添加样式。<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">标签名&#123; 属性:值;属性:值 &#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>类选择器(重点)</p>
+<ul>
+<li>注意<ol>
+<li>不能使用纯数字或者数字加英文来命名类名称。</li>
+<li>不推荐使用汉字来给类命名。</li>
+<li>不能以特殊符号给命名（_除外）。</li>
+<li>不推荐使用标签代码或者样式的属性来命名类名称。<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">.自定义类名&#123;属性:值;属性:值&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>id选择器</p>
+<ul>
+<li>特点：<ol>
+<li>一个页面只能调用一次，ID选择器配合JS使用。</li>
+<li>一个标签只能调用一个ID选择器。<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#自定义id名&#123;属性:值;属性:值&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>通配符选择器</p>
+<ul>
+<li>含义:*代表所有标签，会给所有的标签加上样式。会增加服务器和浏览器压力，不推荐使用。<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">*&#123;属性:值;属性:值&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>复合选择器</p>
+<ul>
+<li><p>交集选择器（标签指定式选择器）</p>
+<ul>
+<li>关系：即…又…,既要满足标签，还要满足标签后边的样式文件。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">标签.自定义类名&#123;属性:值;&#125;</div><div class="line">标签#自定义id&#123;属性:值;&#125;</div><div class="line">.自定义类名#自定义id&#123;属性:值;&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>后代选择器（重点）</p>
+<ul>
+<li><p>特点:</p>
+<ol>
+<li>必须是包含关系，父元素选择器写在前，子元素选择器写在后，通过空格链接在一起。</li>
+<li>标签选择器、类选择器、ID选择器可以自由组合，只要能代表父子关系即可。</li>
+<li>只要能代表父子，可以无限制的隔代。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">选择器+空格+选择器+空格+....选择器&#123;属性:值;&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>并集选择器</p>
+<ul>
+<li>特点：<br>可以是标签选择器、类选择器、ID选择器、后代选择器、交集选择器通过逗号自由组合在一起。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">选择器1,选择器2,选择器3 &#123;属性:值;&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>h5新增(IE8以上支持)</p>
+<ol>
+<li><p>querySelector(标签,类名,id等等皆可)</p>
+<ul>
+<li>该方法返回满足条件的单个元素。按照深度优先和先序遍历的原则使用参数提供的CSS选择器在DOM进行查找，返回第一个满足条件的元素。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">element = <span class="built_in">document</span>.querySelector(<span class="string">'div#container'</span>);<span class="comment">//返回id为container的首个div</span></div><div class="line">element = <span class="built_in">document</span>.querySelector(<span class="string">'.foo,.bar'</span>);<span class="comment">//返回带有foo或者bar样式类的首个元素</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>querySelectorAll</p>
+<ul>
+<li><p>该方法返回所有满足条件的元素，结果是个nodeList集合。查找规则与前面所述一样。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">elements = <span class="built_in">document</span>.querySelectorAll(<span class="string">'div.foo'</span>);<span class="comment">//返回所有带foo类样式的div</span></div></pre></td></tr></table></figure>
+<p>注意:但需要注意的是返回的nodeList集合中的元素是非实时（no-live）的，想要区别什么是实时非实时的返回结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;container&quot;&gt;</div><div class="line">    &lt;div&gt;&lt;/div&gt;</div><div class="line">    &lt;div&gt;&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">//首先选取页面中id为container的元素</div><div class="line">container=document.getElementById(&apos;#container&apos;);</div><div class="line">console.log(container.childNodes.length)//结果为2</div><div class="line">//然后通过代码为其添加一个子元素</div><div class="line">container.appendChild(document.createElement(&apos;div&apos;));</div><div class="line">//这个元素不但添加到页面了，这里的变量container也自动更新了</div><div class="line">console.log(container.childNodes.length)//结果为3</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<h1 id="书写位置"><a href="#书写位置" class="headerlink" title="书写位置"></a>书写位置</h1><ol>
+<li><p>书写位置</p>
+<ul>
+<li>外链式<br>  新建一个文件，后缀名以.css命名（css文件）在html页面中通过<br><code>&lt;link rel=&#39;stylesheet&#39;  href=&#39;&#39;&gt;</code> 标签将css文件引入</li>
+<li>内嵌式<br>  直接写在head标签里 <style type="text/css"></style></li>
+<li>行内式<br>  通过给标签设置style属性来设置样式。  <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;p style="color:red"&gt;文字&lt;/p&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>书写方式的区别</p>
+<ul>
+<li>内嵌式写法：<ol>
+<li>代码可维护性较差，没有实现css代码与html结构的完全分离</li>
+<li>影响的范围只有当前页面</li>
+</ol>
+</li>
+<li>行内式写法：<ol>
+<li>代码可维护性极差，css代码和html结构没有实现分离<ol>
+<li>影响的范围只有当前标签</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>外联式写法：<ol>
+<li>代码可维护性高，css与html结构完全分离<ol>
+<li>影响范围广，当前整个网页站点。</li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+<h1 id="css特性"><a href="#css特性" class="headerlink" title="css特性"></a>css特性</h1><ol>
+<li>层叠性<ul>
+<li>样式的覆盖。 样式的层叠性与样式的调用顺序没有关系，与样式的定义顺序有关。</li>
+<li>层叠性发生的前提： 样式冲突</li>
+</ul>
+</li>
+<li>继承性<ul>
+<li>继承性发生的前提是标签之间属于一种嵌套关系<ul>
+<li>文字颜色可以实现继承</li>
+<li>文字大小可以实现继承</li>
+<li>字体可以实现继承</li>
+<li>行高可以实现继承</li>
+<li>与文字有关的属性都可以 实现继承</li>
+</ul>
+</li>
+<li>特殊性：<ul>
+<li>a标签不能继承父元素中的文字颜色（层叠掉了）</li>
+<li>标题标签不能继承父元素中的文字大小</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>优先级<ul>
+<li>默认样式&lt;标签选择器&lt;类选择器&lt;id选择器&lt;行内样式&lt;!important</li>
+<li>权重会叠加,但是同级可比非同级不可比</li>
+</ul>
+</li>
+</ol>
+<h1 id="伪类"><a href="#伪类" class="headerlink" title="伪类"></a>伪类</h1><ol>
+<li>a:link{属性:值;}<br>超链接默认状态下的样式a{}与a:link{}实现的效果是一样的</li>
+<li>a:visited{属性:值;}<br>超链接访问过后的样式</li>
+<li>a:hover{属性:值}<br>鼠标放到超链接上的样式</li>
+<li>a:active{属性:值}<br>超链接激活状态下的样式</li>
+<li>a:focus{属性:值}<br>获取焦点（光标）的时候的样式</li>
+</ol>
+<h1 id="文字属性"><a href="#文字属性" class="headerlink" title="文字属性"></a>文字属性</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">//属性连写</div><div class="line">自定义样式名称&#123;font: font-style font-weight  font-size/line-height  font-family;&#125;</div><div class="line">//注意：按照顺序书写，文字大小和字体不能缺少，其余的根据需求写，书写是文字大小在前边，字体在后边。</div></pre></td></tr></table></figure>
+<h1 id="背景（background）"><a href="#背景（background）" class="headerlink" title="背景（background）"></a>背景（background）</h1><ol>
+<li>Background-color : 颜色名 </li>
+<li>background-image （背景图片）: 图片相对路径或者绝对路径</li>
+<li>background-repeat（设置背景平铺）<ul>
+<li>repeat （默认值）</li>
+<li>no-repeat （不平铺）</li>
+<li>repeat-x （横向平铺）</li>
+<li>repeat-y （纵向平铺）</li>
+</ul>
+</li>
+<li>background-position （设置背景位置）<ul>
+<li>设置具体值： left| right| top| bottom| cneter</li>
+<li>设置具体值的时候不区分先后顺序</li>
+<li>设置具体数字的时候，第一个值代表水平方向，第二个值代表垂直方向</li>
+</ul>
+</li>
+<li>background-attachment （设置背景是否固定）<ul>
+<li>scroll（默认值）滚动 </li>
+<li>fixed （图片固定）</li>
+</ul>
+</li>
+<li>属性联写：没有数量限制和先后顺序限制<br> background:url(“i.png ”red no-repeat  30px  40px)</li>
+</ol>
+<h1 id="行高"><a href="#行高" class="headerlink" title="行高"></a>行高</h1><ol>
+<li>行高line-height<ul>
+<li>浏览器默认文字大小<ul>
+<li>浏览器默认文字大小为16px</li>
+<li>行高=文字大小+上边距+下边距</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>行高定义<br> 行高指的是文本基线与基线的距离。</li>
+<li>行高的作用<br> 当文字行高与父容器的高度一样的时候，文字垂直居中对齐。(常用于设置居中)</li>
+<li>行高的单位问题</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>行高单位</th>
+<th>赋值</th>
+<th>文字大小</th>
+<th>行高值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PX</td>
+<td>30px</td>
+<td>20px</td>
+<td>30px</td>
+</tr>
+<tr>
+<td>em</td>
+<td>3em</td>
+<td>20px</td>
+<td>60px</td>
+</tr>
+<tr>
+<td>%</td>
+<td>150%</td>
+<td>20px</td>
+<td>30px</td>
+</tr>
+<tr>
+<td>不带单位</td>
+<td>2</td>
+<td>20px</td>
+<td>60px</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>总结：当给父元素设置行高的时候，除了以PX为单位以外，其他的值都与文字大小有关，是与文字大小的乘积。</li>
+</ul>
+<ol>
+<li>行高是可以继承的</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>行高单位</th>
+<th>设置行高</th>
+<th>父文字</th>
+<th>子文字</th>
+<th>行高</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>px</td>
+<td>40px</td>
+<td>20px</td>
+<td>30px</td>
+<td>40px</td>
+</tr>
+<tr>
+<td>em</td>
+<td>2em</td>
+<td>20px</td>
+<td>30px</td>
+<td>40px</td>
+</tr>
+<tr>
+<td>%</td>
+<td>120%</td>
+<td>20px</td>
+<td>30px</td>
+<td>24px</td>
+</tr>
+<tr>
+<td>不带单位</td>
+<td>2</td>
+<td>20px</td>
+<td>30px</td>
+<td>60px</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>总结：当父元素设置的行高值除了不带单位的情况下，都是先与父元素文字大小相乘，然后再被子元素继承。</li>
+</ul>
+<h1 id="盒子模型"><a href="#盒子模型" class="headerlink" title="盒子模型"></a>盒子模型</h1><ol>
+<li>Border<ul>
+<li>border-width: 边框的粗细</li>
+<li>border-style: 边框的风格</li>
+<li>dotted: 点线</li>
+<li>dashed: 虚线</li>
+<li>solid: 实线      </li>
+<li>Border-color:   边框的颜色</li>
+</ul>
+</li>
+<li><p>连写的时候后边的值不分前后顺序。<br>例如：border：1px solid red  等价于</p>
+<pre><code>border:red solid  5px 
+</code></pre></li>
+<li><p>表格单元格合并<br> border-collapse:collapse; 表格单元格边框合并。</p>
+</li>
+<li>内边距(padding)</li>
+</ol>
+<ul>
+<li>Padding-left    左内边距</li>
+<li>Padding-right   右内边距</li>
+<li>Padding-top       上内边距</li>
+<li><p>Padding-bottom     底内边距</p>
+</li>
+<li><p>内边距简写：</p>
+<ul>
+<li>Padding:10px; 四个方向内边距都为10px</li>
+<li>Padding: 10px 20px;  上下内边距为10px  左右内边距为20px</li>
+<li>Padding: 10px 20px 30px; 上内边距为10px  左右内边距为20px  下内边距为30px</li>
+<li>padding:10px 20px 30px 40px;  依次方向为上右下左</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>盒子宽度问题<br>影响盒子宽度因素：</li>
+</ol>
+<ul>
+<li>盒子边框影响盒子宽度</li>
+<li>定义的内边距的宽度</li>
+<li>盒子的宽度=定义的宽度+边框+内边距</li>
+<li>注意：<br>以后进行页面盒子布局的实现，如果给盒子设置了内边距和边框，对应的要将定义宽度或者高度减去定义的内边距和边框的值。</li>
+</ul>
+<ol>
+<li>盒子大小影响特殊地方<br> 继承的盒子再父盒子宽度范围内，padding值不会影响该盒子大小。<h2 id="外边距"><a href="#外边距" class="headerlink" title="外边距"></a>外边距</h2></li>
+</ol>
+<ul>
+<li>当2个盒子垂直显示的时候，外边距发生了合并（重叠），那么外边距取的是定义的较大的值。</li>
+<li>当2个盒子发生嵌套关系时，给子元素定义外边距的时候，值会赋给外边的大盒子。</li>
+<li>解决外边距的塌陷<ul>
+<li>给大盒子定义边框</li>
+<li>给外边大盒子设置:overflow:hidden;</li>
+<li>Bfc 给外边父集元素设置overflow:hidden，会触动bfc.<h1 id="浮动"><a href="#浮动" class="headerlink" title="浮动"></a>浮动</h1></li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>用法:float:left|right</li>
+<li>特点<ul>
+<li>浮动起来</li>
+<li>不占位置（脱标）</li>
+<li>如果多个盒子都使用了浮动，会在一行上显示。</li>
+<li>给行内元素使用浮动，可将行内元素转换成行内块。</li>
+<li>尽量用display转换行内块。</li>
+</ul>
+</li>
+<li>作用<ul>
+<li>文本绕图</li>
+<li>制作导航栏</li>
+<li>网页布局</li>
+</ul>
+</li>
+<li>清除浮动<ol>
+<li>额外标签法<br> 在浮动元素后边加一个标签，清除浮动。</li>
+<li>Overflow:hidden;<br> 在外边的父盒子上使用：overflow:hidden;如果有内容在盒子外，会被裁掉。</li>
+<li>伪元素清除浮动 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">.clearfix:after&#123;</div><div class="line">          Content:”.”;</div><div class="line">          Display:block;</div><div class="line">          Height:0;</div><div class="line">          Visibility:hidden;</div><div class="line">          Clear；both;</div><div class="line">      &#125;   </div><div class="line">      .clearfix&#123;</div><div class="line">          Zoom:1;</div><div class="line">      &#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ol>
+<h1 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h1><ol>
+<li>静态定位(Position:static;)  <pre><code>静态定位就是标准流。
+</code></pre></li>
+<li><p>绝对定位（position:absolute;）</p>
+<ul>
+<li>特点<ul>
+<li>给元素设置绝对定位，从浏览器左上角出发设置位置。</li>
+<li>给元素设置了绝对定位，元素会不占位置（脱标）</li>
+<li>当盒子发生嵌套关系时，如果父集元素没有设置定位，子盒子设置了绝对定位并赋值，子盒子的位置从浏览器左上角出发。</li>
+<li>当盒子发生嵌套关系时，如果父集元素设置了绝对定位，子盒子设置了绝对定位并赋值，子盒子的位置从父集元素左上角出发。</li>
+<li>绝对定位会将行内元素，转换为行内块。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>相对定位(position:relative;)</p>
+<ul>
+<li>特点：<ul>
+<li>给元素设置了相对定位，位置是从自身位置出发。</li>
+<li>给元素设置了相对定位，还占据原来的位置（不脱标）。</li>
+<li>子绝父相（工作中使用最多），子元素绝对定位，父元素相对定位。</li>
+<li>给元素设置相对定位，不能将行内元素转换为行内块元素。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>固定定位（position:fixed;）<ul>
+<li>特点:<ul>
+<li>固定定位不占据原来的位置，会脱标。</li>
+<li>给元素设置固定定位之后，元素位置从浏览器左上角出发。</li>
+<li>可以将行内元素转换为行内块元素。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h1 id="Overflow"><a href="#Overflow" class="headerlink" title="Overflow"></a>Overflow</h1><ol>
+<li>overflow:hidden<br> 会将出了盒子的内容裁掉</li>
+<li>overflow：auto;<br> 当内容出了盒子之外，会自动生成滚动条，如果没有内容之外，则不生成滚动条。</li>
+<li>overflow:scroll;<br> 不管内容有没有出盒子，都会生成滚动条。</li>
+<li>overflow: visible;<br> 内容出了盒子会显示，不生成滚动条。（默认值）</li>
+</ol>
+<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><ol>
+<li>内容移除文字（logo优化）<ul>
+<li>用text-indent:-2000px;</li>
+<li>用padding撑开盒子，使用overflow将文字隐藏。</li>
+</ul>
+</li>
+<li>图片与文字垂直对齐<ul>
+<li>Inline-block      vertical-align默认为Vertical-align:baseline;配合行高去做</li>
+</ul>
+</li>
+<li>可见性<ul>
+<li>overflow:hidden;   将元素盒子之外的部分隐藏。</li>
+<li>display:none;      将元素直接隐藏</li>
+<li>display:block;    将元素显示   (配合JS使用）</li>
+<li>visibility:hidden;    将元素隐藏</li>
+<li>display:none;隐藏之后不占位置。</li>
+<li>visibility:hidden; 隐藏之后还占位置。</li>
+</ul>
+</li>
+<li>精灵图<ul>
+<li>Css精灵是一种处理背景图像的方式，可以加快网页的加载速度，降低服务器发送请求的次数</li>
+<li>浏览器坐标：从浏览器左上角出发，向右为正，向下为正。Css精灵图配合background-position背景位置结合使用。</li>
+</ul>
+</li>
+<li>居中显示<ul>
+<li>盒子居中显示<br>margin:0 auto;  只能让标准流的盒子居中显示。</li>
+<li>定位的盒子居中显示<br>写法：先向左走父集元素的一半，再向右走（margin-left用负值）自己的一半。</li>
+</ul>
+</li>
+<li>标签嵌套规范<ul>
+<li>div可以包含所有的标签。</li>
+<li>p标签不能包含div、标题标签、列表标签。</li>
+<li>h1可以包含其他标签。</li>
+<li>不推荐在行内元素中放其他元素。</li>
+</ul>
+</li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CSS/" rel="tag"># CSS</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2014/09/28/JavaScript 运算符/" rel="prev" title="JavaScript运算符">
+                JavaScript运算符 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2014/07/12/CSS总结/"
+     data-title="CSS总结"
+     data-content=""
+     data-url="http://www.weifengqiyuan.com/2014/07/12/CSS总结/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2014/07/12/CSS总结/"
+           data-title="CSS总结" data-url="http://www.weifengqiyuan.com/2014/07/12/CSS总结/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="TF" />
+          <p class="site-author-name" itemprop="name">TF</p>
+          <p class="site-description motion-element" itemprop="description">闲看庭前花开花落 <br> 漫随天外云卷云舒</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/tianfenggithub" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/weifengqiyuan" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#常见属性"><span class="nav-number">1.</span> <span class="nav-text">常见属性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#选择器"><span class="nav-number">2.</span> <span class="nav-text">选择器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#书写位置"><span class="nav-number">3.</span> <span class="nav-text">书写位置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#css特性"><span class="nav-number">4.</span> <span class="nav-text">css特性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#伪类"><span class="nav-number">5.</span> <span class="nav-text">伪类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文字属性"><span class="nav-number">6.</span> <span class="nav-text">文字属性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#背景（background）"><span class="nav-number">7.</span> <span class="nav-text">背景（background）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#行高"><span class="nav-number">8.</span> <span class="nav-text">行高</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#盒子模型"><span class="nav-number">9.</span> <span class="nav-text">盒子模型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#外边距"><span class="nav-number">9.1.</span> <span class="nav-text">外边距</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#浮动"><span class="nav-number">10.</span> <span class="nav-text">浮动</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#定位"><span class="nav-number">11.</span> <span class="nav-text">定位</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Overflow"><span class="nav-number">12.</span> <span class="nav-text">Overflow</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其他"><span class="nav-number">13.</span> <span class="nav-text">其他</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2014</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">TF</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye">本站总访问量</i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"TFgithub"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+
+</body>
+</html>
