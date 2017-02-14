@@ -92,12 +92,7 @@ end(); // 结束当前链最近的一破坏性操作，并且返回匹配元素�
 
 隐式迭代(隐式循环)
 在方法的内部会为匹配到的所有元素进行循环遍历，执行相应的方法；而不用我们再进行循环
-如果获取的是多元素的值，大部分情况下返回的是第一个元素的值
-
-
-
-入口函数
-$(document).ready(function ()">
+如果获取的是多元素的值，大部分情况下返回的是第一个元素的值">
 <meta property="og:type" content="article">
 <meta property="og:title" content="jQuery总结">
 <meta property="og:url" content="http://www.weifengqiyuan.com/2015/06/06/jQuery总结/index.html">
@@ -110,13 +105,8 @@ end(); // 结束当前链最近的一破坏性操作，并且返回匹配元素�
 
 隐式迭代(隐式循环)
 在方法的内部会为匹配到的所有元素进行循环遍历，执行相应的方法；而不用我们再进行循环
-如果获取的是多元素的值，大部分情况下返回的是第一个元素的值
-
-
-
-入口函数
-$(document).ready(function ()">
-<meta property="og:updated_time" content="2015-06-06T09:42:06.214Z">
+如果获取的是多元素的值，大部分情况下返回的是第一个元素的值">
+<meta property="og:updated_time" content="2017-02-14T09:45:26.371Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jQuery总结">
 <meta name="twitter:description" content="jQuery特点：
@@ -127,12 +117,7 @@ end(); // 结束当前链最近的一破坏性操作，并且返回匹配元素�
 
 隐式迭代(隐式循环)
 在方法的内部会为匹配到的所有元素进行循环遍历，执行相应的方法；而不用我们再进行循环
-如果获取的是多元素的值，大部分情况下返回的是第一个元素的值
-
-
-
-入口函数
-$(document).ready(function ()">
+如果获取的是多元素的值，大部分情况下返回的是第一个元素的值">
 
 
 
@@ -432,7 +417,8 @@ $(document).ready(function ()">
 </li>
 <li>隐式迭代(隐式循环)<ul>
 <li>在方法的内部会为匹配到的所有元素进行循环遍历，执行相应的方法；而不用我们再进行循环</li>
-<li>如果获取的是多元素的值，大部分情况下返回的是第一个元素的值</li>
+<li>如果获取的是多元素的值，大部分情况下返回的是第一个元素的值<a id="more"></a>
+</li>
 </ul>
 </li>
 </ol>
@@ -441,7 +427,9 @@ $(document).ready(function ()">
 <li>jQuery(document).ready(function () {});</li>
 <li>$(window).load(function () {});<h1 id="Jquery和dom相互转换"><a href="#Jquery和dom相互转换" class="headerlink" title="Jquery和dom相互转换"></a>Jquery和dom相互转换</h1></li>
 <li>jq转dom   数组通过索引获得<br> jqDiv = [jqDiv[0],jqDiv[1],jqDiv[2]];</li>
-<li>dom转jq 用$<br> divArr = $(divArr);<br> claArr = $(claArr);<br> idbox = $(idbox);<h1 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h1></li>
+<li>dom转jq 用$<br> divArr = $(divArr);<br> claArr = $(claArr);<br> idbox = $(idbox);</li>
+</ol>
+<h1 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h1><ol>
 <li>基本选择器<ul>
 <li>标签选择器<br>  var jqDiv = $(“div”);</li>
 <li>类名选择器<br>  var jqCla = $(“.box”);</li>
@@ -465,9 +453,11 @@ $(document).ready(function ()">
 <li>children()<br>  $(“ul”).children(“li”).css(“background”,”red”);<br>  jquery对象调用后，查找他的所有的子元素。亲儿子</li>
 <li>eq()<br>  $(“ul”).children(“li”).eq(0).css(“background”,”yellow”);<br>  是去他的对象中找，而不是去的对象中的子元素中找</li>
 <li>siblings()<br>  $(“ul”).children(“li”).eq(0).siblings(“li”).css(“background”,”green”);<br>  返回调用者的所有指定的兄弟jquery对象</li>
-<li>parent()<br>  console.log($(“ul”).children(“li”).eq(0).parent(“ul”));<br>  返回调用者的父元素jquery对象<br>更多选择器内容见 <a href="http://www.w3school.com.cn/jquery/jquery_ref_selectors.asp" target="_blank" rel="external">http://www.w3school.com.cn/jquery/jquery_ref_selectors.asp</a><h1 id="动画"><a href="#动画" class="headerlink" title="动画"></a>动画</h1></li>
+<li>parent()<br>  console.log($(“ul”).children(“li”).eq(0).parent(“ul”));<br>  返回调用者的父元素jquery对象<br>更多选择器内容见 <a href="http://www.w3school.com.cn/jquery/jquery_ref_selectors.asp" target="_blank" rel="external">http://www.w3school.com.cn/jquery/jquery_ref_selectors.asp</a></li>
 </ul>
 </li>
+</ol>
+<h1 id="动画"><a href="#动画" class="headerlink" title="动画"></a>动画</h1><ol>
 <li>显示和隐藏 | show（）hide（）<ul>
 <li>括号里面值可以填数字（毫秒值），出现渐变效果</li>
 <li>括号里面填单词 slow normal fast 对应数字（600 400 200）</li>
@@ -509,11 +499,13 @@ $(document).ready(function ()">
 <li>停止动画<ul>
 <li>stop（）<ul>
 <li>有两个参数，都是布尔类型，默认都是false，一般不用写</li>
-<li>第一个true后续动画不执行，false后续执行。第二个true立刻完成当前动画，false立刻停止当前动画<h1 id="操作样式的方式"><a href="#操作样式的方式" class="headerlink" title="操作样式的方式"></a>操作样式的方式</h1></li>
+<li>第一个true后续动画不执行，false后续执行。第二个true立刻完成当前动画，false立刻停止当前动画</li>
 </ul>
 </li>
 </ul>
 </li>
+</ol>
+<h1 id="操作样式的方式"><a href="#操作样式的方式" class="headerlink" title="操作样式的方式"></a>操作样式的方式</h1><ol>
 <li><p>css</p>
 <ul>
 <li>赋值（两个参数）<br>  $(“div”).css(“width”,100)</li>
@@ -527,9 +519,11 @@ $(document).ready(function ()">
 <li>添加类addClass（不会删除原来的类）</li>
 <li>删除类removeClass（不会影响其他的类）</li>
 <li>判断是否有类hasClass，多个类只要有一个满足即可</li>
-<li>切换样式 toggleClass （有类删除 无类添加）<h1 id="节点操作"><a href="#节点操作" class="headerlink" title="节点操作"></a>节点操作</h1></li>
+<li>切换样式 toggleClass （有类删除 无类添加）</li>
 </ul>
 </li>
+</ol>
+<h1 id="节点操作"><a href="#节点操作" class="headerlink" title="节点操作"></a>节点操作</h1><ol>
 <li>创建元素<ul>
 <li>html（’’） 括号里面写标签名<ul>
 <li>特点:<ul>
@@ -565,9 +559,11 @@ $(document).ready(function ()">
 </li>
 <li>复制元素<ul>
 <li>clone（）<br>  格式: 要复制的元素.clone（）</li>
-<li>特点：深层复制，即里面所有内容包括子元素都复制过来<h1 id="操作form表单（属性）"><a href="#操作form表单（属性）" class="headerlink" title="操作form表单（属性）"></a>操作form表单（属性）</h1></li>
+<li>特点：深层复制，即里面所有内容包括子元素都复制过来</li>
 </ul>
 </li>
+</ol>
+<h1 id="操作form表单（属性）"><a href="#操作form表单（属性）" class="headerlink" title="操作form表单（属性）"></a>操作form表单（属性）</h1><ol>
 <li>属性操作<ul>
 <li>注意：Jquery不支持直接绑定自定义属性</li>
 <li>设置自定义属性用attr（“属性”，值）</li>
@@ -585,9 +581,11 @@ $(document).ready(function ()">
 <li>值,内容<ul>
 <li>val（）<br>  无参数的时候获取值，带参数的时候就是赋值（标签中的value，也不识别标签）</li>
 <li>text（）<br>  无参数的时候获取值，带参数的时候就是赋值（不识别标签，标签以字符串形式输出）</li>
-<li>html（）<br>  无参数的时候获取值，带参数的时候就是赋值（识别标签，会输出标签）<h1 id="bom"><a href="#bom" class="headerlink" title="bom"></a>bom</h1></li>
+<li>html（）<br>  无参数的时候获取值，带参数的时候就是赋值（识别标签，会输出标签）</li>
 </ul>
 </li>
+</ol>
+<h1 id="bom"><a href="#bom" class="headerlink" title="bom"></a>bom</h1><ol>
 <li>height（）width（）  <ul>
 <li>赋值不带单位，获取时候也不带单位  </li>
 <li>与css（）的区别在于css获取的时候带单位，它获取的是Number类型，css是String<br>2 offset（）</li>
@@ -605,9 +603,11 @@ $(document).ready(function ()">
 <li>scrollTop（）<ul>
 <li>获取或者设置元素垂直或者水平方向滚动的位置</li>
 <li>无参数表示获取偏移</li>
-<li>有参数表示设置偏移，参数为数值类型<h1 id="事件绑定"><a href="#事件绑定" class="headerlink" title="事件绑定"></a>事件绑定</h1></li>
+<li>有参数表示设置偏移，参数为数值类型</li>
 </ul>
 </li>
+</ol>
+<h1 id="事件绑定"><a href="#事件绑定" class="headerlink" title="事件绑定"></a>事件绑定</h1><ol>
 <li>bind<ul>
 <li>第一个参数：事件类型</li>
 <li>第二个参数：事件处理程序</li>
@@ -632,9 +632,11 @@ $(document).ready(function ()">
 <li>第四个参数：handler，事件处理函数</li>
 <li>$(selector).on(events[,selector][,data],handler);</li>
 <li>作用：给匹配的元素绑定事件，包括了上面所有绑定事件方式的优点</li>
-<li>on一般给父级元素的某个指定的子元素绑定，解绑的时候同理<h1 id="事件解绑"><a href="#事件解绑" class="headerlink" title="事件解绑"></a>事件解绑</h1></li>
+<li>on一般给父级元素的某个指定的子元素绑定，解绑的时候同理</li>
 </ul>
 </li>
+</ol>
+<h1 id="事件解绑"><a href="#事件解绑" class="headerlink" title="事件解绑"></a>事件解绑</h1><ol>
 <li>unbind<ul>
 <li>$(selector).unbind();  解绑所有的事件</li>
 <li>$(selector).unbind(“click”);  解绑指定的click事件</li>
@@ -650,12 +652,16 @@ $(document).ready(function ()">
 <li>解绑匹配元素的所有事件$(selector).off();</li>
 <li>解绑匹配元素的所有click事件$(selector).off(“click”);</li>
 <li>解绑所有代理的click事件，元素本身的事件不会被解绑 $(selector).off( “click”, “**” ); </li>
-<li>若是通过父元素绑定的子元素的事件，selector必须是绑定了click事件的元素的父元素<h1 id="事件触发"><a href="#事件触发" class="headerlink" title="事件触发"></a>事件触发</h1></li>
+<li>若是通过父元素绑定的子元素的事件，selector必须是绑定了click事件的元素的父元素</li>
 </ul>
 </li>
+</ol>
+<h1 id="事件触发"><a href="#事件触发" class="headerlink" title="事件触发"></a>事件触发</h1><ol>
 <li>简单事件触发$(selector).click()</li>
 <li>trigger方法触发事件$(selector).trigger(“click”);</li>
-<li>triggerHandler触发<br> 事件响应方法，不触发浏览器行为$(selector).triggerHandler(“focus”);<h1 id="事件对象"><a href="#事件对象" class="headerlink" title="事件对象"></a>事件对象</h1></li>
+<li>triggerHandler触发<br> 事件响应方法，不触发浏览器行为$(selector).triggerHandler(“focus”);</li>
+</ol>
+<h1 id="事件对象"><a href="#事件对象" class="headerlink" title="事件对象"></a>事件对象</h1><ol>
 <li>event.data<br> 传递给事件处理程序的额外数</li>
 <li>event.currentTarget<br> 等同于this，当前DOM对象</li>
 <li>event.pageX<br> 鼠标相对于文档左部边缘的位置</li>
